@@ -1,3 +1,5 @@
+@import '../../docs-shared.css';
+
 :host {
   display: block;
   height: 100%;
@@ -20,16 +22,7 @@ h1 {
   filter: drop-shadow(0 0 2em var(--color-primary));
 }
 
-.subtitle {
-  font-size: 1.25rem;
-  color: var(--color-text-muted);
-  display: inline-block;
-  background: var(--color-surface-glass);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-border-glass);
-  backdrop-filter: blur(var(--blur-glass-sm));
-}
+/* Removed .subtitle: now in docs-shared.css */
 
 .grid {
   display: grid;
@@ -123,41 +116,7 @@ h1 {
 }
 
 /* Detail View Styles */
-.back-btn {
-  background: none;
-  border: none;
-  color: var(--color-text-muted);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  cursor: pointer;
-  padding: 0;
-  margin-bottom: var(--space-6);
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.back-btn:hover {
-  color: var(--color-primary);
-}
-
-/* Mobile Sticky Back Button */
-@media (max-width: 1023px) {
-  .back-btn {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: var(--color-surface-glass);
-    backdrop-filter: blur(var(--blur-glass-md));
-    -webkit-backdrop-filter: blur(var(--blur-glass-md));
-    margin: calc(var(--space-6) * -1) calc(var(--space-8) * -1) var(--space-6)
-      calc(var(--space-8) * -1);
-    padding: var(--space-4) var(--space-6);
-    width: calc(100% + var(--space-16));
-    border-bottom: 1px solid var(--color-border-glass);
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  }
-}
+/* Removed: back-btn now in docs-shared.css */
 
 .detail {
   background: var(--color-surface-glass);
