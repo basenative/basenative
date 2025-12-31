@@ -70,8 +70,15 @@
       }
       @case ('anchor') {
         <div class="anchor-stage">
-          <button anchor="demo-anchor" variant="ghost">Anchor Trigger</button>
+          <button
+            anchor="demo-anchor"
+            variant="ghost"
+            popovertarget="demo-popover"
+          >
+            Anchor Trigger
+          </button>
           <div
+            id="demo-popover"
             anchored="demo-anchor"
             position="bottom"
             class="anchored-element"

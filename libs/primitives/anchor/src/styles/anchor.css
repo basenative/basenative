@@ -9,6 +9,13 @@
       flip-inline,
       flip-block flip-inline;
 
+    /* Base positioning - robust fallback if inset-area fails */
+    top: anchor(bottom);
+    justify-self: anchor-center;
+
+    /* Ensure it behaves correctly with position-area/inset-area */
+    inset-area: bottom;
+
     /* Entry/exit animations */
     opacity: 1;
     transform: scale(1);
