@@ -2,7 +2,7 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "master",
   "release": {
-    "projects": ["*"],
+    "projects": ["*", "!showcase*", "!*-e2e", "!@basenative/source"],
     "version": {
       "conventionalCommits": true
     },
