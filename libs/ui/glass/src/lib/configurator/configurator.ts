@@ -57,9 +57,4 @@ export class Configurator {
     const target = event.target as HTMLInputElement;
     this.theme.updateToken(cssVar, target.value);
   }
-
-  update(cssVar: string, event: Event) {
-    const target = event.target as HTMLInputElement;
-    this.theme.updateToken(cssVar, target.value);
-  }
 }
