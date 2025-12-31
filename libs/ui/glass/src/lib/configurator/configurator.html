@@ -68,50 +68,74 @@
   </div>
 
   <!-- Live Preview Stage -->
-  <div class="panel-preview">
-    <div class="preview-sticky">
-      <h2>Live Playground</h2>
-      <p class="subtitle">
-        Interact with components to see your token changes in real-time.
-      </p>
+  <div
+    class="panel-preview"
+    (mousedown)="startDrag($event)"
+    (mousemove)="onDrag($event)"
+    (mouseup)="endDrag()"
+    (mouseleave)="endDrag()"
+  >
+    <!-- Canvas Controls -->
+    <div class="canvas-controls">
+      <div class="zoom-group">
+        <button icon-btn (click)="zoomOut()">-</button>
+        <span class="zoom-level">{{ (scale() * 100).toFixed(0) }}%</span>
+        <button icon-btn (click)="zoomIn()">+</button>
+      </div>
+      <button icon-btn (click)="resetView()">Reset</button>
+    </div>
 
-      <!-- Button Showcase -->
-      <section class="showcase-section">
-        <h4>Buttons</h4>
-        <div class="component-row">
-          <button variant="primary">Primary</button>
-          <button variant="secondary">Secondary</button>
-          <button variant="ghost">Ghost</button>
-          <button variant="danger">Danger</button>
-        </div>
-      </section>
+    <!-- Transform Container -->
+    <div
+      class="preview-content"
+      [style.transform]="
+        'translate(' + pan().x + 'px, ' + pan().y + 'px) scale(' + scale() + ')'
+      "
+    >
+      <div class="preview-sticky">
+        <h2>Live Playground</h2>
+        <p class="subtitle">
+          Interact with components to see your token changes in real-time.
+        </p>
 
-      <!-- Typography Showcase -->
-      <section class="showcase-section">
-        <h4>Typography</h4>
-        <div class="typography-sample">
-          <h1>Heading 1</h1>
-          <p>
-            The quick brown fox jumps over the lazy dog.
-            <a href="#">Link Style</a>
-          </p>
-          <div class="text-muted">Muted text sample for contrast check.</div>
-        </div>
-      </section>
+        <!-- Button Showcase -->
+        <section class="showcase-section">
+          <h4>Buttons</h4>
+          <div class="component-row">
+            <button variant="primary">Primary</button>
+            <button variant="secondary">Secondary</button>
+            <button variant="ghost">Ghost</button>
+            <button variant="danger">Danger</button>
+          </div>
+        </section>
 
-      <!-- Card Showcase -->
-      <section class="showcase-section">
-        <h4>Surfaces & Cards</h4>
-        <article class="sample-card">
-          <header>
-            <h5>Card Title</h5>
-          </header>
-          <p>This card inherits surface, border, and spacing tokens.</p>
-          <footer>
-            <button variant="primary" size="sm">Action</button>
-          </footer>
-        </article>
-      </section>
+        <!-- Typography Showcase -->
+        <section class="showcase-section">
+          <h4>Typography</h4>
+          <div class="typography-sample">
+            <h1>Heading 1</h1>
+            <p>
+              The quick brown fox jumps over the lazy dog.
+              <a href="#">Link Style</a>
+            </p>
+            <div class="text-muted">Muted text sample for contrast check.</div>
+          </div>
+        </section>
+
+        <!-- Card Showcase -->
+        <section class="showcase-section">
+          <h4>Surfaces & Cards</h4>
+          <article class="sample-card">
+            <header>
+              <h5>Card Title</h5>
+            </header>
+            <p>This card inherits surface, border, and spacing tokens.</p>
+            <footer>
+              <button variant="primary" size="sm">Action</button>
+            </footer>
+          </article>
+        </section>
+      </div>
     </div>
   </div>
 </div>

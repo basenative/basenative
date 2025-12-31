@@ -1,4 +1,4 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, inject, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService, tokens } from '@basenative/tokens';
 import { ButtonComponent } from '../button/button.component';
@@ -56,5 +56,54 @@ export class Configurator {
   update(cssVar: string, event: Event) {
     const target = event.target as HTMLInputElement;
     this.theme.updateToken(cssVar, target.value);
+  }
+
+  // --- Preview Canvas Logic ---
+  scale = signal(1);
+  pan = signal({ x: 0, y: 0 });
+  isDragging = false;
+  dragStart = { x: 0, y: 0 };
+
+  startDrag(event: MouseEvent) {
+    // Only drag if clicking directly on the container or essentially "empty" space
+    // We don't want to drag if interacting with a component inside
+    if ((event.target as HTMLElement).closest('.preview-sticky')) {
+      // Optional: allow dragging from the card itself? Figma allows dragging from empty space.
+      // For now, let's allow dragging everywhere as long as event isn't prevented?
+      // Actually, typically you hold space to drag in Figma, or use middle click.
+      // User asked for "drag around inside".
+    }
+
+    this.isDragging = true;
+    this.dragStart = {
+      x: event.clientX - this.pan().x,
+      y: event.clientY - this.pan().y,
+    };
+    event.preventDefault(); // Prevent text selection
+  }
+
+  onDrag(event: MouseEvent) {
+    if (!this.isDragging) return;
+    this.pan.set({
+      x: event.clientX - this.dragStart.x,
+      y: event.clientY - this.dragStart.y,
+    });
+  }
+
+  endDrag() {
+    this.isDragging = false;
+  }
+
+  zoomIn() {
+    this.scale.update((s) => Math.min(s + 0.1, 3));
+  }
+
+  zoomOut() {
+    this.scale.update((s) => Math.max(s - 0.1, 0.5));
+  }
+
+  resetView() {
+    this.scale.set(1);
+    this.pan.set({ x: 0, y: 0 });
   }
 }
