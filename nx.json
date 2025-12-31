@@ -4,10 +4,7 @@
   "release": {
     "projects": ["*"],
     "version": {
-      "conventionalCommits": true,
-      "generatorOptions": {
-        "preserveLocalDependencyProtocols": true
-      }
+      "conventionalCommits": true
     },
     "changelog": {
       "workspaceChangelog": {
