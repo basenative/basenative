@@ -40,9 +40,9 @@ jobs:
       - name: Release
         run: |
           if [ "${{ inputs.first_release }}" = "true" ]; then
-            npx nx release --first-release
+            npx nx release --first-release --skip-publish
           else
-            npx nx release
+            npx nx release --skip-publish
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
