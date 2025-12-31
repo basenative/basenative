@@ -6,3 +6,4 @@ export * from './logo/logo.component';
 export * from './theme-selector/theme-selector.component';
 export * from './configurator/configurator';
 export * from './button/button.component';
+export * from './open-graph-preview/open-graph-preview.component';
