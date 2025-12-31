@@ -2,12 +2,12 @@ import { Component, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService, tokens } from '@basenative/tokens';
 import { ButtonComponent } from '../button/button.component';
-// import { InputComponent, InputDirective } from '@basenative/forms';
+import { InputComponent } from '@basenative/forms';
 
 @Component({
   selector: 'section[configurator]',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, InputComponent],
   templateUrl: './configurator.html',
   styleUrl: './configurator.css',
 })

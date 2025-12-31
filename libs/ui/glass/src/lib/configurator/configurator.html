@@ -7,35 +7,59 @@
           <h3>{{ group | titlecase }}</h3>
           @for (token of flatTokens()[group]; track token.name) {
             <div class="token-row">
-              <label [attr.for]="token.cssVar">
-                <span>{{ token.name.split('-').pop() || '' | titlecase }}</span>
-                <div
-                  class="input-wrapper"
-                  [class.color]="token.type === 'color'"
-                >
-                  @if (token.type === 'color') {
+              <div class="input-wrapper" [class.color]="token.type === 'color'">
+                @if (token.type === 'color') {
+                  <label
+                    input-wrapper
+                    [label]="token.name.split('-').pop() || '' | titlecase"
+                  >
                     <div
-                      class="color-preview"
-                      [style.background]="token.value"
-                    ></div>
-                    <input
-                      [id]="token.cssVar"
-                      type="color"
-                      [value]="token.value"
-                      (input)="update(token.cssVar, $event)"
-                      class="color-picker-input"
-                    />
-                    <span class="hex-value">{{ token.value }}</span>
-                  } @else {
+                      class="color-control-group"
+                      style="
+                        display: flex;
+                        gap: var(--space-2);
+                        align-items: center;
+                      "
+                    >
+                      <div
+                        class="color-preview"
+                        [style.background]="token.value"
+                        style="
+                          width: 24px;
+                          height: 24px;
+                          border-radius: 50%;
+                          border: 1px solid var(--color-border-glass);
+                        "
+                      ></div>
+                      <input
+                        [id]="token.cssVar"
+                        type="color"
+                        [value]="token.value"
+                        (input)="update(token.cssVar, $event)"
+                        class="color-picker-input"
+                        style="opacity: 0; position: absolute; width: 0"
+                      />
+                      <input
+                        type="text"
+                        [value]="token.value"
+                        (input)="update(token.cssVar, $event)"
+                      />
+                    </div>
+                  </label>
+                } @else {
+                  <label
+                    input-wrapper
+                    [label]="token.name.split('-').pop() || '' | titlecase"
+                  >
                     <input
                       [id]="token.cssVar"
                       type="text"
                       [value]="token.value"
                       (input)="update(token.cssVar, $event)"
                     />
-                  }
-                </div>
-              </label>
+                  </label>
+                }
+              </div>
             </div>
           }
         </article>
