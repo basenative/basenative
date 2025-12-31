@@ -1,0 +1,38 @@
+<section feature-layout title="Desktop Integration">
+  <section class="card">
+    <h2>Clipboard</h2>
+    <div class="row">
+      <input
+        #clipInput
+        type="text"
+        placeholder="Type to copy..."
+        class="glass-input"
+      />
+      <button (click)="copy(clipInput.value)" bn>
+        <span icon name="copy" [size]="18"></span>
+        Copy
+      </button>
+      <button (click)="paste()" bn variant="secondary">
+        <span icon name="clipboard" [size]="18"></span>
+        Paste
+      </button>
+    </div>
+    @if (pastedContent()) {
+      <p class="result">Pasted: {{ pastedContent() }}</p>
+    }
+  </section>
+
+  <section class="card">
+    <h2>Notifications</h2>
+    <div class="row">
+      <button (click)="requestPermission()" bn variant="secondary">
+        <span icon name="bell" [size]="18"></span>
+        Request Permission
+      </button>
+      <button (click)="notify()" bn>
+        <span icon name="send" [size]="18"></span>
+        Send Notification
+      </button>
+    </div>
+  </section>
+</section>

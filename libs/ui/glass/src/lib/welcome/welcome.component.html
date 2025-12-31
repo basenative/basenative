@@ -1,0 +1,69 @@
+<header>
+  <div class="logo-container">
+    <figure logo [size]="48"></figure>
+    <h1 class="title">BaseNative</h1>
+  </div>
+  <div class="actions">
+    <menu theme-selector></menu>
+    <span class="version">v0.1.0</span>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h2>Enhance, don't wrap.</h2>
+    <p class="subtitle">
+      A modern component library built on semantic HTML enhancement, signals,
+      and CSS anchor positioning.
+    </p>
+  </div>
+
+  <section class="features-grid">
+    <a class="card" routerLink="/docs" aria-label="Documentation">
+      <div class="icon-wrapper"><span icon name="book" [size]="32"></span></div>
+      <h3>Documentation</h3>
+      <p>Guides, API references, and best practices.</p>
+    </a>
+    <a
+      class="card"
+      routerLink="/docs/tokens"
+      aria-label="Tokens & Configurator"
+    >
+      <div class="icon-wrapper">
+        <span icon name="sliders" [size]="32"></span>
+      </div>
+      <h3>Configurator</h3>
+      <p>Live design token editor.</p>
+    </a>
+    <a class="card" routerLink="/status" aria-label="System Status">
+      <div class="icon-wrapper">
+        <span icon name="activity" [size]="32"></span>
+      </div>
+      <h3>Status</h3>
+      <p>Battery and network monitoring.</p>
+    </a>
+    <a class="card" routerLink="/media" aria-label="Media">
+      <div class="icon-wrapper">
+        <span icon name="image" [size]="32"></span>
+      </div>
+      <h3>Media</h3>
+      <p>3D parallax and Web Share.</p>
+    </a>
+    <a class="card" routerLink="/editor" aria-label="Editor">
+      <div class="icon-wrapper"><span icon name="edit" [size]="32"></span></div>
+      <h3>Editor</h3>
+      <p>File System Access API demo.</p>
+    </a>
+    <a class="card" routerLink="/desktop" aria-label="Desktop">
+      <div class="icon-wrapper">
+        <span icon name="monitor" [size]="32"></span>
+      </div>
+      <h3>Desktop</h3>
+      <p>Clipboard and Notification APIs.</p>
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>BaseNative • <span class="version-tag">v0.1.0</span></p>
+</footer>

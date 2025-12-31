@@ -1,0 +1,19 @@
+.semantic-wizard-step-content {
+  display: none;
+  animation: fade-in 0.3s ease;
+}
+
+.semantic-wizard-step-content.active {
+  display: block;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

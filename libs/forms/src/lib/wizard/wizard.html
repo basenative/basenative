@@ -1,0 +1,39 @@
+<div class="semantic-wizard-header">
+  @for (step of steps(); track $index) {
+    <div
+      class="semantic-wizard-step-indicator"
+      [class.active]="$index === currentStepIndex()"
+      [class.completed]="$index < currentStepIndex()"
+    >
+      <div class="step-circle">{{ $index + 1 }}</div>
+      <span class="step-title">{{ step.title() }}</span>
+    </div>
+    @if ($index < steps().length - 1) {
+      <div
+        class="step-connector"
+        [class.completed]="$index < currentStepIndex()"
+      ></div>
+    }
+  }
+</div>
+
+<div class="semantic-wizard-body">
+  <ng-content></ng-content>
+</div>
+
+<div class="semantic-wizard-footer">
+  <button
+    class="semantic-button variant-secondary"
+    (click)="prev()"
+    [disabled]="currentStepIndex() === 0"
+  >
+    Previous
+  </button>
+  <button
+    class="semantic-button variant-primary"
+    (click)="next()"
+    [disabled]="currentStepIndex() === steps().length - 1"
+  >
+    Next
+  </button>
+</div>

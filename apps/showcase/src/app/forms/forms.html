@@ -1,0 +1,46 @@
+<h1>Forms & Wizards</h1>
+
+<section>
+  <h2>Semantic Inputs</h2>
+  <article>
+    <label
+      input-wrapper
+      label="Email"
+      [error]="!email ? 'Email is required' : ''"
+    >
+      <input type="email" [(ngModel)]="email" placeholder="Enter your email" />
+    </label>
+
+    <output> <strong>Current Value:</strong> {{ email }} </output>
+  </article>
+</section>
+
+<section>
+  <h2>Multi-step Wizard</h2>
+  <article>
+    <section wizard>
+      <article wizard-step title="Step 1">
+        <section>
+          <h3>Welcome to the Wizard</h3>
+          <p>This is the first step of the process. Click Next to proceed.</p>
+        </section>
+      </article>
+      <article wizard-step title="Step 2">
+        <section>
+          <h3>Data Collection</h3>
+          <p>Here we would collect some data.</p>
+          <label input-wrapper label="Wizard Input">
+            <input type="text" placeholder="Wizard data" />
+          </label>
+        </section>
+      </article>
+      <article wizard-step title="Review">
+        <section>
+          <h3>Review</h3>
+          <p>Review your information before submitting.</p>
+          <p><strong>Email:</strong> {{ email }}</p>
+        </section>
+      </article>
+    </section>
+  </article>
+</section>

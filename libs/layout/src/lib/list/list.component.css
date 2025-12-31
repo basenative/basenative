@@ -1,0 +1,41 @@
+.semantic-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.semantic-list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-1);
+  text-decoration: none;
+  min-height: 48px;
+  border-radius: var(--radius-md);
+  transition: background 0.2s ease;
+}
+
+/* Interactive items */
+a.semantic-list-item,
+button.semantic-list-item {
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a.semantic-list-item:hover,
+button.semantic-list-item:hover {
+  background-color: var(--surface-variant);
+}
+
+.semantic-list-item:not(:last-child) {
+  border-bottom: 1px solid var(--outline-variant);
+}

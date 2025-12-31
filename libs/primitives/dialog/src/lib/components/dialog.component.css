@@ -1,0 +1,40 @@
+:host {
+  border: none;
+  border-radius: 28px;
+  padding: 24px;
+  max-inline-size: min(90vw, 560px);
+  background: var(--surface);
+  color: var(--on-surface);
+
+  &::backdrop {
+    background: color-mix(in oklch, var(--scrim) 40%, transparent);
+    backdrop-filter: blur(4px);
+  }
+
+  /* Native open animation */
+  &[open] {
+    opacity: 1;
+    transform: scale(1);
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+
+  /* Layout for header/footer if present */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  header {
+    margin-bottom: 8px;
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}

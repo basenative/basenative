@@ -1,0 +1,30 @@
+@layer primitives {
+  [anchored] {
+    position: absolute;
+    position-visibility: anchors-visible;
+
+    /* Automatic collision detection and fallback */
+    position-try-fallbacks:
+      flip-block,
+      flip-inline,
+      flip-block flip-inline;
+
+    /* Entry/exit animations */
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity var(--duration-short-3) var(--easing-standard),
+      transform var(--duration-short-3) var(--easing-standard),
+      display var(--duration-short-3) allow-discrete;
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    &[hidden] {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+}

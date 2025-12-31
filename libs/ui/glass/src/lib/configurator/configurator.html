@@ -1,0 +1,43 @@
+<div class="configurator-container">
+  <div class="controls">
+    <!-- Theme Toggles removed (redundant with global header) -->
+
+    <div class="token-groups">
+      @for (group of Object.keys(flatTokens()); track group) {
+        <article class="group">
+          <h3>{{ group | titlecase }}</h3>
+          @for (token of flatTokens()[group]; track token.name) {
+            <div class="token-row">
+              <label [for]="token.cssVar">{{
+                token.name.split('-').pop() | titlecase
+              }}</label>
+              <div class="input-wrapper" [class.color]="token.type === 'color'">
+                @if (token.type === 'color') {
+                  <div
+                    class="color-preview"
+                    [style.background]="token.value"
+                  ></div>
+                  <input
+                    [id]="token.cssVar"
+                    type="color"
+                    [value]="token.value"
+                    (input)="update(token.cssVar, $event)"
+                    class="color-picker-input"
+                  />
+                  <span class="hex-value">{{ token.value }}</span>
+                } @else {
+                  <input
+                    [id]="token.cssVar"
+                    type="text"
+                    [value]="token.value"
+                    (input)="update(token.cssVar, $event)"
+                  />
+                }
+              </div>
+            </div>
+          }
+        </article>
+      }
+    </div>
+  </div>
+</div>

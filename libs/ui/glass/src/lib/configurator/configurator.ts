@@ -1,0 +1,59 @@
+import { Component, inject, computed } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ThemeService, tokens } from '@basenative/tokens';
+
+@Component({
+  selector: 'section[configurator]',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './configurator.html',
+  styleUrl: './configurator.css',
+})
+export class Configurator {
+  theme = inject(ThemeService);
+  protected Object = Object;
+
+  // Flatten tokens for display
+  flatTokens = computed(() => {
+    const groups: Record<
+      string,
+      { name: string; value: string; type: string; cssVar: string }[]
+    > = {};
+
+    // Helper to traverse
+    const traverse = (obj: Record<string, unknown>, prefix = '--') => {
+      for (const key in obj) {
+        if (key.startsWith('$')) continue;
+        const val = obj[key] as Record<string, unknown>;
+        const name = `${prefix}${prefix === '--' ? '' : '-'}${this.camelToKebab(key)}`;
+
+        if (val && typeof val === 'object' && '$value' in val) {
+          // It's a token
+          const groupName = name.split('-')[2] || 'other'; // --color-x -> color
+          if (!groups[groupName]) groups[groupName] = [];
+          groups[groupName].push({
+            name: name,
+            value: val['$value'] as string,
+            type: val['$type'] as string,
+            cssVar: name,
+          });
+        } else if (val && typeof val === 'object') {
+          traverse(val, name);
+        }
+      }
+    };
+
+    traverse(tokens as Record<string, unknown>);
+    return groups;
+  });
+
+  camelToKebab(str: string) {
+    return str.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+  }
+
+  update(cssVar: string, event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.theme.updateToken(cssVar, target.value);
+  }
+}

@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.theme-toggle:hover {
+  background: var(--color-surface-panel);
+}
+
+svg {
+  width: 20px;
+  height: 20px;
+}

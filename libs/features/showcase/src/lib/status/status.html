@@ -1,0 +1,56 @@
+<section feature-layout title="System Status">
+  <div class="grid">
+    <!-- Battery Card -->
+    <article class="card">
+      <div class="icon-header">
+        <span icon name="battery" [size]="24"></span>
+        <h3>Battery</h3>
+      </div>
+
+      @if (battery(); as b) {
+        <div class="metric">
+          <div class="value">{{ (b.level * 100).toFixed(0) }}%</div>
+          <div class="label">{{ b.charging ? 'Charging' : 'Discharging' }}</div>
+        </div>
+        <div class="progress-bar">
+          <div
+            class="fill"
+            [style.width.%]="b.level * 100"
+            [class.charging]="b.charging"
+          ></div>
+        </div>
+      } @else {
+        <p class="unsupported">API not supported or loading...</p>
+      }
+    </article>
+
+    <!-- Network Card -->
+    <article class="card">
+      <div class="icon-header">
+        <span icon name="wifi" [size]="24"></span>
+        <h3>Network</h3>
+      </div>
+
+      @if (network(); as n) {
+        <div class="metric-row">
+          <div>
+            <div class="value">
+              {{ n.effectiveType?.toUpperCase() || 'N/A' }}
+            </div>
+            <div class="label">Type</div>
+          </div>
+          <div>
+            <div class="value">{{ n.downlink }} Mbps</div>
+            <div class="label">Downlink</div>
+          </div>
+          <div>
+            <div class="value">{{ n.rtt }} ms</div>
+            <div class="label">RTT</div>
+          </div>
+        </div>
+      } @else {
+        <p class="unsupported">API not supported</p>
+      }
+    </article>
+  </div>
+</section>

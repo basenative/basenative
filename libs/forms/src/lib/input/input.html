@@ -1,0 +1,9 @@
+<label class="semantic-input-wrapper">
+  <span class="semantic-label-text">{{ label() }}</span>
+  <div class="semantic-input-container">
+    <ng-content></ng-content>
+  </div>
+  @if (error()) {
+    <span class="semantic-error-message" role="alert">{{ error() }}</span>
+  }
+</label>

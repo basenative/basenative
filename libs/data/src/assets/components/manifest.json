@@ -1,0 +1,93 @@
+[
+  {
+    "file": "card.md",
+    "slug": "card",
+    "title": "Card",
+    "description": "Semantic layout container with glass styling.",
+    "icon": "card"
+  },
+  {
+    "file": "input.md",
+    "slug": "input",
+    "title": "Input",
+    "description": "Accessible input field wrapper with validation styles.",
+    "icon": "input"
+  },
+  {
+    "file": "list.md",
+    "slug": "list",
+    "title": "List",
+    "description": "Semantic list with glass styling and semantic items.",
+    "icon": "list"
+  },
+  {
+    "file": "logo.md",
+    "slug": "logo",
+    "title": "Logo",
+    "description": "The official BaseNative brand mark.",
+    "icon": "logo-icon"
+  },
+  {
+    "file": "theme-selector.md",
+    "slug": "theme-selector",
+    "title": "Theme Selector",
+    "description": "Toggles between light and dark modes.",
+    "icon": "theme"
+  },
+  {
+    "file": "button.md",
+    "slug": "button",
+    "title": "Button",
+    "description": "The primary interactive element for the Glass system.",
+    "icon": "button"
+  },
+  {
+    "file": "icon.md",
+    "slug": "icon",
+    "title": "Icon",
+    "description": "Semantic SVG icon wrapper with multiple sizes.",
+    "icon": "shapes"
+  },
+  {
+    "file": "visually-hidden.md",
+    "slug": "visually-hidden",
+    "title": "Visually Hidden",
+    "description": "Content available only to screen readers.",
+    "icon": "eye-off"
+  },
+  {
+    "file": "focus-trap.md",
+    "slug": "focus-trap",
+    "title": "Focus Trap",
+    "description": "Traps focus within a container for accessibility.",
+    "icon": "target"
+  },
+  {
+    "file": "anchor.md",
+    "slug": "anchor",
+    "title": "Anchor",
+    "description": "Trigger-relative positioning primitive.",
+    "icon": "anchor"
+  },
+  {
+    "file": "portal.md",
+    "slug": "portal",
+    "title": "Portal",
+    "description": "Renders content into the DOM body.",
+    "icon": "portal"
+  },
+  {
+    "file": "dialog.md",
+    "slug": "dialog",
+    "title": "Dialog",
+    "description": "Headless dialog service.",
+    "icon": "dialog"
+  },
+  {
+    "file": "scroll.md",
+    "slug": "scroll",
+    "title": "Scroll",
+    "description": "Styled scroll area container.",
+    "icon": "scroll"
+  }
+]

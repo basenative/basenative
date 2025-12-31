@@ -1,0 +1,25 @@
+<section feature-layout title="File Editor">
+  <div class="toolbar">
+    <button (click)="openFile()" bn variant="primary">
+      <span icon name="file-text" [size]="20"></span>
+      Open File
+    </button>
+    <button
+      (click)="saveFile()"
+      [disabled]="!fileHandle"
+      bn
+      variant="secondary"
+    >
+      <span icon name="save" [size]="20"></span>
+      Save File
+    </button>
+  </div>
+
+  <textarea
+    [value]="content()"
+    (input)="updateContent($event)"
+    [disabled]="!fileHandle"
+    placeholder="Open a text file to start editing..."
+    class="editor-textarea"
+  ></textarea>
+</section>

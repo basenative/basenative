@@ -1,0 +1,8 @@
+{
+  "name": "@cdk/feedback",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/core": "^21.0.0"
+  },
+  "sideEffects": false
+}

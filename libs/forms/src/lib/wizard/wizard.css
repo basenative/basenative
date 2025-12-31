@@ -1,0 +1,97 @@
+.semantic-wizard-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-8);
+  gap: var(--space-4);
+}
+
+.semantic-wizard-step-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.semantic-wizard-step-indicator.active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.semantic-wizard-step-indicator.completed {
+  opacity: 0.8;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: hsl(var(--color-surface));
+  border: 2px solid hsl(var(--color-border));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+.semantic-wizard-step-indicator.active .step-circle {
+  border-color: hsl(var(--color-primary));
+  color: hsl(var(--color-primary));
+}
+
+.semantic-wizard-step-indicator.completed .step-circle {
+  background: hsl(var(--color-primary));
+  border-color: hsl(var(--color-primary));
+  color: hsl(var(--color-background));
+}
+
+.step-connector {
+  flex: 1;
+  height: 2px;
+  background: hsl(var(--color-border));
+  min-width: 40px;
+}
+
+.step-connector.completed {
+  background: hsl(var(--color-primary));
+}
+
+.semantic-wizard-body {
+  background: hsl(var(--color-surface));
+  border: 1px solid hsl(var(--color-border));
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  min-height: 200px;
+}
+
+.semantic-wizard-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-6);
+}
+
+.semantic-button {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.semantic-button.secondary {
+  background: transparent;
+  border: 1px solid hsl(var(--color-border));
+  color: hsl(var(--color-text));
+}
+
+.semantic-button.primary {
+  background: hsl(var(--color-primary));
+  border: 1px solid hsl(var(--color-primary));
+  color: hsl(var(--color-background));
+}
+
+.semantic-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

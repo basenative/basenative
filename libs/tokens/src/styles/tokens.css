@@ -1,0 +1,92 @@
+@layer tokens {
+  :root {
+    /* Color tokens */
+    --primary: oklch(55% 0.2 260);
+    --on-primary: oklch(100% 0 0);
+    --primary-container: oklch(90% 0.08 260);
+    --on-primary-container: oklch(25% 0.15 260);
+
+    --surface: oklch(99% 0.01 260);
+    --on-surface: oklch(15% 0.02 260);
+    --surface-variant: oklch(93% 0.03 260);
+    --surface-container: oklch(95% 0.02 260);
+    --surface-container-low: oklch(97% 0.01 260);
+    --surface-container-high: oklch(93% 0.02 260);
+
+    --outline: oklch(75% 0.02 260);
+    --outline-variant: oklch(85% 0.02 260);
+
+    --error: oklch(50% 0.2 25);
+    --on-error: oklch(100% 0 0);
+
+    /* Shape tokens */
+    --corner-none: 0;
+    --corner-xs: 4px;
+    --corner-small: 8px;
+    --corner-medium: 12px;
+    --corner-large: 16px;
+    --corner-xl: 28px;
+    --corner-full: 9999px;
+
+    /* Motion tokens */
+    --easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+    --easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+    --easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+    --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    --easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+    --easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+
+    --duration-short-1: 50ms;
+    --duration-short-2: 100ms;
+    --duration-short-3: 150ms;
+    --duration-short-4: 200ms;
+    --duration-medium-1: 250ms;
+    --duration-medium-2: 300ms;
+    --duration-medium-3: 350ms;
+    --duration-medium-4: 400ms;
+    --duration-long-1: 450ms;
+    --duration-long-2: 500ms;
+
+    /* Typography tokens */
+    --type-display-large-size: 3.5625rem;
+    --type-display-large-line-height: 4rem;
+    --type-display-large-weight: 400;
+
+    --type-headline-large-size: 2rem;
+    --type-headline-large-line-height: 2.5rem;
+    --type-headline-large-weight: 400;
+
+    --type-body-large-size: 1rem;
+    --type-body-large-line-height: 1.5rem;
+    --type-body-large-weight: 400;
+
+    --type-label-large-size: 0.875rem;
+    --type-label-large-line-height: 1.25rem;
+    --type-label-large-weight: 500;
+
+    /* Elevation tokens */
+    --elevation-1:
+      0 1px 2px 0 oklch(0% 0 0 / 0.3), 0 1px 3px 1px oklch(0% 0 0 / 0.15);
+    --elevation-2:
+      0 1px 2px 0 oklch(0% 0 0 / 0.3), 0 2px 6px 2px oklch(0% 0 0 / 0.15);
+    --elevation-3:
+      0 4px 8px 3px oklch(0% 0 0 / 0.15), 0 1px 3px 0 oklch(0% 0 0 / 0.3);
+  }
+
+  :root.dark {
+    --primary: oklch(80% 0.15 260);
+    --on-primary: oklch(25% 0.15 260);
+    --primary-container: oklch(35% 0.12 260);
+    --on-primary-container: oklch(90% 0.08 260);
+
+    --surface: oklch(15% 0.02 260);
+    --on-surface: oklch(93% 0.02 260);
+    --surface-variant: oklch(25% 0.03 260);
+    --surface-container: oklch(18% 0.02 260);
+    --surface-container-low: oklch(12% 0.02 260);
+    --surface-container-high: oklch(25% 0.02 260);
+
+    --outline: oklch(55% 0.02 260);
+    --outline-variant: oklch(35% 0.02 260);
+  }
+}

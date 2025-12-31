@@ -1,0 +1,43 @@
+.semantic-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-family: var(--font-sans);
+}
+
+.semantic-label-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--color-text));
+}
+
+.semantic-input-container {
+  position: relative;
+}
+
+/* Enhancing the native input projected inside */
+/* Enhancing the native input projected inside */
+.semantic-input-container input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border-glass);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  background: var(
+    --color-surface-glass-dampered
+  ); /* Slightly darker/lighter for input */
+  backdrop-filter: blur(var(--blur-glass-sm));
+  color: var(--color-text-1);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.semantic-input-container input:focus {
+  border-color: hsl(var(--color-primary));
+  box-shadow: 0 0 0 2px hsl(var(--color-primary) / 0.2);
+}
+
+.semantic-error-message {
+  font-size: 0.75rem;
+  color: hsl(var(--color-error, 0 100% 50%)); /* Fallback if token missing */
+}

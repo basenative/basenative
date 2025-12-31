@@ -1,0 +1,41 @@
+<header>
+  <h1>Design Tokens</h1>
+  <p class="subtitle">The atomic building blocks of the Glass system.</p>
+</header>
+
+<section configurator></section>
+
+<div class="groups">
+  @for (group of Object.keys(flatTokens()); track group) {
+    <section class="token-group">
+      <h3>{{ group | titlecase }}</h3>
+      <div class="grid">
+        @for (token of flatTokens()[group]; track token.name) {
+          <div class="card">
+            <div class="preview-container">
+              @if (token.type === 'color') {
+                <div
+                  class="preview color"
+                  [style.background]="token.value"
+                ></div>
+              } @else if (group === 'radius') {
+                <div
+                  class="preview radius"
+                  [style.border-radius]="token.value"
+                ></div>
+              } @else if (group === 'shadow') {
+                <div class="preview" [style.box-shadow]="token.value"></div>
+              } @else {
+                <div class="preview text">{{ token.value }}</div>
+              }
+            </div>
+            <div class="details">
+              <span class="name">{{ token.shortName }}</span>
+              <code class="var">{{ token.name }}</code>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+  }
+</div>

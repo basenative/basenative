@@ -1,0 +1,22 @@
+<section feature-layout title="Media & Interaction">
+  <section class="share-section">
+    <button (click)="share()" bn variant="primary" size="lg">
+      <span icon name="share" [size]="20"></span>
+      <span>Share This Experience</span>
+    </button>
+    @if (shareStatus()) {
+      <p class="status">{{ shareStatus() }}</p>
+    }
+  </section>
+
+  <div class="gallery">
+    @for (item of items; track item) {
+      <article class="gallery-item" #galleryItem>
+        <div class="content">
+          <h2>Item {{ item }}</h2>
+          <p>Scroll to reveal animation.</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>

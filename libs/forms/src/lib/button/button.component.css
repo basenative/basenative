@@ -1,0 +1,84 @@
+.semantic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  outline: none;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.semantic-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.semantic-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.semantic-button.variant-primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+.semantic-button.variant-primary:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.semantic-button.variant-secondary {
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+}
+
+.semantic-button.variant-outline {
+  background-color: transparent;
+  border-color: var(--outline);
+  color: var(--on-surface);
+}
+.semantic-button.variant-outline:hover:not(:disabled) {
+  background-color: var(--surface-variant);
+}
+
+.semantic-button.variant-ghost {
+  background-color: transparent;
+  color: var(--on-surface);
+}
+.semantic-button.variant-ghost:hover:not(:disabled) {
+  background-color: var(--surface-variant);
+}
+
+.semantic-button.variant-destructive {
+  background-color: var(--error);
+  color: var(--on-error);
+}
+
+/* Sizes */
+.semantic-button.size-sm {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 0.875rem;
+}
+
+.semantic-button.size-md {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 1rem;
+}
+
+.semantic-button.size-lg {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 1.125rem;
+}
+
+.semantic-button.size-icon {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+}

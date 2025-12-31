@@ -1,0 +1,58 @@
+/* Card Container */
+.semantic-card {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(var(--blur-glass-md));
+  -webkit-backdrop-filter: blur(var(--blur-glass-md));
+  color: var(--color-text-1);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-glass);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.semantic-card.elevated {
+  border: none;
+  box-shadow: var(--shadow-2);
+}
+
+.semantic-card.outlined {
+  border: 1px solid var(--outline);
+  box-shadow: none;
+}
+
+/* Sections */
+.semantic-card-header {
+  padding: var(--space-4) var(--space-4) var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.semantic-card-header h1,
+.semantic-card-header h2,
+.semantic-card-header h3,
+.semantic-card-header h4,
+.semantic-card-header h5,
+.semantic-card-header h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.semantic-card-content {
+  padding: var(--space-2) var(--space-4);
+  flex: 1;
+}
+
+.semantic-card-content:last-child {
+  padding-bottom: var(--space-4);
+}
+
+.semantic-card-footer {
+  padding: var(--space-2) var(--space-4) var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}

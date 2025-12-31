@@ -1,0 +1,20 @@
+<nav>
+  <div class="logo-area">
+    <div class="logo-row">
+      <figure logo [size]="48"></figure>
+      <span class="title">Docs</span>
+    </div>
+    <menu theme-selector></menu>
+  </div>
+  <ul>
+    <li>
+      <a routerLink="philosophies" routerLinkActive="active">Philosophies</a>
+    </li>
+    <li><a routerLink="tokens" routerLinkActive="active">Tokens</a></li>
+    <li><a routerLink="components" routerLinkActive="active">Components</a></li>
+  </ul>
+</nav>
+
+<section class="content">
+  <router-outlet />
+</section>

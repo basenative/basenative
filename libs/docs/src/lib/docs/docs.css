@@ -1,0 +1,154 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Mesh Gradient Background */
+  background-color: var(--color-surface-base);
+  background-image:
+    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+  background-attachment: fixed;
+  color: var(--color-text-main);
+}
+
+nav {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(var(--blur-glass-md));
+  -webkit-backdrop-filter: blur(var(--blur-glass-md));
+  border-bottom: 1px solid var(--color-border-glass);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+figure[logo] {
+  margin: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-2);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px; /* Space for scrollbar if visible */
+}
+
+/* Hide scrollbar for clean look but allow scroll */
+ul::-webkit-scrollbar {
+  height: 0px;
+  background: transparent;
+}
+
+a {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all var(--duration-short-3) var(--easing-standard);
+  font-weight: 500;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+a:hover {
+  background: var(--color-surface-panel);
+  color: var(--color-text-main);
+}
+
+a.active {
+  background: var(--color-primary);
+  color: white;
+}
+
+.content {
+  padding: var(--space-6);
+  flex: 1;
+}
+
+/* --- Desktop / Large Screen Layout --- */
+@media (min-width: 1024px) {
+  :host {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+  }
+
+  nav {
+    height: 100vh;
+    border-right: 1px solid var(--color-border-glass);
+    border-bottom: none;
+    padding: var(--space-8);
+    gap: var(--space-6);
+    flex-direction: column;
+  }
+
+  .logo-area {
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border-glass);
+    margin-bottom: var(--space-6);
+  }
+
+  ul {
+    flex-direction: column;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+
+  a {
+    padding: var(--space-3) var(--space-4);
+    font-size: 1rem;
+  }
+
+  .content {
+    padding: var(--space-12);
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+}
+
+/* Scrollbar styling for content (desktop mostly) */
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: var(--color-surface-panel);
+  border-radius: 20px;
+}

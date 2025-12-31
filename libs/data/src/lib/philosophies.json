@@ -1,0 +1,23 @@
+[
+  {
+    "id": "semantic-directive-enhancement",
+    "title": "Semantic Directive Enhancement",
+    "description": "Core philosophy and architectural principles for the modern Angular CDK.",
+    "order": "1",
+    "content": "1. **Semantic HTML First** - Enhance native elements (`<button>`, `<dialog>`) with directives instead of wrapping them in custom components.\r\n2. **Platform over Polyfill** - Replace complex JavaScript logic with native CSS features like Anchor Positioning, Popover API, and `inert` attribute.\r\n3. **Signal-Native Architecture** - Utilize signals for state and zoneless change detection to minimize bundle size and improve performance.\r\n4. **Structural Selectors** - Leverage CSS nesting and structural selectors (e.g., `:host > header`) to eliminate class-based styling \"soup.\""
+  },
+  {
+    "id": "modular-buildable-architecture",
+    "title": "Modular & Buildable Architecture",
+    "description": "Complete workspace structure for building a semantic HTML-first component library.",
+    "order": "2",
+    "content": "1. **Modular Library Isolation** - Organize code into discrete, buildable libraries (core, tokens, primitives, forms, layout) to ensure clear boundaries and fast builds.\r\n2. **Modern Defaults** - Standardize on standalone APIs, esbuild, and zoneless Angular from the start.\r\n3. **Progressive Enhancement** - Use core feature detection to provide modern CSS-first implementations while maintaining fallback paths where necessary.\r\n4. **Tooling-First Development** - Use NX generators to maintain consistency across the codebase while enforcing strict TypeScript and linting rules."
+  },
+  {
+    "id": "testing-philosophy",
+    "title": "Testing Philosophy",
+    "description": "The four types of tests used in the BaseNative workspace to ensure code quality and reliability.",
+    "order": "3",
+    "content": "1. **End to End (E2E)** - Helper robots behaving like users to verify full application functionality and user flows.\r\n2. **Integration** - Ensuring multiple units and services work together in harmony as a cohesive system.\r\n3. **Unit** - Verifying that individual, isolated parts and functions work exactly as expected.\r\n4. **Static** - Catching typos, type errors, and linting issues immediately during the development process."
+  }
+]

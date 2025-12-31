@@ -1,0 +1,8 @@
+[
+  { "file": "modular-buildable-architecture.yml", "slug": "architecture" },
+  {
+    "file": "semantic-directive-enhancement.yml",
+    "slug": "semantic-directives"
+  },
+  { "file": "testing-philosophy.yml", "slug": "testing" }
+]

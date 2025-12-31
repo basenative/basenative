@@ -1,0 +1,57 @@
+<section class="container">
+  @if (view().mode === 'list') {
+    <header>
+      <h1>Components</h1>
+      <p class="subtitle">Building blocks for the Glass system.</p>
+    </header>
+    <div class="grid">
+      @for (item of view().items; track item.id) {
+        <button
+          class="card"
+          (click)="select(item.id)"
+          [style.view-transition-name]="'card-' + item.id"
+        >
+          <div class="card-header">
+            <span icon [name]="item.icon || 'code'" [size]="24"></span>
+            <h3>{{ item.title }}</h3>
+          </div>
+          <p>{{ item.description }}</p>
+          <div class="action">
+            <span>View Docs</span>
+            <span icon name="arrow-right" [size]="16"></span>
+          </div>
+        </button>
+      }
+    </div>
+  } @else {
+    @let doc = view().doc!;
+    <article class="detail" [style.view-transition-name]="'card-' + doc.id">
+      <button class="back-btn" (click)="back()">
+        <span icon name="arrow-left" [size]="16"></span>
+        Back to Components
+      </button>
+      <div class="article-header">
+        <h2>{{ doc.title }}</h2>
+        <p class="article-desc">{{ doc.description }}</p>
+      </div>
+
+      <docs-preview [component]="doc.id" />
+
+      <div class="content" [innerHTML]="doc.content"></div>
+    </article>
+  }
+</section>
+<style>
+  .placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-16);
+    color: var(--color-text-muted);
+    gap: var(--space-4);
+    background: var(--color-surface-glass);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border-glass);
+  }
+</style>

@@ -1,0 +1,40 @@
+<section class="container">
+  @if (view().mode === 'list') {
+    <header>
+      <h1>Core Philosophies</h1>
+      <p class="subtitle">The foundational principles of BaseNative.</p>
+    </header>
+    <div class="grid">
+      @for (item of view().items; track item.id) {
+        <button
+          class="card"
+          (click)="select(item.id)"
+          [style.view-transition-name]="'card-' + item.id"
+        >
+          <div class="card-header">
+            <span icon name="file-text" [size]="24"></span>
+            <h3>{{ item.title }}</h3>
+          </div>
+          <p>{{ item.description }}</p>
+          <div class="action">
+            <span>Read Philosophy</span>
+            <span icon name="arrow-right" [size]="16"></span>
+          </div>
+        </button>
+      }
+    </div>
+  } @else {
+    @let article = view().article!;
+    <article class="detail" [style.view-transition-name]="'card-' + article.id">
+      <button class="back-btn" (click)="back()">
+        <span icon name="arrow-left" [size]="16"></span>
+        Back to Philosophies
+      </button>
+      <div class="article-header">
+        <h2>{{ article.title }}</h2>
+        <p class="article-desc">{{ article.description }}</p>
+      </div>
+      <div class="content" [innerHTML]="article.content"></div>
+    </article>
+  }
+</section>
