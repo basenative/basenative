@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      first_release:
+        description: 'First Release (skip tag check)'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write # to be able to publish a GitHub release
@@ -31,6 +38,11 @@ jobs:
         run: npm ci
 
       - name: Release
-        run: npx nx release
+        run: |
+          if [ "${{ inputs.first_release }}" = "true" ]; then
+            npx nx release --first-release
+          else
+            npx nx release
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
