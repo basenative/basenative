@@ -3,7 +3,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import {
   LogoComponent,
   ThemeSelectorComponent,
-  Icon,
+  IconComponent,
 } from '@basenative/ui/glass';
 
 @Component({
@@ -14,7 +14,7 @@ import {
     RouterLinkActive,
     LogoComponent,
     ThemeSelectorComponent,
-    Icon,
+    IconComponent,
   ],
   templateUrl: './docs.html',
   styleUrl: './docs.css',
