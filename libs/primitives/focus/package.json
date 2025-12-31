@@ -1,5 +1,5 @@
 {
-  "name": "@cdk/primitives-focus",
+  "name": "@basenative/primitives-focus",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/core": "^21.0.0"
