@@ -3,7 +3,7 @@
 > A semantic-first, glassmorphic Angular architecture for high-performance applications.
 
 <div align="center">
-  <img src="libs/data/src/assets/images/screenshot-2.png" width="800" alt="BaseNative Dashboard" />
+  <img src="libs/data/src/assets/images/button-docs.png" width="800" alt="BaseNative Button Docs" />
   <h3>Nx + Angular + DaisyUI</h3>
 </div>
 

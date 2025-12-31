@@ -7,11 +7,8 @@
           <h3>{{ group | titlecase }}</h3>
           @for (token of flatTokens()[group]; track token.name) {
             <div class="token-row">
-              <label
-                input-wrapper
-                [label]="token.name.split('-').pop() | titlecase"
-                [attr.for]="token.cssVar"
-              >
+              <label [attr.for]="token.cssVar">
+                <span>{{ token.name.split('-').pop() || '' | titlecase }}</span>
                 <div
                   class="input-wrapper"
                   [class.color]="token.type === 'color'"
@@ -31,7 +28,6 @@
                     <span class="hex-value">{{ token.value }}</span>
                   } @else {
                     <input
-                      input
                       [id]="token.cssVar"
                       type="text"
                       [value]="token.value"

@@ -4,7 +4,7 @@
     "moduleResolution": "bundler",
     "emitDecoratorMetadata": false,
     "target": "es2022",
-    "module": "preserve",
+    "module": "es2022",
     "lib": ["es2020", "dom"],
     "baseUrl": ".",
     "paths": {
