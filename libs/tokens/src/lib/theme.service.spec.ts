@@ -7,6 +7,7 @@ describe('ThemeService', () => {
   let document: Document;
 
   beforeEach(() => {
+    localStorage.clear();
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation((query) => ({

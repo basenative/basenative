@@ -25,11 +25,13 @@ This workflow provides a systematic approach to auditing web applications for co
 ### Phase 1: Component Usage Audit
 
 **Search Command Example:**
+
 ```bash
 grep -r "class=" src/app --include="*.html" --include="*.ts" | grep -E "(btn|card|modal|badge|navbar|tabs)"
 ```
 
 **Check:**
+
 - [ ] Components use framework classes
 - [ ] No custom implementations
 - [ ] Proper component structure
@@ -38,6 +40,7 @@ grep -r "class=" src/app --include="*.html" --include="*.ts" | grep -E "(btn|car
 ### Phase 2: Button Standardization
 
 **Search Commands Example:**
+
 ```bash
 grep -r "btn\|button" src/app --include="*.html" --include="*.ts" -n
 grep -r "class=.*btn.*text-(orange|teal|cyan|gray)" src/app
@@ -45,6 +48,7 @@ grep -r "hover:bg-\|hover:text-" src/app | grep btn
 ```
 
 **Check:**
+
 - [ ] Semantic colors (`btn-primary`, `btn-secondary`)
 - [ ] Standard sizes (`btn-xs`, `btn-sm`, `btn-lg`)
 - [ ] No custom hover states
@@ -53,6 +57,7 @@ grep -r "hover:bg-\|hover:text-" src/app | grep btn
 ### Phase 3: Typography Audit
 
 **Search Commands Example:**
+
 ```bash
 grep -r "text-(xs|sm|base|lg|xl|2xl|3xl)" src/app -n
 grep -r "font-(thin|light|normal|medium|bold|black)" src/app -n
@@ -61,6 +66,7 @@ grep -r 'text-\[.*px\]' src/app -n
 ```
 
 **Check:**
+
 - [ ] Semantic text colors
 - [ ] Standard font sizes (no arbitrary)
 - [ ] Consistent heading hierarchy
@@ -69,12 +75,14 @@ grep -r 'text-\[.*px\]' src/app -n
 ### Phase 4: Icon & Image Audit
 
 **Search Commands Example:**
+
 ```bash
 grep -r "lucide-angular\|fa-\|material-icons" src/app -n
 grep -r "object-(cover|contain)" src/app -n
 ```
 
 **Check:**
+
 - [ ] Icons use semantic colors
 - [ ] Consistent icon sizing
 - [ ] `object-contain` for illustrations
@@ -83,6 +91,7 @@ grep -r "object-(cover|contain)" src/app -n
 ### Phase 5: Accessibility Audit
 
 **Search Commands Example:**
+
 ```bash
 grep -r "btn btn-circle" src/app | grep -v "aria-label"
 grep -r "<img" src/app | grep -v "alt="
@@ -90,6 +99,7 @@ grep -r "modal" src/app | grep -v "aria-labelledby"
 ```
 
 **Check:**
+
 - [ ] Icon buttons have ARIA labels
 - [ ] Images have alt text
 - [ ] Modals have ARIA attributes
@@ -107,35 +117,45 @@ grep -r "modal" src/app | grep -v "aria-labelledby"
 ## Common Patterns
 
 ### Tailwind → Semantic Colors
+
 ```html
 <!-- Before -->
 <div class="bg-orange-100 text-orange-500">
-<!-- After -->
-<div class="bg-primary/10 text-primary">
+  <!-- After -->
+  <div class="bg-primary/10 text-primary"></div>
+</div>
 ```
 
 ### Arbitrary → Standard Sizes
+
 ```html
 <!-- Before -->
 <span class="text-[11px]">
-<!-- After -->
-<span class="text-xs">
+  <!-- After -->
+  <span class="text-xs"></span
+></span>
 ```
 
 ### Inline → Utility Gradients
+
 ```html
 <!-- Before -->
-<h1 class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">
-<!-- After -->
-<h1 class="gradient-text-primary">
+<h1
+  class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400"
+>
+  <!-- After -->
+  <h1 class="gradient-text-primary"></h1>
+</h1>
 ```
 
 ### Custom → Framework Hover
+
 ```html
 <!-- Before -->
 <button class="btn hover:bg-orange-500">
-<!-- After -->
-<button class="btn btn-primary">
+  <!-- After -->
+  <button class="btn btn-primary"></button>
+</button>
 ```
 
 ## Success Criteria

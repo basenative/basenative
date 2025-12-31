@@ -3,12 +3,12 @@
   border-radius: 28px;
   padding: 24px;
   max-inline-size: min(90vw, 560px);
-  background: var(--surface);
+  background: var(--surface-panel);
   color: var(--on-surface);
 
   &::backdrop {
-    background: color-mix(in oklch, var(--scrim) 40%, transparent);
-    backdrop-filter: blur(4px);
+    background: color-mix(in oklch, var(--scrim) 80%, transparent);
+    backdrop-filter: blur(8px);
   }
 
   /* Native open animation */
@@ -16,16 +16,16 @@
     opacity: 1;
     transform: scale(1);
 
+    /* Layout for header/footer if present - only when open */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
     @starting-style {
       opacity: 0;
       transform: scale(0.9);
     }
   }
-
-  /* Layout for header/footer if present */
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 
   header {
     margin-bottom: 8px;

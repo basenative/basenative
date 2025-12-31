@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, signal } from '@angular/core';
-import { Dialog } from './dialog.component';
+import { DialogComponent } from './dialog.component';
 
 @Component({
   template: `
@@ -11,7 +11,7 @@ import { Dialog } from './dialog.component';
     </dialog>
   `,
   standalone: true,
-  imports: [Dialog],
+  imports: [DialogComponent],
 })
 class TestHostComponent {}
 

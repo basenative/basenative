@@ -6,10 +6,10 @@ import { By } from '@angular/platform-browser';
 
 @Component({
   template: `
-    <lib-wizard>
-      <lib-wizard-step title="Step 1">Content 1</lib-wizard-step>
-      <lib-wizard-step title="Step 2">Content 2</lib-wizard-step>
-    </lib-wizard>
+    <section wizard>
+      <article wizard-step title="Step 1">Content 1</article>
+      <article wizard-step title="Step 2">Content 2</article>
+    </section>
   `,
   imports: [WizardComponent, WizardStepComponent],
 })

@@ -34,7 +34,6 @@ Each phase produces output that is used by the next phase.
 Do not generate implementation code beyond configuration-level snippets.
 The final result must be a Planning Document, not a component library.
 
-
 PHASES
 
 Phase 1 — Design Token & Theme Extraction
@@ -59,7 +58,6 @@ Tailwind theme.extend plan (fonts, shadows, gradients)
 
 ❗ Do not analyze mockups or Angular components in this phase.
 
-
 Phase 2 — Utility, Animation & Styling Strategy
 
 Plan the styling layer:
@@ -79,7 +77,6 @@ What stays semantic (daisyUI)
 What stays utility-based (Tailwind)
 
 What must never be recomposed manually
-
 
 Phase 3 — Mockup Analysis & UI Pattern Identification
 
@@ -108,7 +105,6 @@ Only when no daisyUI semantic API exists
 ❗ Do not recreate daisyUI component styles using raw Tailwind utilities.
 ❗ daisyUI is a styling contract, Angular provides the structure.
 
-
 Phase 4 — Angular Component Architecture Planning
 
 Define the Angular architecture based on Phase 3:
@@ -130,7 +126,6 @@ All reusable UI components must be dumb/presentational
 No business logic
 
 No premature abstraction
-
 
 Phase 5 — Consolidated Planning Document
 
@@ -160,7 +155,6 @@ Reuse strategy
 
 Folder/module structure
 
-
 Rules, Risks & Assumptions
 
 Accessibility risks
@@ -168,7 +162,6 @@ Accessibility risks
 Design ambiguities
 
 Styling edge cases
-
 
 Rules (Strict)
 
@@ -190,6 +183,7 @@ No explanations outside the document.
 No conversational text.
 
 Success Criteria
+
 - A senior Angular developer should be able to:
 - Implement the Tailwind + daisyUI setup confidently
 - Create reusable Angular dumb components without duplication

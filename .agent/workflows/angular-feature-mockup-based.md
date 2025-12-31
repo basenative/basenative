@@ -7,6 +7,7 @@ Implement Angular features systematically from mockups and specifications by ana
 ## When to Use This Skill
 
 Use this skill when:
+
 - User provides mockups or wireframes for a new Angular feature
 - User describes feature requirements with visual references
 - User requests implementation of UI components based on designs
@@ -23,6 +24,7 @@ Extract and clarify feature requirements from mockups and specifications.
 Before analyzing new requirements, audit the existing codebase to prevent duplication and ensure integration:
 
 **1. Component Audit:**
+
 - Search for similar UI patterns already implemented
 - Identify shared components that could be reused or extended
 - Check if "new" components are actually variations of existing ones
@@ -30,6 +32,7 @@ Before analyzing new requirements, audit the existing codebase to prevent duplic
 - Example: Don't create a new button variant if the design system has one
 
 **2. Styling Audit:**
+
 - Review existing CSS/SCSS patterns and naming conventions
 - Identify design tokens (colors, spacing, typography) already in use
 - Check for utility classes or mixins that apply to this feature
@@ -38,6 +41,7 @@ Before analyzing new requirements, audit the existing codebase to prevent duplic
 - Example: Follow established spacing patterns (e.g., 8px grid)
 
 **3. Service & State Audit:**
+
 - List existing services that might handle similar concerns
 - Check if state management patterns exist for similar features
 - Identify utility functions or helpers that could be reused
@@ -46,6 +50,7 @@ Before analyzing new requirements, audit the existing codebase to prevent duplic
 - Example: Extend existing state store instead of creating new one
 
 **4. Pattern Audit:**
+
 - Review how similar features are implemented in the project
 - Identify architectural patterns to follow (component structure, data flow)
 - Check naming conventions for files, classes, and methods
@@ -54,6 +59,7 @@ Before analyzing new requirements, audit the existing codebase to prevent duplic
 - Example: If loading states use a specific component, reuse it
 
 **Action Items from Audit:**
+
 - **List components to reuse** (with file paths)
 - **List components to extend/refactor** (what needs to change)
 - **List styles/tokens to use** (variables, classes, mixins)
@@ -62,6 +68,7 @@ Before analyzing new requirements, audit the existing codebase to prevent duplic
 - **Identify gaps** (what genuinely needs to be created new)
 
 This audit prevents:
+
 - ❌ Creating duplicate components
 - ❌ Inconsistent styling and design patterns
 - ❌ Recreating existing service logic
@@ -69,7 +76,9 @@ This audit prevents:
 - ❌ Breaking existing conventions and patterns
 
 #### UI Component Analysis
+
 From the mockup, identify:
+
 - Visual components (buttons, inputs, cards, modals, etc.)
 - Layout structure (grids, flex, positioning)
 - Interactive elements (clicks, hovers, animations)
@@ -79,7 +88,9 @@ From the mockup, identify:
 **Cross-reference with audit:** For each identified component, note if it should reuse, extend, or create new.
 
 #### Functional Requirements Analysis
+
 From the specifications, identify:
+
 - User interactions and their expected outcomes
 - Data flow (input → processing → output)
 - Integration points (services, APIs, browser APIs)
@@ -122,19 +133,19 @@ Before creating the implementation plan, clarify:
    - **What responsive patterns are established in the project?**
    - **Should any existing styles be refactored for reusability?**
 
-4. **Data Synchronization:**
+5. **Data Synchronization:**
    - How should real-time updates be handled?
    - What triggers state changes?
    - How should async operations be coordinated?
    - What race conditions or timing issues might occur?
 
-5. **User Feedback:**
+6. **User Feedback:**
    - What visual feedback is needed for user actions?
    - How should loading states be displayed?
    - How should errors be communicated?
    - What success confirmations are needed?
 
-6. **Edge Cases:**
+7. **Edge Cases:**
    - What happens when services fail?
    - How to handle missing permissions (camera, microphone)?
    - What if data is malformed or unavailable?
@@ -184,6 +195,7 @@ For each implementation step, provide:
 #### Step Ordering Principles
 
 Order steps by:
+
 1. **Audit & Refactoring**: Evaluate and refactor existing code first
 2. **Foundation First**: Services, models, core utilities
 3. **Component Structure**: Layout, routing, basic UI
@@ -192,12 +204,14 @@ Order steps by:
 6. **Polish**: Animations, error handling, edge cases
 
 **Refactoring steps should come first:**
+
 - Generalize existing components to support new use cases
 - Extract shared logic from duplicated code
 - Update design tokens or styling patterns if needed
 - Ensure backward compatibility with existing features
 
 Group related tasks when appropriate:
+
 - UI components that work together
 - Service methods that share logic
 - Related state management updates
@@ -213,6 +227,7 @@ Group related tasks when appropriate:
 4. **Follow established conventions** rather than inventing new ones
 
 Identify opportunities to:
+
 - **Reuse existing shared components** (modals, buttons, cards, forms, etc.)
 - **Extend existing services** rather than creating new ones
 - **Follow established styling patterns** (colors, spacing, typography, layouts)
@@ -224,12 +239,14 @@ Identify opportunities to:
 **Integration Strategy:**
 
 For each new requirement, determine:
+
 - ✅ **Reuse as-is**: Existing code works perfectly for this use case
 - 🔧 **Refactor & extend**: Existing code needs minor adjustments to support new use case
 - 🎯 **Extract & generalize**: Similar code exists in multiple places; extract shared abstraction
 - ➕ **Create new**: Genuinely new functionality with no existing equivalent
 
 **Anti-patterns to avoid:**
+
 - ❌ Creating a new button component when one exists (extend the existing one)
 - ❌ Duplicating modal logic (refactor existing modal to be more flexible)
 - ❌ Hardcoding colors/spacing (use design tokens)
@@ -237,9 +254,9 @@ For each new requirement, determine:
 - ❌ Creating inconsistent component APIs (follow existing patterns)
 - ❌ Inventing new state patterns (follow established ones)
 
-
 **Document refactoring needs:**
 When the audit reveals components/services that should be refactored:
+
 - List them as separate implementation steps
 - Prioritize refactoring before building on top
 - Ensure refactoring maintains backward compatibility
@@ -257,6 +274,7 @@ Generate high-quality, context-rich prompts for each implementation step.
 **Objective**: [Clear statement of what to build]
 
 **Context**:
+
 - Current state: [What exists now]
 - This step builds on: [Previous steps or existing code]
 - Integration points: [Services, components, state to connect with]
@@ -265,6 +283,7 @@ Generate high-quality, context-rich prompts for each implementation step.
 [Detailed list of functional and technical requirements]
 
 **Implementation Details**:
+
 - Component/Service to modify or create: [File paths]
 - **Existing code to refactor**: [What needs to be generalized/extended]
 - **Existing components/services to leverage**: [File paths and usage]
@@ -277,10 +296,13 @@ Generate high-quality, context-rich prompts for each implementation step.
 [Reference to project-specific patterns from references/ directory]
 
 **Expected Output**:
+
 - [ ] [Specific file or code artifact]
 - [ ] [Another deliverable]
 - [ ] [Testing approach]
 
 **Acceptance Criteria**:
+
 - [ ] [Testable criterion 1]
 - [ ] [Testable criterion 2]
+```

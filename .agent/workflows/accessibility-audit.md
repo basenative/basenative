@@ -2,7 +2,7 @@
 description: Run accessibility + semantic audit for the current project
 ---
 
-Perform a full accessibility (WCAG 2.2) and semantic HTML audit of this Angular project. 
+Perform a full accessibility (WCAG 2.2) and semantic HTML audit of this Angular project.
 Automatically scan all HTML templates under the 'src' folder.
 
 ## Audit Instructions
@@ -20,8 +20,8 @@ Automatically scan all HTML templates under the 'src' folder.
    - **Examples** (file or code snippet if possible)
 
 2. After the analysis, create a section titled:
-   ## Accessibility & Semantics Improvement Plan
 
+   ## Accessibility & Semantics Improvement Plan
    - Summarize each issue into **short, actionable tasks** grouped by priority (High / Medium / Low).
    - Format tasks as a **TODO checklist**:
      - [ ] Add aria-current="step" to active stepper element (stepper.html) — High
@@ -29,11 +29,13 @@ Automatically scan all HTML templates under the 'src' folder.
    - Do not restate analysis. Only output tasks.
 
 ## Knowledge Requirements
-- If clarification or rule-checking is needed, **consult external sources via Brave MCP or Context7** 
+
+- If clarification or rule-checking is needed, **consult external sources via Brave MCP or Context7**
   (e.g., WCAG 2.2 documentation, WAI-ARIA guidelines, or Angular official docs).
 - Always prefer **up-to-date official guidance** over assumptions.
 
 ## Output Rules
+
 - Entire output must be in **Markdown format** so it can be saved directly as a report.
 - The first section is the analysis, the second is the actionable plan.
 - Be precise, concise, and implementation-focused in the plan.

@@ -5,6 +5,7 @@ description: Comprehensive systematic checklist for reviewing Angular applicatio
 ## 📋 **1. CODE QUALITY & STANDARDS**
 
 ### 1.1 TypeScript Configuration
+
 - [ ] `strict: true` enabled in `tsconfig.json`
 - [ ] No `any` types (use `unknown` when type is uncertain)
 - [ ] All unused imports removed
@@ -13,6 +14,7 @@ description: Comprehensive systematic checklist for reviewing Angular applicatio
 - [ ] Proper typing for all function parameters and return types
 
 ### 1.2 Angular Best Practices
+
 - [ ] Components use `ChangeDetectionStrategy.OnPush`
 - [ ] No `standalone: true` explicitly set (Angular v20+ default)
 - [ ] Avoid importing entire `CommonModule` (import specific utilities)
@@ -27,7 +29,9 @@ description: Comprehensive systematic checklist for reviewing Angular applicatio
 - [ ] No assumption of globals like `new Date()` in templates
 
 ### 1.3 Class Organization
+
 Proper order maintained in all TypeScript classes:
+
 1. [ ] Injections first
 2. [ ] Queries/inputs/outputs next
 3. [ ] Signals next
@@ -37,6 +41,7 @@ Proper order maintained in all TypeScript classes:
 7. [ ] Methods (public first, then private)
 
 ### 1.4 File Cleanup
+
 - [ ] Empty CSS files removed
 - [ ] Empty `styles` arrays removed from components
 - [ ] Empty `imports` arrays removed from components
@@ -47,6 +52,7 @@ Proper order maintained in all TypeScript classes:
 ## 🚀 **2. PERFORMANCE OPTIMIZATION**
 
 ### 2.1 Bundle Size
+
 - [ ] Tree-shaking enabled and verified
 - [ ] Import only needed dependencies (e.g., `TranslatePipe` instead of `TranslateModule`)
 - [ ] Lucide icons: only imported icons used (not full library)
@@ -55,6 +61,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] No circular dependencies
 
 ### 2.2 State Management
+
 - [ ] Signals used for local component state
 - [ ] `computed()` used for derived state
 - [ ] State transformations are pure and predictable
@@ -63,6 +70,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] No memory leaks (proper cleanup in `ngOnDestroy`)
 
 ### 2.3 Data Fetching
+
 - [ ] `httpResource`, `rxResource`, or `resource` API used for reactive data fetching
 - [ ] Proper error handling in all HTTP requests
 - [ ] Loading states managed appropriately
@@ -70,6 +78,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Response caching implemented where appropriate
 
 ### 2.4 Change Detection
+
 - [ ] OnPush strategy used throughout
 - [ ] Signals used to minimize change detection cycles
 - [ ] Large lists use `trackBy` functions
@@ -81,6 +90,7 @@ Proper order maintained in all TypeScript classes:
 ## 🔒 **3. SECURITY**
 
 ### 3.1 Storage & Data Handling
+
 - [ ] **CRITICAL**: No `localStorage` or `sessionStorage` in artifacts (use in-memory state)
 - [ ] Sensitive data not stored in browser storage
 - [ ] XSS prevention: all user input sanitized
@@ -88,12 +98,14 @@ Proper order maintained in all TypeScript classes:
 - [ ] Content Security Policy (CSP) headers configured
 
 ### 3.2 Dependencies
+
 - [ ] All dependencies up to date
 - [ ] No known security vulnerabilities (`npm audit` or `pnpm audit`), run the command and check.
 - [ ] Only trusted packages from verified sources
 - [ ] No deprecated packages, you can use Brave MCP to check it
 
 ### 3.3 API & Network
+
 - [ ] HTTPS enforced for all API calls
 - [ ] API keys/secrets not exposed in client-side code
 - [ ] Environment variables used for configuration
@@ -105,6 +117,7 @@ Proper order maintained in all TypeScript classes:
 ## ♿ **4. ACCESSIBILITY (WCAG AA COMPLIANCE)**
 
 ### 4.1 ARIA & Semantic HTML
+
 - [ ] All AXE accessibility checks pass
 - [ ] Proper ARIA labels on interactive elements
 - [ ] `role` attributes used correctly
@@ -113,6 +126,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Error messages properly associated with form fields
 
 ### 4.2 Keyboard Navigation
+
 - [ ] All interactive elements keyboard accessible
 - [ ] Tab order is logical
 - [ ] Focus visible on all interactive elements
@@ -121,6 +135,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] No keyboard traps
 
 ### 4.3 Visual & Color
+
 - [ ] Color contrast meets WCAG AA minimum (4.5:1 for text)
 - [ ] Information not conveyed by color alone
 - [ ] Focus indicators visible (3:1 contrast ratio)
@@ -128,6 +143,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] No content flashing more than 3 times per second
 
 ### 4.4 Screen Readers
+
 - [ ] All images have `alt` text (or `alt=""` for decorative)
 - [ ] Icon-only buttons have `aria-label`
 - [ ] Live regions (`aria-live`) used for dynamic content updates
@@ -135,6 +151,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Hidden content properly hidden from screen readers (`aria-hidden="true"`)
 
 ### 4.5 Forms
+
 - [ ] Required fields marked with `aria-required="true"`
 - [ ] Error messages announced to screen readers
 - [ ] Form validation clear and accessible
@@ -145,6 +162,7 @@ Proper order maintained in all TypeScript classes:
 ## 🎨 **5. UI/UX & DaisyUI SPECIFIC**
 
 ### 5.1 DaisyUI Usage if applicable
+
 - [ ] Tailwind CSS 4 is configured correctly if used
 - [ ] DaisyUI plugin added to CSS (`@plugin "daisyui";`) if used
 - [ ] Only existing daisyUI class names or Tailwind utilities used
@@ -154,6 +172,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Color contrast verified for all themes
 
 ### 5.2 Icons (Lucide Angular) if applicable
+
 - [ ] Only used icons imported (not entire library)
 - [ ] Proper selector used (`<i-lucide>`, `<lucide-icon>`, etc.)
 - [ ] Accessible labels on icon-only buttons (`aria-label`)
@@ -161,6 +180,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Decorative icons hidden from screen readers
 
 ### 5.3 Responsive Design
+
 - [ ] Mobile-first approach followed
 - [ ] Breakpoints tested (sm, md, lg, xl, 2xl)
 - [ ] Touch targets at least 44×44 pixels
@@ -172,6 +192,7 @@ Proper order maintained in all TypeScript classes:
 ## 🌍 **6. INTERNATIONALIZATION (i18n)**
 
 ### 6.1 ngx-translate Configuration if applicable
+
 - [ ] `provideHttpClient()` included in app config
 - [ ] `provideTranslateService()` properly configured
 - [ ] Translation files organized and complete
@@ -181,6 +202,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Missing translation handler implemented
 
 ### 6.2 Translation Quality
+
 - [ ] All user-facing text uses translation keys
 - [ ] Translation keys are namespaced and descriptive
 - [ ] Pluralization handled correctly
@@ -193,6 +215,7 @@ Proper order maintained in all TypeScript classes:
 ## 🧪 **7. TESTING**
 
 ### 7.1 Unit Tests
+
 - [ ] All components have unit tests
 - [ ] All services have unit tests
 - [ ] All pipes have unit tests
@@ -202,12 +225,14 @@ Proper order maintained in all TypeScript classes:
 - [ ] Mock dependencies properly
 
 ### 7.2 Integration Tests
+
 - [ ] Critical user flows tested end-to-end
 - [ ] API integration tested
 - [ ] State management tested
 - [ ] Navigation tested
 
 ### 7.3 SignalStore Testing
+
 - [ ] `TestBed` used for instantiation
 - [ ] Dependencies mocked appropriately
 - [ ] `unprotected()` used for testing protected state
@@ -220,6 +245,7 @@ Proper order maintained in all TypeScript classes:
 ## 📊 **8. STATE MANAGEMENT (@ngrx/signals)**
 
 ### 8.1 SignalStore Configuration
+
 - [ ] `providedIn` set correctly (root or component level)
 - [ ] State protection appropriate (`protectedState` setting)
 - [ ] Initial state properly defined
@@ -227,6 +253,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Component inject store not services. Services should be injected in store.
 
 ### 8.2 State Updates
+
 - [ ] `patchState` used for updates (not direct mutation)
 - [ ] State updaters are pure functions
 - [ ] No side effects in reducers
@@ -234,6 +261,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] `linkedSignal` used for dependent state
 
 ### 8.3 Side Effects
+
 - [ ] Effects properly managed with `withEffects`
 - [ ] `rxMethod` used for reactive side effects
 - [ ] Error handling in all effects
@@ -241,6 +269,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Proper cleanup (`takeUntilDestroyed`)
 
 ### 8.4 Entity Management
+
 - [ ] `withEntities` used for collections
 - [ ] Entity updaters used correctly
 - [ ] Custom ID selectors defined if needed
@@ -251,6 +280,7 @@ Proper order maintained in all TypeScript classes:
 ## 🔧 **9. BUILD & DEPLOYMENT**
 
 ### 9.1 Build Configuration
+
 - [ ] Production build tested (`ng build --configuration production`)
 - [ ] Source maps disabled in production
 - [ ] Build optimization enabled
@@ -258,6 +288,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Service worker configured (if using PWA)
 
 ### 9.2 Performance Metrics
+
 - [ ] Lighthouse score >90 (Performance, Accessibility, Best Practices, SEO)
 - [ ] First Contentful Paint (FCP) <1.8s
 - [ ] Largest Contentful Paint (LCP) <2.5s
@@ -266,6 +297,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Time to Interactive (TTI) <3.8s
 
 ### 9.3 Error Handling
+
 - [ ] Global error handler implemented
 - [ ] 404 page configured
 - [ ] Error boundaries for components
@@ -277,6 +309,7 @@ Proper order maintained in all TypeScript classes:
 ## 📝 **10. DOCUMENTATION & MAINTENANCE**
 
 ### 10.1 Code Documentation
+
 - [ ] README with setup instructions
 - [ ] API documentation
 - [ ] Complex logic commented
@@ -284,6 +317,7 @@ Proper order maintained in all TypeScript classes:
 - [ ] Custom features documented
 
 ### 10.2 Development Practices
+
 - [ ] Consistent code formatting (Prettier/ESLint)
 - [ ] Git commit messages follow commitlint convention
 - [ ] No commented-out code
@@ -308,6 +342,7 @@ Proper order maintained in all TypeScript classes:
 ## 🎯 **Priority Levels**
 
 **🔴 CRITICAL** - Must be fixed before production
+
 - Security vulnerabilities
 - Accessibility blockers
 - Data loss risks
@@ -315,12 +350,14 @@ Proper order maintained in all TypeScript classes:
 - localStorage/sessionStorage in artifacts
 
 **🟡 HIGH** - Should be addressed before production
+
 - Performance issues
 - Major accessibility issues
 - Missing error handling
 - Incomplete testing
 
 **🟢 MEDIUM** - Nice to have, can be addressed post-launch
+
 - Code organization
 - Documentation gaps
 - Minor UX improvements

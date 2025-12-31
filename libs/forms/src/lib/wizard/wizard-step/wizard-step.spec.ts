@@ -3,7 +3,7 @@ import { WizardStepComponent } from './wizard-step';
 import { Component } from '@angular/core';
 
 @Component({
-  template: `<lib-wizard-step [title]="title">Step Content</lib-wizard-step>`,
+  template: `<article wizard-step [title]="title">Step Content</article>`,
   imports: [WizardStepComponent],
 })
 class TestHostComponent {

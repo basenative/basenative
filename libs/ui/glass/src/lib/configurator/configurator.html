@@ -1,43 +1,97 @@
 <div class="configurator-container">
-  <div class="controls">
-    <!-- Theme Toggles removed (redundant with global header) -->
-
+  <!-- Controls Panel -->
+  <div class="panel-controls">
     <div class="token-groups">
       @for (group of Object.keys(flatTokens()); track group) {
         <article class="group">
           <h3>{{ group | titlecase }}</h3>
           @for (token of flatTokens()[group]; track token.name) {
             <div class="token-row">
-              <label [for]="token.cssVar">{{
-                token.name.split('-').pop() | titlecase
-              }}</label>
-              <div class="input-wrapper" [class.color]="token.type === 'color'">
-                @if (token.type === 'color') {
-                  <div
-                    class="color-preview"
-                    [style.background]="token.value"
-                  ></div>
-                  <input
-                    [id]="token.cssVar"
-                    type="color"
-                    [value]="token.value"
-                    (input)="update(token.cssVar, $event)"
-                    class="color-picker-input"
-                  />
-                  <span class="hex-value">{{ token.value }}</span>
-                } @else {
-                  <input
-                    [id]="token.cssVar"
-                    type="text"
-                    [value]="token.value"
-                    (input)="update(token.cssVar, $event)"
-                  />
-                }
-              </div>
+              <label
+                input-wrapper
+                [label]="token.name.split('-').pop() | titlecase"
+                [attr.for]="token.cssVar"
+              >
+                <div
+                  class="input-wrapper"
+                  [class.color]="token.type === 'color'"
+                >
+                  @if (token.type === 'color') {
+                    <div
+                      class="color-preview"
+                      [style.background]="token.value"
+                    ></div>
+                    <input
+                      [id]="token.cssVar"
+                      type="color"
+                      [value]="token.value"
+                      (input)="update(token.cssVar, $event)"
+                      class="color-picker-input"
+                    />
+                    <span class="hex-value">{{ token.value }}</span>
+                  } @else {
+                    <input
+                      input
+                      [id]="token.cssVar"
+                      type="text"
+                      [value]="token.value"
+                      (input)="update(token.cssVar, $event)"
+                    />
+                  }
+                </div>
+              </label>
             </div>
           }
         </article>
       }
+    </div>
+  </div>
+
+  <!-- Live Preview Stage -->
+  <div class="panel-preview">
+    <div class="preview-sticky">
+      <h2>Live Playground</h2>
+      <p class="subtitle">
+        Interact with components to see your token changes in real-time.
+      </p>
+
+      <!-- Button Showcase -->
+      <section class="showcase-section">
+        <h4>Buttons</h4>
+        <div class="component-row">
+          <button variant="primary">Primary</button>
+          <button variant="secondary">Secondary</button>
+          <button variant="ghost">Ghost</button>
+          <button variant="danger">Danger</button>
+        </div>
+      </section>
+
+      <!-- Typography Showcase -->
+      <section class="showcase-section">
+        <h4>Typography</h4>
+        <div class="typography-sample">
+          <h1>Heading 1</h1>
+          <p>
+            The quick brown fox jumps over the lazy dog.
+            <a href="#">Link Style</a>
+          </p>
+          <div class="text-muted">Muted text sample for contrast check.</div>
+        </div>
+      </section>
+
+      <!-- Card Showcase -->
+      <section class="showcase-section">
+        <h4>Surfaces & Cards</h4>
+        <article class="sample-card">
+          <header>
+            <h5>Card Title</h5>
+          </header>
+          <p>This card inherits surface, border, and spacing tokens.</p>
+          <footer>
+            <button variant="primary" size="sm">Action</button>
+          </footer>
+        </article>
+      </section>
     </div>
   </div>
 </div>

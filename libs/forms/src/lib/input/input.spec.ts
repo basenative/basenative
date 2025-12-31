@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 @Component({
-  template: `<lib-input [label]="label" [error]="error">
+  template: `<label input-wrapper [label]="label" [error]="error">
     <input type="text" />
-  </lib-input>`,
+  </label>`,
   imports: [InputComponent],
 })
 class TestHostComponent {
