@@ -7,6 +7,7 @@ const testDir = defineBddConfig({
   features: [
     '../../docs/features/welcome.feature',
     '../../libs/primitives/a11y/src/lib/visually-hidden.feature',
+    '../../docs/features/css-vars.feature',
   ],
   steps: 'src/steps/*.steps.ts',
   featuresRoot: '../../',
