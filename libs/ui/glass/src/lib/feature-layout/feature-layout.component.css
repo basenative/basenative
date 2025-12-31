@@ -43,6 +43,7 @@ header {
 .logo-container {
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: var(--space-3);
 }
 

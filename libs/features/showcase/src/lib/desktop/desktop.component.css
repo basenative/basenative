@@ -22,6 +22,7 @@ h2 {
   gap: var(--space-4);
   margin: var(--space-4) 0;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .glass-input {
