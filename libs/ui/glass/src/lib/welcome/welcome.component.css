@@ -17,6 +17,14 @@ header {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+}
+
 .logo-container {
   display: flex;
   align-items: center;

@@ -26,9 +26,10 @@ h1 {
   display: inline-block;
   background: var(--color-surface-glass);
   padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-glass);
   backdrop-filter: blur(var(--blur-glass-sm));
+  -webkit-backdrop-filter: blur(var(--blur-glass-sm));
 }
 
 .grid {
