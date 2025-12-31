@@ -68,30 +68,10 @@
   </div>
 
   <!-- Live Preview Stage -->
-  <div
-    class="panel-preview"
-    (mousedown)="startDrag($event)"
-    (mousemove)="onDrag($event)"
-    (mouseup)="endDrag()"
-    (mouseleave)="endDrag()"
-  >
-    <!-- Canvas Controls -->
-    <div class="canvas-controls">
-      <div class="zoom-group">
-        <button icon-btn (click)="zoomOut()">-</button>
-        <span class="zoom-level">{{ (scale() * 100).toFixed(0) }}%</span>
-        <button icon-btn (click)="zoomIn()">+</button>
-      </div>
-      <button icon-btn (click)="resetView()">Reset</button>
-    </div>
-
-    <!-- Transform Container -->
-    <div
-      class="preview-content"
-      [style.transform]="
-        'translate(' + pan().x + 'px, ' + pan().y + 'px) scale(' + scale() + ')'
-      "
-    >
+  <!-- Live Preview Stage -->
+  <div class="panel-preview">
+    <!-- Static Preview Container -->
+    <div class="preview-content">
       <div class="preview-sticky">
         <h2>Live Playground</h2>
         <p class="subtitle">

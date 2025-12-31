@@ -8,16 +8,84 @@
 }
 
 .preview-stage {
-  padding: var(--space-8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 200px;
+  padding: 0;
+  position: relative;
+  min-height: 400px; /* Increased height for canvas feel */
+  overflow: hidden;
   background-image: radial-gradient(
     var(--color-border-glass) 1px,
     transparent 1px
   );
   background-size: 20px 20px;
+  cursor: grab;
+}
+
+.preview-stage:active {
+  cursor: grabbing;
+}
+
+.preview-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: 0 0;
+  box-sizing: border-box;
+  padding: var(--space-8);
+  min-height: 400px;
+}
+
+/* Canvas Controls (Zoom/Reset) */
+.canvas-controls {
+  position: absolute;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  z-index: 10;
+  display: flex;
+  gap: var(--space-2);
+  background: var(--color-surface-glass);
+  padding: var(--space-2);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-glass);
+  backdrop-filter: blur(var(--blur-glass-md));
+}
+
+.zoom-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-right: var(--space-2);
+  border-right: 1px solid var(--color-border-glass);
+}
+
+.zoom-level {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  min-width: 3ch;
+  text-align: center;
+}
+
+button[icon-btn] {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-text);
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0;
+}
+
+button[icon-btn]:hover {
+  background: var(--color-surface-glass-hover);
+  border-color: var(--color-border-glass);
 }
 
 .demo-row {

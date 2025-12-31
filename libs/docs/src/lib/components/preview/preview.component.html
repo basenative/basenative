@@ -1,137 +1,165 @@
 <div class="preview-container">
-  <div class="preview-stage">
-    @switch (component()) {
-      @case ('button') {
-        <div class="demo-row">
-          <button variant="primary">Primary</button>
-          <button variant="secondary">Secondary</button>
-          <button variant="ghost">Ghost</button>
-          <button variant="danger">Danger</button>
-        </div>
-      }
-      @case ('card') {
-        <article card>
-          <header cardHeader>
-            <h3>Card Title</h3>
-          </header>
-          <section cardContent>
-            <p>This is a live preview of the card component.</p>
-          </section>
-          <footer cardFooter>
-            <div>
-              <button variant="primary">Action</button>
+  <div
+    class="preview-stage"
+    (mousedown)="startDrag($event)"
+    (mousemove)="onDrag($event)"
+    (mouseup)="endDrag()"
+    (mouseleave)="endDrag()"
+  >
+    <!-- Canvas Controls -->
+    <div class="canvas-controls">
+      <div class="zoom-group">
+        <button icon-btn (click)="zoomOut()">-</button>
+        <span class="zoom-level">{{ (scale() * 100).toFixed(0) }}%</span>
+        <button icon-btn (click)="zoomIn()">+</button>
+      </div>
+      <button icon-btn (click)="resetView()">Reset</button>
+    </div>
+
+    <!-- Transform Container -->
+    <div
+      class="preview-content"
+      [style.transform]="
+        'translate(' + pan().x + 'px, ' + pan().y + 'px) scale(' + scale() + ')'
+      "
+    >
+      @switch (component()) {
+        @case ('button') {
+          <div class="demo-row">
+            <button variant="primary">Primary</button>
+            <button variant="secondary">Secondary</button>
+            <button variant="ghost">Ghost</button>
+            <button variant="danger">Danger</button>
+          </div>
+        }
+        @case ('card') {
+          <article card>
+            <header cardHeader>
+              <h3>Card Title</h3>
+            </header>
+            <section cardContent>
+              <p>This is a live preview of the card component.</p>
+            </section>
+            <footer cardFooter>
+              <div>
+                <button variant="primary">Action</button>
+              </div>
+            </footer>
+          </article>
+        }
+        @case ('input') {
+          <label
+            input-wrapper
+            label="Email Address"
+            error="Invalid email format"
+          >
+            <input input type="email" placeholder="user@example.com" />
+          </label>
+        }
+        @case ('list') {
+          <ul list>
+            <li item>
+              <span>List Item 1</span>
+            </li>
+            <li item>
+              <span>List Item 2</span>
+            </li>
+            <li item>
+              <span>List Item 3</span>
+            </li>
+          </ul>
+        }
+        @case ('logo') {
+          <figure logo></figure>
+        }
+        @case ('theme-selector') {
+          <menu theme-selector></menu>
+        }
+        @case ('icon') {
+          <div class="demo-row icon-demo">
+            <span icon name="code" [size]="24"></span>
+            <span icon name="arrow-right" [size]="24"></span>
+            <span icon name="check" [size]="24"></span>
+          </div>
+        }
+        @case ('visually-hidden') {
+          <p>There is hidden text below this line:</p>
+          <span visually-hidden
+            >This content is hidden from view but available to screen
+            readers.</span
+          >
+        }
+        @case ('focus-trap') {
+          <div [focusTrap]="true" class="focus-trap-demo">
+            <p>Focus is trapped inside this box.</p>
+            <button variant="primary">Button 1</button>
+            <button variant="secondary">Button 2</button>
+          </div>
+        }
+        @case ('anchor') {
+          <div class="anchor-stage">
+            <button
+              anchor="demo-anchor"
+              variant="ghost"
+              popovertarget="demo-popover"
+            >
+              Anchor Trigger
+            </button>
+            <div
+              id="demo-popover"
+              anchored="demo-anchor"
+              position="bottom"
+              class="anchored-element"
+            >
+              Anchored!
             </div>
-          </footer>
-        </article>
-      }
-      @case ('input') {
-        <label input-wrapper label="Email Address" error="Invalid email format">
-          <input input type="email" placeholder="user@example.com" />
-        </label>
-      }
-      @case ('list') {
-        <ul list>
-          <li item>
-            <span>List Item 1</span>
-          </li>
-          <li item>
-            <span>List Item 2</span>
-          </li>
-          <li item>
-            <span>List Item 3</span>
-          </li>
-        </ul>
-      }
-      @case ('logo') {
-        <figure logo></figure>
-      }
-      @case ('theme-selector') {
-        <menu theme-selector></menu>
-      }
-      @case ('icon') {
-        <div class="demo-row icon-demo">
-          <span icon name="code" [size]="24"></span>
-          <span icon name="arrow-right" [size]="24"></span>
-          <span icon name="check" [size]="24"></span>
-        </div>
-      }
-      @case ('visually-hidden') {
-        <p>There is hidden text below this line:</p>
-        <span visually-hidden
-          >This content is hidden from view but available to screen
-          readers.</span
-        >
-      }
-      @case ('focus-trap') {
-        <div [focusTrap]="true" class="focus-trap-demo">
-          <p>Focus is trapped inside this box.</p>
-          <button variant="primary">Button 1</button>
-          <button variant="secondary">Button 2</button>
-        </div>
-      }
-      @case ('anchor') {
-        <div class="anchor-stage">
-          <button
-            anchor="demo-anchor"
-            variant="ghost"
-            popovertarget="demo-popover"
-          >
-            Anchor Trigger
-          </button>
-          <div
-            id="demo-popover"
-            anchored="demo-anchor"
-            position="bottom"
-            class="anchored-element"
-          >
-            Anchored!
           </div>
-        </div>
-      }
-      @case ('portal') {
-        <div class="portal-wrapper">
-          <p>Potals render content to document.body</p>
-          <ng-template [portal]="true">
-            <div class="ported-element">I am ported to body!</div>
-          </ng-template>
-        </div>
-      }
-      @case ('dialog') {
-        <div class="dialog-wrapper">
-          <button variant="primary" (click)="dialog.open.set(true)">
-            Open Dialog
-          </button>
-          <dialog #dialog modal>
-            <h3>Dialog Preview</h3>
-            <p>This is a native dialog with component styles.</p>
-            <form method="dialog">
-              <button variant="secondary" (click)="dialog.close()">
-                Close
-              </button>
-            </form>
-          </dialog>
-        </div>
-      }
-      @case ('scroll') {
-        <section scroll>
-          <div>
-            <h3>Scrollable Content</h3>
-            <p>
-              This is a custom scroll area. It handles overflow gracefully with
-              custom scrollbars.
-            </p>
-            <p>Additional content to force scrolling...</p>
-            <p>
-              More content... <br />
-              More content... <br />
-              End.
-            </p>
+        }
+        @case ('portal') {
+          <div class="portal-wrapper">
+            <p>Potals render content to document.body</p>
+            <ng-template [portal]="true">
+              <div class="ported-element">I am ported to body!</div>
+            </ng-template>
           </div>
-        </section>
+        }
+        @case ('dialog') {
+          <div class="dialog-wrapper">
+            <button variant="primary" (click)="dialog.open.set(true)">
+              Open Dialog
+            </button>
+            <dialog #dialog modal>
+              <h3>Dialog Preview</h3>
+              <p>This is a native dialog with component styles.</p>
+              <form method="dialog">
+                <button variant="secondary" (click)="dialog.close()">
+                  Close
+                </button>
+              </form>
+            </dialog>
+          </div>
+        }
+        @case ('scroll') {
+          <section scroll>
+            <div>
+              <h3>Scrollable Content</h3>
+              <p>
+                This is a custom scroll area. It handles overflow gracefully
+                with custom scrollbars.
+              </p>
+              <p>Additional content to force scrolling...</p>
+              <p>
+                More content... <br />
+                More content... <br />
+                End.
+              </p>
+            </div>
+          </section>
+        }
+        @default {
+          <p class="no-preview">No preview available for {{ component() }}</p>
+        }
       }
-      @default {
-        <p class="no-preview">No preview available for {{ component() }}</p>
-      }
-    }
+    </div>
   </div>
 </div>
