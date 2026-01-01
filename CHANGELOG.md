@@ -1,3 +1,13 @@
+## 0.4.0 (2026-01-01)
+
+### 🚀 Features
+
+- Add `nx-release-publish` target with `build` dependency. ([e1f0121](https://github.com/basenative/basenative/commit/e1f0121))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.3.1 (2026-01-01)
 
 ### 🩹 Fixes
