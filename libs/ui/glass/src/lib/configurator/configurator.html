@@ -46,6 +46,36 @@
                       />
                     </div>
                   </label>
+                } @else if (token.name.includes('shadow')) {
+                  <label
+                    input-wrapper
+                    [label]="token.name.split('-').pop() || '' | titlecase"
+                  >
+                    <div
+                      style="
+                        display: flex;
+                        gap: var(--space-2);
+                        align-items: center;
+                      "
+                    >
+                      <div
+                        [style.box-shadow]="token.value"
+                        style="
+                          width: 48px;
+                          height: 48px;
+                          border-radius: 8px;
+                          background: var(--color-surface-glass);
+                          border: 1px solid var(--color-border-glass);
+                        "
+                      ></div>
+                      <input
+                        [id]="token.cssVar"
+                        type="text"
+                        [value]="token.value"
+                        (input)="update(token.cssVar, $event)"
+                      />
+                    </div>
+                  </label>
                 } @else {
                   <label
                     input-wrapper
@@ -183,6 +213,125 @@
           >
             {{ appTitle() }}
           </h1>
+        </div>
+
+        <h2>PWA Preview</h2>
+        <div
+          class="pwa-preview-grid"
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+          "
+        >
+          <!-- Generic App Icon -->
+          <div
+            class="pwa-device"
+            style="
+              background: url('https://images.unsplash.com/photo-1592899671815-8f49afc8a7ca?w=400&q=80')
+                center/cover;
+              aspect-ratio: 9/16;
+              border-radius: 20px;
+              overflow: hidden;
+              position: relative;
+              border: 4px solid #111;
+            "
+          >
+            <div
+              class="app-icon-grid"
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+                padding: 20px;
+                margin-top: 40px;
+              "
+            >
+              <div style="grid-column: 2; text-align: center">
+                <div
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    background: rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(10px);
+                    border-radius: 12px;
+                    margin: 0 auto 4px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                  "
+                >
+                  <img
+                    [src]="logoUrl()"
+                    style="width: 80%; height: 80%; object-fit: contain"
+                  />
+                </div>
+                <span
+                  style="
+                    font-size: 10px;
+                    color: white;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+                  "
+                  >{{ appTitle() }}</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Splash Screen -->
+          <div
+            class="pwa-splash"
+            style="
+              background: var(--color-surface-base);
+              aspect-ratio: 9/16;
+              border-radius: 20px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              border: 4px solid #111;
+            "
+          >
+            <img
+              [src]="logoUrl()"
+              style="width: 80px; height: 80px; margin-bottom: 20px"
+            />
+            <h3 style="margin: 0; font-size: 16px">{{ appTitle() }}</h3>
+          </div>
+        </div>
+
+        <div
+          class="cli-info"
+          style="
+            background: var(--color-surface-panel);
+            padding: var(--space-4);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-glass);
+            margin-top: var(--space-4);
+          "
+        >
+          <p
+            style="
+              margin: 0 0 var(--space-2) 0;
+              font-size: 0.875rem;
+              color: var(--color-text-muted);
+            "
+          >
+            To generate these assets:
+          </p>
+          <code
+            style="
+              display: block;
+              padding: var(--space-2);
+              background: rgba(0, 0, 0, 0.2);
+              border-radius: var(--radius-sm);
+              font-family: monospace;
+              font-size: 0.8rem;
+            "
+            >npm run generate-assets</code
+          >
         </div>
 
         <h2>Social Preview</h2>
