@@ -54,10 +54,13 @@ jobs:
 
       - name: Release
         run: |
-          if [ "${{ inputs.first_release }}" = "true" ]; then
-            npx nx release --first-release --yes --skip-publish
+          # Check if there are any tags to determine if it's a first release
+          if git describe --tags --abbrev=0 > /dev/null 2>&1; then
+            echo "Existing tags found. Running standard release."
+            npx nx release --skip-publish
           else
-            npx nx release --yes --skip-publish
+            echo "No tags found. Running first release."
+            npx nx release --first-release --skip-publish
           fi
 
           # Explicitly publish packages
