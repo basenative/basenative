@@ -59,6 +59,7 @@
 
 /* Primary: Premium Gradient */
 :host([variant='primary']) {
+  background: var(--color-primary);
   background: linear-gradient(
     135deg,
     var(--color-primary) 0%,
@@ -89,13 +90,13 @@
 /* Secondary: Surface Panel */
 :host([variant='secondary']) {
   background: var(--color-surface-panel);
-  color: hsl(var(--color-text));
-  border-color: var(--color-border);
+  color: var(--color-text-main);
+  border-color: var(--color-border-glass);
 }
 
 :host([variant='secondary']:hover) {
-  background: hsl(var(--color-surface));
-  border-color: hsl(var(--color-text-muted));
+  background: var(--color-surface-base);
+  border-color: var(--color-text-muted);
 }
 
 /* Glass: Translucent */
@@ -104,7 +105,7 @@
   backdrop-filter: blur(var(--blur-glass-md));
   -webkit-backdrop-filter: blur(var(--blur-glass-md));
   border-color: var(--color-border-glass);
-  color: hsl(var(--color-text));
+  color: var(--color-text-main);
 }
 
 :host([variant='glass']:hover) {
@@ -115,12 +116,12 @@
 /* Ghost: Text Only */
 :host([variant='ghost']) {
   background: transparent;
-  color: hsl(var(--color-text-muted));
+  color: var(--color-text-muted);
 }
 
 :host([variant='ghost']:hover) {
   background: rgba(0, 0, 0, 0.05);
-  color: hsl(var(--color-text));
+  color: var(--color-text-main);
 }
 
 :root.dark :host([variant='ghost']:hover) {
