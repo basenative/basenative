@@ -1,3 +1,20 @@
+## 0.3.0 (2026-01-01)
+
+### 🚀 Features
+
+- add comprehensive styling for the configurator UI component, including layout, panels, and preview elements. ([f68f02d](https://github.com/basenative/basenative/commit/f68f02d))
+
+### 🩹 Fixes
+
+- **ci:** robustify release pipeline with --yes and --skip-publish flags ([45abeb8](https://github.com/basenative/basenative/commit/45abeb8))
+- **ci:** automate first release detection and resolve flag conflict ([95b8182](https://github.com/basenative/basenative/commit/95b8182))
+- **configurator:** enforce exclusive accordion behavior ([a7a6d5b](https://github.com/basenative/basenative/commit/a7a6d5b))
+- **configurator:** prevent accordion clipping ([bbc19d4](https://github.com/basenative/basenative/commit/bbc19d4))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.2.3 (2026-01-01)
 
 This was a version bump only, there were no code changes.
