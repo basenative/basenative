@@ -24,7 +24,10 @@
                   [style.border-radius]="token.value"
                 ></div>
               } @else if (group === 'shadow') {
-                <div class="preview" [style.box-shadow]="token.value"></div>
+                <div
+                  class="preview shadow"
+                  [style.box-shadow]="token.value"
+                ></div>
               } @else {
                 <div class="preview text">{{ token.value }}</div>
               }
