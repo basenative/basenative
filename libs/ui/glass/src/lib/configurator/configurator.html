@@ -2,7 +2,7 @@
   <!-- Controls Panel -->
   <div class="panel-controls">
     <!-- Identity Configuration (Always Open) -->
-    <details class="group-details" open>
+    <details class="group-details" name="config-controls" open>
       <summary>App Identity & Assets</summary>
       <div class="group-content">
         <div class="token-row">
@@ -33,7 +33,7 @@
       </div>
     </details>
 
-    <details class="group-details">
+    <details class="group-details" name="config-controls">
       <summary>Social & SEO</summary>
       <div class="group-content">
         <div class="token-row">
@@ -77,7 +77,7 @@
 
     <!-- Token Groups (Accordions) -->
     @for (group of Object.keys(flatTokens()); track group) {
-      <details class="group-details">
+      <details class="group-details" name="config-controls">
         <summary>{{ group | titlecase }} Tokens</summary>
         <div class="group-content">
           @for (token of flatTokens()[group]; track token.name) {
