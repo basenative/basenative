@@ -55,13 +55,13 @@ jobs:
       - name: Release
         run: |
           if [ "${{ inputs.first_release }}" = "true" ]; then
-            npx nx release --first-release
+            npx nx release --first-release --yes --skip-publish
           else
-            npx nx release
+            npx nx release --yes --skip-publish
           fi
 
           # Explicitly publish packages
-          npx nx release publish --registry=https://npm.pkg.github.com/
+          npx nx release publish --yes --registry=https://npm.pkg.github.com/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
