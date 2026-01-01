@@ -1,3 +1,14 @@
+## 0.2.1 (2026-01-01)
+
+### 🩹 Fixes
+
+- **assets:** sync logo/favicon and improve configurator accessibility ([ad925d0](https://github.com/basenative/basenative/commit/ad925d0))
+- **assets:** implement svg pipeline and og configurator ([4b926ff](https://github.com/basenative/basenative/commit/4b926ff))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.2.0 (2026-01-01)
 
 ### 🚀 Features
