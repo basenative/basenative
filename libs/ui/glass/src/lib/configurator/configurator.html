@@ -1,10 +1,85 @@
 <div class="configurator-container">
   <!-- Controls Panel -->
   <div class="panel-controls">
-    <div class="token-groups">
-      @for (group of Object.keys(flatTokens()); track group) {
-        <article class="group">
-          <h3>{{ group | titlecase }}</h3>
+    <!-- Identity Configuration (Always Open) -->
+    <details class="group-details" open>
+      <summary>App Identity & Assets</summary>
+      <div class="group-content">
+        <div class="token-row">
+          <label input-wrapper label="App Title" for="config-app-title">
+            <input
+              id="config-app-title"
+              type="text"
+              [value]="appTitle()"
+              (input)="appTitle.set($event.target['value'])"
+            />
+          </label>
+        </div>
+        <div class="token-row">
+          <label input-wrapper label="Logo URL" for="config-logo-url">
+            <input
+              id="config-logo-url"
+              type="text"
+              [value]="logoUrl()"
+              (input)="logoUrl.set($event.target['value'])"
+            />
+          </label>
+        </div>
+        <!-- CLI Info Inline -->
+        <div class="cli-info-inline">
+          <span>Generate icons:</span>
+          <code>npm run generate-assets</code>
+        </div>
+      </div>
+    </details>
+
+    <details class="group-details">
+      <summary>Social & SEO</summary>
+      <div class="group-content">
+        <div class="token-row">
+          <label input-wrapper label="OG Title" for="og-title"
+            ><input
+              id="og-title"
+              type="text"
+              [value]="ogTitle()"
+              (input)="ogTitle.set($event.target['value'])"
+          /></label>
+        </div>
+        <div class="token-row">
+          <label input-wrapper label="OG Desc" for="og-desc"
+            ><input
+              id="og-desc"
+              type="text"
+              [value]="ogDescription()"
+              (input)="ogDescription.set($event.target['value'])"
+          /></label>
+        </div>
+        <div class="token-row">
+          <label input-wrapper label="OG Image" for="og-image"
+            ><input
+              id="og-image"
+              type="text"
+              [value]="ogImage()"
+              (input)="ogImage.set($event.target['value'])"
+          /></label>
+        </div>
+        <div class="token-row">
+          <label input-wrapper label="OG URL" for="og-url"
+            ><input
+              id="og-url"
+              type="text"
+              [value]="ogUrl()"
+              (input)="ogUrl.set($event.target['value'])"
+          /></label>
+        </div>
+      </div>
+    </details>
+
+    <!-- Token Groups (Accordions) -->
+    @for (group of Object.keys(flatTokens()); track group) {
+      <details class="group-details">
+        <summary>{{ group | titlecase }} Tokens</summary>
+        <div class="group-content">
           @for (token of flatTokens()[group]; track token.name) {
             <div class="token-row">
               <div class="input-wrapper" [class.color]="token.type === 'color'">
@@ -92,307 +167,88 @@
               </div>
             </div>
           }
-        </article>
-      }
-    </div>
-
-    <!-- Assets & Metadata -->
-    <div
-      class="token-groups"
-      style="
-        margin-top: var(--space-8);
-        padding-top: var(--space-8);
-        border-top: 1px solid var(--color-border-glass);
-      "
-    >
-      <article class="group">
-        <h3>Assets & Meta</h3>
-        <div class="token-row">
-          <label input-wrapper label="Logo URL" for="config-logo-url">
-            <input
-              id="config-logo-url"
-              type="text"
-              [value]="logoUrl()"
-              (input)="logoUrl.set($event.target['value'])"
-            />
-          </label>
         </div>
-        <div class="token-row">
-          <label input-wrapper label="Favicon URL" for="config-favicon-url">
-            <input
-              id="config-favicon-url"
-              type="text"
-              [value]="faviconUrl()"
-              (input)="faviconUrl.set($event.target['value'])"
-            />
-          </label>
-        </div>
-        <div class="token-row">
-          <label input-wrapper label="App Title" for="config-app-title">
-            <input
-              id="config-app-title"
-              type="text"
-              [value]="appTitle()"
-              (input)="appTitle.set($event.target['value'])"
-            />
-          </label>
-        </div>
-      </article>
-      <article class="group">
-        <h3>Open Graph & PWA</h3>
-        <div class="token-row">
-          <label input-wrapper label="OG Title" for="og-title">
-            <input
-              id="og-title"
-              type="text"
-              [value]="ogTitle()"
-              (input)="ogTitle.set($event.target['value'])"
-            />
-          </label>
-        </div>
-        <div class="token-row">
-          <label input-wrapper label="OG Description" for="og-desc">
-            <input
-              id="og-desc"
-              type="text"
-              [value]="ogDescription()"
-              (input)="ogDescription.set($event.target['value'])"
-            />
-          </label>
-        </div>
-        <div class="token-row">
-          <label input-wrapper label="OG Image" for="og-image">
-            <input
-              id="og-image"
-              type="text"
-              [value]="ogImage()"
-              (input)="ogImage.set($event.target['value'])"
-            />
-          </label>
-        </div>
-        <div class="token-row">
-          <label input-wrapper label="OG URL" for="og-url">
-            <input
-              id="og-url"
-              type="text"
-              [value]="ogUrl()"
-              (input)="ogUrl.set($event.target['value'])"
-            />
-          </label>
-        </div>
-      </article>
-    </div>
+      </details>
+    }
   </div>
 
   <!-- Live Preview Stage -->
   <div class="panel-preview">
-    <!-- Static Preview Container -->
-    <div class="preview-content">
-      <div class="preview-sticky">
-        <div style="text-align: center; margin-bottom: var(--space-8)">
-          <img
-            [src]="logoUrl()"
-            alt="App Logo"
-            style="
-              height: 64px;
-              margin-bottom: var(--space-4);
-              filter: drop-shadow(0 0 20px var(--color-primary));
-            "
-          />
-          <h1
-            style="
-              font-size: 2rem;
-              background: linear-gradient(
-                to right,
-                white,
-                var(--color-text-muted)
-              );
-              -webkit-background-clip: text;
-              color: transparent;
-            "
-          >
-            {{ appTitle() }}
-          </h1>
-        </div>
-
-        <h2>PWA Preview</h2>
-        <div
-          class="pwa-preview-grid"
-          style="
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-4);
-            margin-bottom: var(--space-8);
-          "
-        >
-          <!-- Generic App Icon -->
-          <div
-            class="pwa-device"
-            style="
-              background: url('https://images.unsplash.com/photo-1592899671815-8f49afc8a7ca?w=400&q=80')
-                center/cover;
-              aspect-ratio: 9/16;
-              border-radius: 20px;
-              overflow: hidden;
-              position: relative;
-              border: 4px solid #111;
-            "
-          >
+    <div class="preview-grid">
+      <!-- Identity Section -->
+      <section class="preview-card identity-card">
+        <header><h2>Identity & Assets</h2></header>
+        <div class="identity-layout">
+          <!-- PWA -->
+          <div class="pwa-preview">
             <div
-              class="app-icon-grid"
+              class="pwa-device-mini"
+              title="Home Screen Icon"
               style="
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 10px;
-                padding: 20px;
-                margin-top: 40px;
+                background-image: url('https://images.unsplash.com/photo-1592899671815-8f49afc8a7ca?w=400&q=80');
               "
             >
-              <div style="grid-column: 2; text-align: center">
-                <div
-                  style="
-                    width: 50px;
-                    height: 50px;
-                    background: rgba(255, 255, 255, 0.2);
-                    backdrop-filter: blur(10px);
-                    border-radius: 12px;
-                    margin: 0 auto 4px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    overflow: hidden;
-                    border: 1px solid rgba(255, 255, 255, 0.3);
-                  "
-                >
-                  <img
-                    [src]="logoUrl()"
-                    style="width: 80%; height: 80%; object-fit: contain"
-                  />
-                </div>
-                <span
-                  style="
-                    font-size: 10px;
-                    color: white;
-                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-                  "
-                  >{{ appTitle() }}</span
-                >
+              <div class="app-icon-mini">
+                <img [src]="logoUrl()" />
               </div>
             </div>
+            <div class="pwa-text">
+              <strong>PWA Icon</strong>
+              <span>Home Screen</span>
+            </div>
           </div>
-          <!-- Splash Screen -->
-          <div
-            class="pwa-splash"
-            style="
-              background: var(--color-surface-base);
-              aspect-ratio: 9/16;
-              border-radius: 20px;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              border: 4px solid #111;
-            "
-          >
-            <img
-              [src]="logoUrl()"
-              style="width: 80px; height: 80px; margin-bottom: 20px"
-            />
-            <h3 style="margin: 0; font-size: 16px">{{ appTitle() }}</h3>
+          <!-- Social -->
+          <div class="social-preview-wrapper">
+            <glass-og-preview
+              [title]="ogTitle()"
+              [description]="ogDescription()"
+              [image]="ogImage()"
+              [url]="ogUrl()"
+            ></glass-og-preview>
           </div>
         </div>
+      </section>
 
-        <div
-          class="cli-info"
-          style="
-            background: var(--color-surface-panel);
-            padding: var(--space-4);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--color-border-glass);
-            margin-top: var(--space-4);
-          "
-        >
-          <p
-            style="
-              margin: 0 0 var(--space-2) 0;
-              font-size: 0.875rem;
-              color: var(--color-text-muted);
-            "
-          >
-            To generate these assets:
-          </p>
-          <code
-            style="
-              display: block;
-              padding: var(--space-2);
-              background: rgba(0, 0, 0, 0.2);
-              border-radius: var(--radius-sm);
-              font-family: monospace;
-              font-size: 0.8rem;
-            "
-            >npm run generate-assets</code
-          >
-        </div>
-
-        <h2>Social Preview</h2>
-        <div
-          style="
-            margin-bottom: var(--space-8);
-            display: flex;
-            justify-content: center;
-          "
-        >
-          <glass-og-preview
-            [title]="ogTitle()"
-            [description]="ogDescription()"
-            [image]="ogImage()"
-            [url]="ogUrl()"
-          ></glass-og-preview>
-        </div>
-
-        <h2>Live Playground</h2>
-        <p class="subtitle">
-          Interact with components to see your token changes in real-time.
-        </p>
-
-        <!-- Button Showcase -->
-        <section class="showcase-section">
-          <h4>Buttons</h4>
-          <div class="component-row">
-            <button variant="primary">Primary</button>
-            <button variant="secondary">Secondary</button>
-            <button variant="ghost">Ghost</button>
-            <button variant="danger">Danger</button>
+      <!-- Components Section -->
+      <section class="preview-card playground-card">
+        <header>
+          <div class="header-main">
+            <img [src]="logoUrl()" class="header-logo" />
+            <h1>{{ appTitle() }}</h1>
           </div>
-        </section>
+          <p class="subtitle">Live Component Playground</p>
+        </header>
 
-        <!-- Typography Showcase -->
-        <section class="showcase-section">
-          <h4>Typography</h4>
-          <div class="typography-sample">
+        <div class="playground-grid">
+          <section class="showcase-section">
+            <h4>Buttons</h4>
+            <div class="component-row">
+              <button variant="primary">Primary</button>
+              <button variant="secondary">Secondary</button>
+              <button variant="ghost">Ghost</button>
+              <button variant="danger">Danger</button>
+            </div>
+          </section>
+
+          <section class="showcase-section">
+            <h4>Typography</h4>
             <h1>Heading 1</h1>
-            <p>
-              The quick brown fox jumps over the lazy dog.
-              <a href="#">Link Style</a>
-            </p>
-            <div class="text-muted">Muted text sample for contrast check.</div>
-          </div>
-        </section>
+            <p>The quick brown fox jumps over the <a href="#">lazy dog</a>.</p>
+            <div class="text-muted">Muted text sample.</div>
+          </section>
 
-        <!-- Card Showcase -->
-        <section class="showcase-section">
-          <h4>Surfaces & Cards</h4>
-          <article class="sample-card">
-            <header>
-              <h5>Card Title</h5>
-            </header>
-            <p>This card inherits surface, border, and spacing tokens.</p>
-            <footer>
-              <button variant="primary" size="sm">Action</button>
-            </footer>
-          </article>
-        </section>
-      </div>
+          <section class="showcase-section">
+            <h4>Surfaces</h4>
+            <article class="sample-card">
+              <header><h5>Card Title</h5></header>
+              <p>Inerits surface, border, and spacing tokens.</p>
+              <footer>
+                <button variant="primary" size="sm">Action</button>
+              </footer>
+            </article>
+          </section>
+        </div>
+      </section>
     </div>
   </div>
 </div>
