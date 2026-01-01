@@ -6,8 +6,17 @@
   "sourceRoot": "apps/showcase/src",
   "tags": [],
   "targets": {
+    "generate-icons": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node tools/scripts/generate-icons.ts"
+      }
+    },
     "build": {
-      "dependsOn": [{ "projects": ["data"], "target": "build-docs" }],
+      "dependsOn": [
+        { "projects": ["data"], "target": "build-docs" },
+        "generate-icons"
+      ],
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
@@ -33,10 +42,7 @@
           {
             "glob": "**/*",
             "input": "apps/showcase/public"
-          },
-          "apps/showcase/src/assets/logo.svg",
-          "apps/showcase/src/favicon.png",
-          "apps/showcase/src/manifest.webmanifest"
+          }
         ],
         "styles": ["apps/showcase/src/styles.css"]
       },

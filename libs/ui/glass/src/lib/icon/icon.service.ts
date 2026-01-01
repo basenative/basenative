@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, shareReplay, tap, map, of } from 'rxjs';
+import { Observable, shareReplay, map } from 'rxjs';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Injectable({
@@ -14,8 +14,9 @@ export class IconService {
   private cache = new Map<string, Observable<SafeHtml>>();
 
   getIcon(name: string): Observable<SafeHtml> {
-    if (this.cache.has(name)) {
-      return this.cache.get(name)!;
+    const cached = this.cache.get(name);
+    if (cached) {
+      return cached;
     }
 
     const request$ = this.http

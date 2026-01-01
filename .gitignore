@@ -42,3 +42,6 @@ Thumbs.db
 .nx/workspace-data
 
 .angular
+
+# Generated PWA Assets
+apps/showcase/public/

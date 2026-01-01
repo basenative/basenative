@@ -32,7 +32,7 @@ export class Configurator {
     'A glassmorphism-first component library for high-end web applications.',
   );
   ogImage = signal('assets/logo.svg');
-  ogUrl = signal('https://basenative.dev');
+  ogUrl = signal('https://basenative.com');
 
   // Flatten tokens for display
   flatTokens = computed(() => {
