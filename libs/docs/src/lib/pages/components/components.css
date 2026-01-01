@@ -65,10 +65,10 @@ h1 {
 .card:hover {
   background: var(--color-surface-glass-hover);
   transform: translateY(-4px) scale(1.01);
-  border-color: hsl(var(--color-primary));
+  border-color: var(--color-primary);
   box-shadow:
     0 15px 35px -10px rgba(0, 0, 0, 0.1),
-    0 0 0 1px hsla(var(--color-primary), 0.2);
+    0 0 0 1px color-mix(in srgb, var(--color-primary), transparent 80%);
 }
 
 .card-header {
@@ -79,8 +79,8 @@ h1 {
 }
 
 .card-header [icon] {
-  color: hsl(var(--color-primary));
-  background: hsla(var(--color-primary), 0.1);
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary), transparent 90%);
   padding: 8px;
   border-radius: 12px;
 }
@@ -89,12 +89,12 @@ h1 {
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0;
-  color: hsl(var(--color-text));
+  color: var(--color-text-main);
 }
 
 .card p {
   font-size: 1rem;
-  color: hsl(var(--color-text-muted));
+  color: var(--color-text-muted);
   line-height: 1.6;
   margin: 0;
   flex: 1;
@@ -104,7 +104,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  color: hsl(var(--color-primary));
+  color: var(--color-primary);
   font-weight: 600;
   font-size: 0.875rem;
   margin-top: auto;

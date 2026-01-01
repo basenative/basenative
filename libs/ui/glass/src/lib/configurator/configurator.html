@@ -108,10 +108,52 @@
           </label>
         </div>
       </article>
+      <article class="group">
+        <h3>Open Graph & PWA</h3>
+        <div class="token-row">
+          <label input-wrapper label="OG Title" for="og-title">
+            <input
+              id="og-title"
+              type="text"
+              [value]="ogTitle()"
+              (input)="ogTitle.set($event.target['value'])"
+            />
+          </label>
+        </div>
+        <div class="token-row">
+          <label input-wrapper label="OG Description" for="og-desc">
+            <input
+              id="og-desc"
+              type="text"
+              [value]="ogDescription()"
+              (input)="ogDescription.set($event.target['value'])"
+            />
+          </label>
+        </div>
+        <div class="token-row">
+          <label input-wrapper label="OG Image" for="og-image">
+            <input
+              id="og-image"
+              type="text"
+              [value]="ogImage()"
+              (input)="ogImage.set($event.target['value'])"
+            />
+          </label>
+        </div>
+        <div class="token-row">
+          <label input-wrapper label="OG URL" for="og-url">
+            <input
+              id="og-url"
+              type="text"
+              [value]="ogUrl()"
+              (input)="ogUrl.set($event.target['value'])"
+            />
+          </label>
+        </div>
+      </article>
     </div>
   </div>
 
-  <!-- Live Preview Stage -->
   <!-- Live Preview Stage -->
   <div class="panel-preview">
     <!-- Static Preview Container -->
@@ -141,6 +183,22 @@
           >
             {{ appTitle() }}
           </h1>
+        </div>
+
+        <h2>Social Preview</h2>
+        <div
+          style="
+            margin-bottom: var(--space-8);
+            display: flex;
+            justify-content: center;
+          "
+        >
+          <glass-og-preview
+            [title]="ogTitle()"
+            [description]="ogDescription()"
+            [image]="ogImage()"
+            [url]="ogUrl()"
+          ></glass-og-preview>
         </div>
 
         <h2>Live Playground</h2>

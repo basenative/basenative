@@ -3,11 +3,17 @@ import { CommonModule } from '@angular/common';
 import { ThemeService, tokens } from '@basenative/tokens';
 import { ButtonComponent } from '../button/button.component';
 import { InputComponent } from '@basenative/forms';
+import { OpenGraphPreviewComponent } from '../open-graph-preview/open-graph-preview.component';
 
 @Component({
   selector: 'section[configurator]',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, InputComponent],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    InputComponent,
+    OpenGraphPreviewComponent,
+  ],
   templateUrl: './configurator.html',
   styleUrl: './configurator.css',
 })
@@ -16,9 +22,17 @@ export class Configurator {
   protected Object = Object;
 
   // Asset Configuration
-  logoUrl = signal('assets/logo.png');
-  faviconUrl = signal('assets/favicon.png');
+  logoUrl = signal('assets/logo.svg');
+  faviconUrl = signal('assets/logo.svg');
   appTitle = signal('BaseNative App');
+
+  // Open Graph Configuration
+  ogTitle = signal('BaseNative - Modern Angular Components');
+  ogDescription = signal(
+    'A glassmorphism-first component library for high-end web applications.',
+  );
+  ogImage = signal('assets/logo.svg');
+  ogUrl = signal('https://basenative.dev');
 
   // Flatten tokens for display
   flatTokens = computed(() => {

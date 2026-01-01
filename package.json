@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve showcase",
     "build": "nx build showcase",
-    "test": "nx test showcase"
+    "test": "nx test showcase",
+    "generate-assets": "node tools/scripts/generate-assets.js"
   },
   "private": true,
   "dependencies": {
