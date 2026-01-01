@@ -1,3 +1,13 @@
+## 0.3.1 (2026-01-01)
+
+### 🩹 Fixes
+
+- **ui:** update welcome page logo to use svg asset ([42d19f3](https://github.com/basenative/basenative/commit/42d19f3))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.3.0 (2026-01-01)
 
 ### 🚀 Features
