@@ -1,3 +1,17 @@
+## 0.1.1 (2026-01-01)
+
+### 🚀 Features
+
+- **ui:** update assets and polish canvas controls ([bac8d1b](https://github.com/basenative/basenative/commit/bac8d1b))
+
+### 🩹 Fixes
+
+- **ui:** repair button token usage and add tests ([cd2a708](https://github.com/basenative/basenative/commit/cd2a708))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.1.0 (2025-12-31)
 
 ### 🚀 Features
