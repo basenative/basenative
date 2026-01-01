@@ -1,3 +1,13 @@
+## 0.2.2 (2026-01-01)
+
+### 🩹 Fixes
+
+- **assets:** enhance configurator with pwa preview and shadow fix ([6301c18](https://github.com/basenative/basenative/commit/6301c18))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.2.1 (2026-01-01)
 
 ### 🩹 Fixes
