@@ -1,3 +1,13 @@
+## 0.4.1 (2026-01-01)
+
+### 🩹 Fixes
+
+- assets generation, lint errors, and test setup ([4e9431e](https://github.com/basenative/basenative/commit/4e9431e))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.4.0 (2026-01-01)
 
 ### 🚀 Features
