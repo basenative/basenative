@@ -1,1 +1,1 @@
-// Export components here
+export const NAVIGATION_LIB = '@basenative/navigation';

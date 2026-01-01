@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { forkJoin, map, switchMap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { marked } from 'marked';
+// import { marked } from 'marked';
 import { IconComponent } from '@basenative/ui/glass';
 
 interface ComponentDoc {
@@ -15,12 +15,12 @@ interface ComponentDoc {
   content: string;
 }
 
-import { PreviewComponent } from '../../components/preview/preview.component';
+// import { PreviewComponent } from '../../components/preview/preview.component';
 
 @Component({
   selector: 'docs-components',
   standalone: true,
-  imports: [CommonModule, IconComponent, PreviewComponent],
+  imports: [CommonModule, IconComponent /*, PreviewComponent*/],
   templateUrl: './components.html',
   styleUrl: './components.css',
 })
@@ -122,7 +122,7 @@ export class ComponentsPage {
         id: slug,
         title: slug,
         description: '',
-        content: marked.parse(text) as string,
+        content: text, // marked.parse(text) as string,
       };
     }
 
@@ -136,7 +136,7 @@ export class ComponentsPage {
       id: slug,
       title: titleMatch ? titleMatch[1].trim() : slug,
       description: descMatch ? descMatch[1].trim() : '',
-      content: marked.parse(content.trim()) as string,
+      content: content.trim(), // marked.parse(content.trim()) as string,
     };
   }
 }

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { forkJoin, map, switchMap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { marked } from 'marked';
+// import { marked } from 'marked';
 import { IconComponent } from '@basenative/ui/glass';
 
 interface Article {
@@ -122,6 +122,6 @@ export class PhilosophiesPage {
   }
 
   private parseMarkdown(text: string): string {
-    return marked.parse(text) as string;
+    return text; // marked.parse(text) as string;
   }
 }
