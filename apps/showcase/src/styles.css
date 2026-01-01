@@ -5,12 +5,12 @@
 
 :root {
   /* Brand Colors - Sophisticated Dark/Light Palette */
-  --color-primary: 210 100% 50%; /* Vibrant Blue */
-  --color-background: 0 0% 98%; /* SaaS White */
-  --color-surface: 0 0% 100%;
-  --color-text: 220 15% 10%;
-  --color-text-muted: 220 15% 40%; /* Darker for better contrast */
-  --color-border: 220 15% 90%;
+  /* --color-primary removed to respect tokens.css */
+  /* --color-background removed to respect tokens.css */
+  /* --color-surface removed to respect tokens.css */
+  /* --color-text removed to respect tokens.css */
+  /* --color-text-muted removed to respect tokens.css */
+  /* --color-border removed to respect tokens.css */
 
   /* Spacing */
   --space-1: 0.25rem;
@@ -58,12 +58,12 @@
 /* Dark Mode Support (System) */
 
 :root.dark {
-  --color-primary: 210 100% 60%; /* Lighter Blue for Dark Mode */
-  --color-background: 220 15% 5%;
-  --color-surface: 220 15% 10%;
-  --color-text: 220 15% 95%;
-  --color-text-muted: 220 10% 70%; /* Lighter for better contrast */
-  --color-border: 220 15% 15%;
+  /* --color-primary override removed */
+  /* --color-background override removed */
+  /* --color-surface override removed */
+  /* --color-text override removed */
+  /* --color-text-muted override removed */
+  /* --color-border override removed */
 
   /* Glass Tokens Dark */
   --color-surface-glass: rgba(30, 30, 35, 0.6);
@@ -83,8 +83,10 @@
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background-color: hsl(var(--color-background));
-  color: hsl(var(--color-text));
+  background-color: var(
+    --color-surface-base
+  ); /* Use token name from tokens.css */
+  color: var(--color-text-main); /* Use token name from tokens.css */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
