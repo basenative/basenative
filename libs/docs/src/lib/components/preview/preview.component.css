@@ -44,6 +44,7 @@
   z-index: 10;
   display: flex;
   gap: var(--space-2);
+  align-items: center; /* Ensure vertical center alignment */
   background: var(--color-surface-glass);
   padding: var(--space-2);
   border-radius: var(--radius-lg);
@@ -63,8 +64,9 @@
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--color-text-muted);
-  min-width: 3ch;
+  min-width: 4ch; /* slightly wider to prevent shift */
   text-align: center;
+  line-height: 1; /* Match button line-height */
 }
 
 button[icon-btn] {
