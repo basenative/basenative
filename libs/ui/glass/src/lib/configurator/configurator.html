@@ -65,6 +65,30 @@
         </article>
       }
     </div>
+      }
+    </div>
+
+    <!-- Assets & Metadata -->
+    <div class="token-groups" style="margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--color-border-glass);">
+      <article class="group">
+        <h3>Assets & Meta</h3>
+        <div class="token-row">
+          <label input-wrapper label="Logo URL">
+            <input type="text" [value]="logoUrl()" (input)="logoUrl.set($event.target['value'])" />
+          </label>
+        </div>
+        <div class="token-row">
+          <label input-wrapper label="Favicon URL">
+             <input type="text" [value]="faviconUrl()" (input)="faviconUrl.set($event.target['value'])" />
+          </label>
+        </div>
+        <div class="token-row">
+          <label input-wrapper label="App Title">
+             <input type="text" [value]="appTitle()" (input)="appTitle.set($event.target['value'])" />
+          </label>
+        </div>
+      </article>
+    </div>
   </div>
 
   <!-- Live Preview Stage -->
@@ -73,6 +97,11 @@
     <!-- Static Preview Container -->
     <div class="preview-content">
       <div class="preview-sticky">
+        <div style="text-align: center; margin-bottom: var(--space-8);">
+           <img [src]="logoUrl()" alt="App Logo" style="height: 64px; margin-bottom: var(--space-4); filter: drop-shadow(0 0 20px var(--color-primary));" />
+           <h1 style="font-size: 2rem; background: linear-gradient(to right, white, var(--color-text-muted)); -webkit-background-clip: text; color: transparent;">{{ appTitle() }}</h1>
+        </div>
+
         <h2>Live Playground</h2>
         <p class="subtitle">
           Interact with components to see your token changes in real-time.

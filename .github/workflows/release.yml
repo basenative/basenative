@@ -59,6 +59,9 @@ jobs:
           else
             npx nx release
           fi
+
+          # Explicitly publish packages
+          npx nx release publish --registry=https://npm.pkg.github.com/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

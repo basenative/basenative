@@ -1,4 +1,4 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, inject, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService, tokens } from '@basenative/tokens';
 import { ButtonComponent } from '../button/button.component';
@@ -14,6 +14,11 @@ import { InputComponent } from '@basenative/forms';
 export class Configurator {
   theme = inject(ThemeService);
   protected Object = Object;
+
+  // Asset Configuration
+  logoUrl = signal('assets/logo.png');
+  faviconUrl = signal('assets/favicon.png');
+  appTitle = signal('BaseNative App');
 
   // Flatten tokens for display
   flatTokens = computed(() => {

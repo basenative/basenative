@@ -34,7 +34,7 @@
             "glob": "**/*",
             "input": "apps/showcase/public"
           },
-          "apps/showcase/src/favicon.svg"
+          "apps/showcase/src/favicon.png"
         ],
         "styles": ["apps/showcase/src/styles.css"]
       },
