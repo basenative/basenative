@@ -1,3 +1,18 @@
+## 0.2.0 (2026-01-01)
+
+### 🚀 Features
+
+- enable package publishing and add asset configurator ([6ad87e6](https://github.com/basenative/basenative/commit/6ad87e6))
+
+### 🩹 Fixes
+
+- **styles:** remove duplicate variable definitions breaking tokens ([1a0a6e2](https://github.com/basenative/basenative/commit/1a0a6e2))
+- **styles:** resolve conflicting css tokens ([9c691f4](https://github.com/basenative/basenative/commit/9c691f4))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.1.1 (2026-01-01)
 
 ### 🚀 Features
