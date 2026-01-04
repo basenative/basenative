@@ -13,8 +13,8 @@
   min-height: 400px; /* Increased height for canvas feel */
   overflow: hidden;
   background-image: radial-gradient(
-    var(--color-text-muted) 1px,
-    /* Darker dots */ transparent 1px
+    var(--color-pattern-dots) 1px,
+    transparent 1px
   );
   background-size: 20px 20px;
   cursor: grab;

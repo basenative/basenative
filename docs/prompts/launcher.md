@@ -36,3 +36,12 @@ Do **not**:
 Wait for explicit confirmation before proceeding.
 
 ---
+
+## Business Strategy Context (Greenput)
+
+**Greenput is an SMB Web Hosting & Ad Platform**, not just a compliance tool.
+
+- **Model**: We host the SMB site (BaseNative). We run ads to that site.
+- **Key Feature**: "Bannerless" because it's first-party.
+- **Differentiation**: "No-Risk Leads" -> If the local pro (SMB) doesn't convert the lead (via our FSM real-time pricing engine), we redistribute it to the pool and don't charge them.
+- **Reference**: See `docs/products/greenput.md` for full strategy.

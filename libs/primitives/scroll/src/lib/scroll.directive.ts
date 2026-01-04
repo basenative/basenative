@@ -1,18 +1,11 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  OnChanges,
-  SimpleChanges,
-  inject,
-} from '@angular/core';
+import { Directive } from '@angular/core';
 
 @Directive({
   selector: '[scroll]',
   standalone: true,
   host: {
     style:
-      'overflow: auto; display: block; scrollbar-width: thin; scrollbar-color: var(--glass-border) transparent;',
+      'overflow: auto; display: block; scrollbar-width: thin; scrollbar-color: var(--color-border-glass) transparent;',
   },
 })
 export class ScrollDirective {

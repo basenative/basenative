@@ -27,6 +27,11 @@ export const docsRoutes: Route[] = [
         loadComponent: () =>
           import('./pages/components/components').then((m) => m.ComponentsPage),
       },
+      {
+        path: 'strategy',
+        loadComponent: () =>
+          import('./pages/strategy/strategy').then((m) => m.StrategyPage),
+      },
     ],
   },
 ];

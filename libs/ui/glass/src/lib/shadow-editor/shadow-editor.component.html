@@ -1,8 +1,10 @@
 <div class="shadow-editor">
   <div class="control-grid">
     <div class="control">
-      <label>X</label>
+      <label [for]="'x-' + uid">X</label>
       <input
+        [id]="'x-' + uid"
+        [name]="'x-' + uid"
         type="range"
         min="-50"
         max="50"
@@ -13,8 +15,10 @@
     </div>
 
     <div class="control">
-      <label>Y</label>
+      <label [for]="'y-' + uid">Y</label>
       <input
+        [id]="'y-' + uid"
+        [name]="'y-' + uid"
         type="range"
         min="-50"
         max="50"
@@ -25,8 +29,10 @@
     </div>
 
     <div class="control">
-      <label>Blur</label>
+      <label [for]="'blur-' + uid">Blur</label>
       <input
+        [id]="'blur-' + uid"
+        [name]="'blur-' + uid"
         type="range"
         min="0"
         max="100"
@@ -37,8 +43,10 @@
     </div>
 
     <div class="control">
-      <label>Spread</label>
+      <label [for]="'spread-' + uid">Spread</label>
       <input
+        [id]="'spread-' + uid"
+        [name]="'spread-' + uid"
         type="range"
         min="-50"
         max="50"
@@ -49,8 +57,10 @@
     </div>
 
     <div class="control full">
-      <label>Opacity</label>
+      <label [for]="'opacity-' + uid">Opacity</label>
       <input
+        [id]="'opacity-' + uid"
+        [name]="'opacity-' + uid"
         type="range"
         min="0"
         max="1"
@@ -62,9 +72,15 @@
     </div>
 
     <div class="control full color-control">
-      <label>Color</label>
+      <label [for]="'color-' + uid">Color</label>
       <div class="color-picker-wrapper">
-        <input type="color" [value]="color()" (input)="onColorInput($event)" />
+        <input
+          [id]="'color-' + uid"
+          [name]="'color-' + uid"
+          type="color"
+          [value]="color()"
+          (input)="onColorInput($event)"
+        />
         <span>{{ color() }}</span>
       </div>
     </div>

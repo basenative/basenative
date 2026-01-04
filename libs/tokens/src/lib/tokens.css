@@ -4,13 +4,29 @@
     --color-primary: oklch(60% 0.22 260);
     --color-surface-base: oklch(98% 0 0);
     --color-surface-glass: oklch(98% 0 0 / 0.6);
-    --color-surface-glass-dampered: oklch(95% 0 0 / 0.5); /* Added for Input */
+    --color-surface-glass-dampered: oklch(95% 0 0 / 0.5);
     --color-surface-panel: oklch(96% 0 0 / 0.7);
     --color-text-main: oklch(10% 0 0);
-    --color-text-1: oklch(10% 0 0); /* Added for Input */
+    --color-text-1: oklch(10% 0 0);
     --color-text-muted: oklch(40% 0 0);
     --color-border-glass: oklch(0% 0 0 / 0.1);
-    --color-error: oklch(60% 0.2 25); /* Added for Input */
+    --color-error: oklch(60% 0.2 25);
+
+    --color-pattern-dots: oklch(40% 0 0 / 0.2); /* Darker dots for light mode */
+
+    /* Syntax Highlighting */
+    --color-syntax-bg: #1e1e1e;
+    --color-syntax-text: #d4d4d4;
+    --color-syntax-comment: #6a9955;
+    --color-syntax-tag: #80cbc4;
+    --color-syntax-attr: #9cdcfe;
+    --color-syntax-string: #ce9178;
+    --color-syntax-keyword: #c586c0;
+    --color-syntax-function: #dcdcaa;
+    --color-syntax-number: #b5cea8;
+    --color-syntax-class: #4ec9b0;
+    --color-syntax-operator: #d4d4d4;
+    --color-syntax-brace: #ffd700;
 
     --blur-glass-sm: 12px;
     --blur-glass-md: 24px;
@@ -44,6 +60,11 @@
     --color-text-1: oklch(98% 0 0);
     --color-text-muted: oklch(70% 0.05 260);
     --color-border-glass: oklch(100% 0 0 / 0.1);
+
+    --color-pattern-dots: oklch(
+      85% 0.02 260 / 0.2
+    ); /* Light dots for dark mode */
+
     --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   }
 }

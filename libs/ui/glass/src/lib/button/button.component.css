@@ -6,7 +6,7 @@
   white-space: nowrap;
   border-radius: var(--radius-md);
   font-weight: 500;
-  font-family: var(--font-sans);
+  font-family: var(--typography-font-sans);
   transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
   cursor: pointer;
   text-decoration: none;

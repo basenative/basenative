@@ -1,0 +1,18 @@
+<article class="og-card">
+  <div class="og-image-container">
+    @if (image()) {
+      <img [src]="image()" alt="Preview" class="og-image" />
+    } @else {
+      <div class="og-placeholder">
+        <span>No Image</span>
+      </div>
+    }
+  </div>
+  <div class="og-content">
+    <h3 class="og-title">{{ title() || 'Page Title' }}</h3>
+    <p class="og-description">
+      {{ description() || 'Page description goes here...' }}
+    </p>
+    <div class="og-url">{{ url() || 'example.com' }}</div>
+  </div>
+</article>

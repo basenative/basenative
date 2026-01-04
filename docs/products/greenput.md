@@ -1,233 +1,63 @@
-# Greenput: Business Breakdown
+# Greenput: The SMB Growth Platform (Bannerless Hosting & Ads)
 
-## One-liner
+Greenput is a **vertical web hosting and lead generation platform** for SMBs (e.g., electricians, plumbers) that completely eliminates cookie banners by unifying the entire funnel: **Hosting + Ad Campaign + Lead Intake**.
 
-Greenput is a consent-backed lead intake and data portability platform that allows businesses to collect user information from paid traffic **without cookie banners**, while giving users full control over where their data goes.
+## The "Magic Sauce" Strategy
 
----
+### 1. Hosted by Greenput (Built with BaseNative)
 
-## The problem
+We don't just provide a widget; we **host the SMB's entire website**.
 
-The modern web treats consent as a UI negotiation instead of a property of intent.
+- **For the SMB**: Better performance, extensibility to enterprise scale, and cheaper than WordPress.
+- **For the User**: A seamless, first-party experience.
 
-Businesses are forced to:
+### 2. Client-Owned Ad Campaigns
 
-- block content with cookie banners
-- degrade conversion on paid traffic
-- rely on dark patterns to remain competitive
-- store user data in closed systems users cannot move away from
+We manage Google/Social campaigns for the SMB, but the campaigns run **strictly to the SMB's own Greenput-hosted site**.
 
-Users are forced to:
+- Because the user clicks an ad for "Sparky's Electric" and lands on "Sparky's Electric" (hosted by Greenput), their relationship is direct.
+- **Result**: No third-party cookie banners required. The "Action" (clicking the ad and submitting the form) **IS** the consent.
 
-- make abstract decisions about “analytics” and “personalization”
-- accept tracking unrelated to their immediate goal
-- surrender data with no clear portability or ownership
+### 3. FSM-Driven Pricing Engine
 
-This has produced a broken equilibrium where everyone complies with the _letter_ of GDPR and CCPA while violating the _spirit_ of user autonomy.
+When a user submits a request, our **Field Service Management (FSM)** engine calculates real-time estimates instantly.
 
----
+- Users see pricing _before_ they commit.
+- They can accept the estimate or decline.
 
-## The thesis
+### 4. The "No-Risk" Lead Pool (Redistribution)
 
-Consent does not need a banner.
+If the user **does not convert** (declines the estimate) for the original SMB (e.g., Sparky's Electric):
 
-When a user arrives with intent and performs a deliberate action, consent can be:
+1.  **Sparky is NOT charged** for the lead cost.
+2.  The lead is **returned to the Greenput Pool**.
+3.  The user is offered matches from _other_ suppliers in the pool ("Move on to another client/supplier").
+4.  Greenput monetizes by selling that valid lead to the next available provider.
 
-- specific
-- scoped
-- provable
-- portable
-
-Greenput treats **user action itself** as the consent event, not a pop-up negotiation layered on top of unrelated tracking.
-
-If consent is tied to purpose, data collection becomes ethical by construction and banners become unnecessary.
+**Summary**: The user gets secure, instant pricing. The SMB gets risk-free leads (only pay for conversion/opportunity). Greenput aggregates the demand.
 
 ---
 
-## Primary use case: Paid traffic lead intake
+## Technical Architecture
 
-Greenput is designed for SMBs sending paid traffic to purpose-built landing experiences.
+### Bannerless Consent
 
-In this model:
+- **Mechanism**: First-party context. The user intends to interact with the specific brand.
+- **Visuals**: "Action is Consent" transparency notices (as seen in `GreenputShowcase`).
 
-- A user arrives to complete a specific task (request a quote, submit contact info, start a trial).
-- Only the data required for that task is collected.
-- There is no ambient tracking, profiling, or background analytics.
-- Consent is embedded inline as part of the interaction, not negotiated separately.
+### Real-Time FSM Engine
 
-Examples:
+- **Input**: User Project Details (e.g., "Rewiring a house").
+- **Process**: Lookup pricing rules in the FSM database.
+- **Output**: Instant Estimate range.
 
-- “Request a quote” form
-- “Contact an electrician” intake
-- “Get a callback” landing page
-- “Start a free evaluation” flow
+### The Pool
 
-The lead submission itself becomes a **first-class consent event**, with:
-
-- a declared purpose
-- explicit data categories
-- a defined retention window
-- a generated consent receipt
-
-No cookie banner is required because no speculative data collection exists.
+- A shared data structure where un-converted leads are queued for redistribution.
 
 ---
 
-## User-controlled data portability
+## Relationship to BaseNative
 
-A core differentiator of Greenput is that users are never trapped.
-
-Greenput supports:
-
-- exporting submitted data and consent receipts in portable formats
-- proving consent independently of the original business
-- redirecting future submissions to a different provider
-- revoking access without losing personal records
-
-Greenput is not a data silo.
-
-It is a **routing and verification layer** that allows users to move their data while businesses retain provable consent.
-
----
-
-## Target customers
-
-### Primary
-
-- SMBs running paid search, social, or display ads
-- Service businesses collecting inbound leads
-- Companies that want higher conversion without compliance risk
-
-### Secondary
-
-- Platforms embedding lead capture for partners
-- Regulated organizations needing audit-grade consent
-- Teams migrating away from dark-pattern consent vendors
-
----
-
-## Core value proposition
-
-For businesses:
-
-- Higher conversion on paid traffic
-- No cookie banner UX tax
-- Clean consent receipts for compliance
-- Simple integration into landing pages and apps
-
-For users:
-
-- No forced pop-ups
-- Clear explanation of what data is collected and why
-- Proof of consent they can keep
-- Ability to move or revoke their data later
-
----
-
-## Product pillars
-
-### 1. Consent through intent
-
-- Consent is expressed by deliberate action
-- No bundled purposes
-- No background tracking
-- No abstract toggles unrelated to the task
-
-### 2. Consent as a domain model
-
-- Explicit purposes
-- Explicit data categories
-- Explicit processors
-- Explicit retention periods
-- Versioned, immutable consent receipts
-- Revocation with history
-
-### 3. Enforcement, not theater
-
-- No data is stored or emitted without a valid consent state
-- Runtime guards prevent accidental leakage
-- Downstream systems receive data only after verification
-
-### 4. Portability by default
-
-- Exportable receipts and data
-- Provider-agnostic verification
-- Designed to let users leave without penalty
-
----
-
-## Differentiation
-
-Most consent platforms:
-
-- optimize opt-in rates
-- rely on coercive UI
-- trap data behind vendors
-- exist to satisfy compliance checklists
-
-Greenput:
-
-- optimizes clarity and trust
-- eliminates banners by design
-- treats consent as infrastructure
-- makes data portable instead of sticky
-
-Greenput is not a “compliance layer.”  
-It is a **consent operating system for lead intake**.
-
----
-
-## Business model options
-
-- SaaS pricing per domain or per landing experience
-- Tiered plans based on receipt retention depth
-- Per-seat pricing for internal compliance teams
-- Enterprise plans for custom policies, residency, and integrations
-
----
-
-## Go-to-market wedge
-
-Start with SMBs already paying for traffic.
-
-Replace:
-
-- cookie banners
-- brittle form plugins
-- questionable analytics setups
-
-With:
-
-- a single ethical intake layer
-- provable consent
-- better conversion
-- lower compliance risk
-
----
-
-## Success metrics
-
-- Lead conversion lift vs banner-based flows
-- Time-to-understand vs time-to-submit parity
-- Successful data exports and transfers
-- Reduction in compliance incidents
-- Integration time for new landing pages
-
----
-
-## Non-goals
-
-- Maximizing opt-in conversion at all costs
-- Passive tracking or behavioral profiling
-- Rebuilding traditional cookie consent banners
-- Becoming a data broker or analytics vendor
-
----
-
-## Relationship to BaseNative and Artafects
-
-- BaseNative provides the UI and monorepo enforcement layer.
-- Greenput handles consent and ethical data intake.
-- Artafects handles long-lived memory and user-owned artifacts built on top of consented data.
-
-Greenput defines **how data enters the system**.
+- **BaseNative** is the UI/UX foundation for all Greenput-hosted sites.
+- **Showcase**: Demonstrates the "Lead Intake -> Estimate -> Redemption" flow.

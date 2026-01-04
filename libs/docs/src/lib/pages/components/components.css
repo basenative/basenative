@@ -40,108 +40,92 @@ pre[class*='language-'] {
   border: 1px solid var(--color-border-glass);
 }
 
+/* VS Code Dark+ inspired theme for angular.dev look */
+
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-  background: #2d2d2d;
+  background: var(--color-syntax-bg);
+  color: var(--color-syntax-text);
+
+  /* Custom Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-glass) transparent;
 }
 
-/* Inline code */
-:not(pre) > code[class*='language-'] {
-  padding: 0.1em;
-  border-radius: 0.3em;
-  white-space: normal;
-}
-
+/* Base Tokens */
 .token.comment,
 .token.block-comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #999;
+  color: var(--color-syntax-comment);
 }
 
 .token.punctuation {
-  color: #ccc;
+  color: var(--color-syntax-text);
 }
 
 .token.tag,
-.token.attr-name,
-.token.namespace,
-.token.deleted {
-  color: #e2777a;
+.token.tag .token.punctuation {
+  color: var(--color-syntax-tag);
 }
 
+.token.attr-name {
+  color: var(--color-syntax-attr);
+}
+
+.token.attr-value,
+.token.string {
+  color: var(--color-syntax-string);
+}
+
+.token.keyword,
+.token.control-flow {
+  color: var(--color-syntax-keyword);
+  font-weight: normal;
+}
+
+.token.function,
 .token.function-name {
-  color: #6196cc;
+  color: var(--color-syntax-function);
 }
 
 .token.boolean,
-.token.number,
-.token.function {
-  color: #f08d49;
-}
-
-.token.property,
-.token.class-name,
-.token.constant,
-.token.symbol {
-  color: #f8c555;
-}
-
-.token.selector,
-.token.important,
-.token.atrule,
-.token.keyword,
-.token.builtin {
-  color: #cc99cd;
-}
-
-.token.string,
-.token.char,
-.token.attr-value,
-.token.regex,
-.token.variable {
-  color: #7ec699;
+.token.number {
+  color: var(--color-syntax-number);
 }
 
 .token.operator,
 .token.entity,
 .token.url {
-  color: #67cdcc;
+  color: var(--color-syntax-operator);
 }
 
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-.token.italic {
-  font-style: italic;
+.token.class-name {
+  color: var(--color-syntax-class);
 }
 
-.token.entity {
-  cursor: help;
-}
+/* Angular Specific Highlighting - Aligned with VS Code */
 
-.token.inserted {
-  color: green;
-}
-
-/* Angular Specific Highlighting */
 .token.binding {
-  color: #a5d6ff; /* Soft Blue for [binding] */
-  font-weight: bold;
+  color: var(--color-syntax-attr);
 }
 
 .token.event {
-  color: #ff9e64; /* Soft Orange for (event) */
-  font-weight: bold;
+  color: var(--color-syntax-function);
 }
 
 .token.structural-directive {
-  color: #c099ff; /* Soft Purple for *directive */
+  color: var(--color-syntax-keyword);
   font-style: italic;
 }
 
-.token.interpolation {
-  color: #73daca; /* Teal for {{ interpolation }} */
+.token.interpolation .token.delimiter {
+  color: var(--color-syntax-brace);
 }
+
+.token.interpolation {
+  color: var(--color-syntax-attr);
+}
+
+/* TS inside Interpolation will inherit standard TS colors now! */

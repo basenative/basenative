@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
   styleUrl: './shadow-editor.component.css',
 })
 export class ShadowEditorComponent {
+  readonly uid = 'shadow-' + Math.random().toString(36).slice(2, 9);
   @Input() set value(v: string) {
     this.parse(v);
   }
@@ -23,8 +24,6 @@ export class ShadowEditorComponent {
 
   // Flag to prevent loop
   private isUpdating = false;
-
-  constructor() {}
 
   parse(val: string) {
     if (this.isUpdating) return;

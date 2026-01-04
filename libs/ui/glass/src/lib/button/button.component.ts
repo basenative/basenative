@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'button[bn], a[bn], button[variant], a[variant]',
   standalone: true,
   imports: [CommonModule],
-  template: '<ng-content></ng-content>',
+  templateUrl: './button.component.html',
   styleUrl: './button.component.css',
   host: {
     '[attr.variant]': 'variant',

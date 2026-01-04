@@ -6,14 +6,19 @@
 
 .configurator-container {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: var(--space-8);
   max-width: 1800px;
   margin: 0 auto;
   padding: var(--space-8);
   align-items: start;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
+}
+
+.configurator-container.no-sidebar {
+  grid-template-columns: 1fr;
+  max-width: 1200px;
 }
 
 /* --- Left Panel: Controls --- */
@@ -24,13 +29,31 @@
   overflow-y: auto;
   padding-right: var(--space-2);
   height: 100%;
+  min-width: 0;
 }
 
+/* Scrollbar styling */
+.panel-controls::-webkit-scrollbar,
+.panel-preview::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel-controls::-webkit-scrollbar-track,
+.panel-preview::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel-controls::-webkit-scrollbar-thumb,
+.panel-preview::-webkit-scrollbar-thumb {
+  background-color: var(--color-surface-panel);
+  border-radius: var(--radius-xl);
+}
+
+/* Accordions (Restored) */
 .group-details {
   background: var(--color-surface-glass);
   border: 1px solid var(--color-border-glass);
   border-radius: var(--radius-lg);
-  /* overflow: hidden; Removed to prevent clipping content */
   transition: all 0.2s ease;
 }
 
@@ -47,7 +70,7 @@ summary {
   color: var(--color-text-muted);
   cursor: pointer;
   user-select: none;
-  list-style: none; /* Hide default triangle */
+  list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -86,10 +109,205 @@ summary:hover {
   }
 }
 
+/* --- Right Panel: Preview & Tokens --- */
+.panel-preview {
+  height: 100%;
+  overflow-y: auto;
+  border-radius: var(--radius-xl);
+  padding-right: var(--space-4);
+}
+
+.preview-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-bottom: var(--space-12);
+}
+
+/* Token Sections in Main Panel */
+.tokens-card {
+  /* Using standard card styling */
+  background: var(--color-surface-panel);
+  border: 1px solid var(--color-border-glass);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.token-scroller-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  margin-top: var(--space-6);
+}
+
+.token-group-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border-glass);
+}
+
+.tokens-grid-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+/* --- Token Card (Grid Item) --- */
+.token-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 160px; /* Fixed width */
+  height: 200px;
+  background: var(--color-surface-panel);
+  border: 1px solid var(--color-border-glass);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+
+.token-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+  z-index: 5;
+}
+
+.token-card .giant-hitbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: var(--z-index-docked);
+}
+
+.card-preview-area {
+  flex: 1;
+  background-color: #f0f0f0;
+  /* Checkered Pattern */
+  background-image:
+    linear-gradient(45deg, #ccc 25%, transparent 25%),
+    linear-gradient(-45deg, #ccc 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ccc 75%),
+    linear-gradient(-45deg, transparent 75%, #ccc 75%);
+  background-size: 20px 20px;
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-bottom: 1px solid var(--color-border-glass);
+}
+
+.preview-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  border: 4px solid white;
+}
+
+.card-info-area {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.token-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  text-transform: capitalize;
+}
+
+.token-var {
+  font-size: 0.7rem;
+  font-family: monospace;
+  color: var(--color-text-muted);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 4px;
+  border-radius: 4px;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* --- Inputs & Rows --- */
 .token-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+/* Premium Input Styles */
+input[type='text'] {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-border-glass);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-3);
+  color: var(--color-text-main);
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+input[type='text']:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary), 0.2);
+}
+
+[input-wrapper] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+[input-wrapper]::before {
+  content: attr(label);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-left: 2px;
+}
+
+/* Shadow Editor Helpers */
+.shadow-control-group {
+  display: flex;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.shadow-preview-box {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-glass);
 }
 
 /* CLI Info */
@@ -109,26 +327,12 @@ summary:hover {
 }
 
 .cli-info-inline code {
-  font-family: monospace;
+  font-family: var(--typography-font-mono);
   font-size: 0.8rem;
   color: var(--color-text-main);
 }
 
-/* --- Right Panel: Preview Grid --- */
-.panel-preview {
-  height: 100%;
-  overflow-y: auto;
-  border-radius: var(--radius-xl);
-  /* background: var(--color-surface);
-  border: 1px solid var(--color-border); */
-}
-
-.preview-grid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
+/* Preview Cards */
 .preview-card {
   background: var(--color-surface-panel);
   border: 1px solid var(--color-border-glass);
@@ -144,10 +348,16 @@ summary:hover {
   align-items: center;
 }
 
-.preview-card h2 {
-  font-size: 1.25rem;
+.preview-card h2,
+.preview-card h1 {
+  font-size: 1.5rem;
   margin: 0;
+  color: var(--color-text-main);
+}
+
+.subtitle {
   color: var(--color-text-muted);
+  font-size: 0.9rem;
 }
 
 /* Identity Layout */
@@ -170,7 +380,7 @@ summary:hover {
   height: 213px; /* 9/16 ratio */
   background-size: cover;
   background-position: center;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   border: 4px solid #111;
   position: relative;
   overflow: hidden;
@@ -181,7 +391,7 @@ summary:hover {
   height: 48px;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(8px);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   position: absolute;
   top: 40px;
   left: 50%;

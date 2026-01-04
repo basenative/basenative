@@ -1,12 +1,12 @@
 <header>
-  <h1>ServiceConnect</h1>
-  <p>Get matched with top-rated local pros.</p>
+  <h1>Sparky's Electric</h1>
+  <p>Powered by <strong>Greenput</strong>. Real-time estimates, no waiting.</p>
 </header>
 
 <!-- PHASE 1: LEAD INTAKE (The "Consent" Event) -->
 @if (!currentReceipt()) {
   <section class="lead-form-section">
-    <h2>Request a Quote</h2>
+    <h2>Get an Instant Estimate</h2>
     <form (ngSubmit)="submitLead()" #leadForm="ngForm">
       <fieldset class="form-group">
         <label for="name">Full Name</label>
@@ -35,6 +35,7 @@
           name="details"
           [(ngModel)]="formData.details"
           required
+          placeholder="e.g. Rewiring a 1920s bungalow..."
         ></textarea>
       </fieldset>
 
@@ -43,16 +44,19 @@
         aria-label="Privacy and Consent Notice"
       >
         <p>
-          <strong>Transparency Notice:</strong> By clicking "Get Quotes", you
+          <strong>Transparency Notice:</strong> By clicking "See Price", you
           authorize us to:
         </p>
         <ul>
+          <li>Calculate a real-time estimate for your project</li>
           <li>Store your contact details (Retention: 90 days)</li>
-          <li>Share this request with up to 3 verified providers</li>
+          <li>
+            <strong>If you decline our estimate:</strong> Match you with other
+            local pros in the Greenput Pool
+          </li>
         </ul>
         <p class="small">
-          We do not sell your data to ad networks. You can export or revoke this
-          data at any time.
+          We do not sell your data to ad networks. You are in control.
         </p>
         <!-- Portability/Audit Pre-check -->
         <div class="audit-preview">
@@ -65,7 +69,7 @@
         class="btn btn-primary"
         [disabled]="!leadForm.form.valid"
       >
-        Get Quotes
+        See Instant Price
       </button>
     </form>
   </section>

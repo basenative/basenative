@@ -28,7 +28,7 @@ import { environment } from '../../environments/environment';
     DataCategoryExplainerComponent,
   ],
   templateUrl: './greenput-showcase.component.html',
-  styleUrl: './greenput-showcase.component.scss',
+  styleUrl: './greenput-showcase.component.css',
 })
 export class GreenputShowcaseComponent {
   private http = inject(HttpClient);

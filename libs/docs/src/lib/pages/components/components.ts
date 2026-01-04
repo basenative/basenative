@@ -53,9 +53,20 @@ const angularAttributes = {
 Object.assign(tag.inside, angularAttributes, originalInside);
 
 Prism.languages.insertBefore('angular-html', 'tag', {
+  'control-flow': {
+    pattern:
+      /@(?:if|for|switch|case|default|else|defer|loading|placeholder|error|empty)\b/,
+    alias: 'keyword',
+  },
   interpolation: {
     pattern: /\{\{[^}]+\}\}/,
-    alias: 'variable',
+    inside: {
+      delimiter: {
+        pattern: /^\{\{|\}\}$/,
+        alias: 'punctuation',
+      },
+      rest: Prism.languages['typescript'],
+    },
   },
 });
 

@@ -206,7 +206,7 @@ h1 {
   font-size: 1.125rem;
   line-height: 1.8;
   color: var(--color-text-main);
-  max-width: 70ch;
+  /* max-width: 70ch; Removed to fix crammed layout */
 }
 
 ::ng-deep .content h3 {

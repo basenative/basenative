@@ -4,11 +4,11 @@ A primitive directive for positioning elements relative to a trigger element.
 
 ## Usage
 
-```html
+```angular-html
 <button #trigger (click)="menuOpen = !menuOpen">Open Menu</button>
-<div [anchor]="trigger" anchorPlacement="bottom" *ngIf="menuOpen">
-  Menu Content
-</div>
+@if (menuOpen) {
+  <div [anchor]="trigger" anchorPlacement="bottom">Menu Content</div>
+}
 ```
 
 ## Features

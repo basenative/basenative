@@ -152,3 +152,14 @@ a.active {
   background-color: var(--color-surface-panel);
   border-radius: 20px;
 }
+
+/* Header Utilities */
+.header-logo-icon {
+  height: 48px;
+  width: 48px;
+}
+
+.header-back-icon {
+  margin-right: var(--space-2);
+  vertical-align: middle;
+}

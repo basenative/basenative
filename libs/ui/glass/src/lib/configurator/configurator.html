@@ -1,255 +1,259 @@
-<div class="configurator-container">
-  <!-- Controls Panel -->
-  <div class="panel-controls">
-    <!-- Identity Configuration (Always Open) -->
-    <details class="group-details" name="config-controls" open>
-      <summary>App Identity & Assets</summary>
-      <div class="group-content">
-        <div class="token-row">
-          <label input-wrapper label="App Title" for="config-app-title">
-            <input
-              id="config-app-title"
-              type="text"
-              [value]="appTitle()"
-              (input)="appTitle.set($event.target['value'])"
-            />
-          </label>
-        </div>
-        <div class="token-row">
-          <label input-wrapper label="Logo URL" for="config-logo-url">
-            <input
-              id="config-logo-url"
-              type="text"
-              [value]="logoUrl()"
-              (input)="logoUrl.set($event.target['value'])"
-            />
-          </label>
-        </div>
-        <!-- CLI Info Inline -->
-        <div class="cli-info-inline">
-          <span>Generate icons:</span>
-          <code>npm run generate-assets</code>
-        </div>
-      </div>
-    </details>
-
-    <details class="group-details" name="config-controls">
-      <summary>Social & SEO</summary>
-      <div class="group-content">
-        <div class="token-row">
-          <label input-wrapper label="OG Title" for="og-title"
-            ><input
-              id="og-title"
-              type="text"
-              [value]="ogTitle()"
-              (input)="ogTitle.set($event.target['value'])"
-          /></label>
-        </div>
-        <div class="token-row">
-          <label input-wrapper label="OG Desc" for="og-desc"
-            ><input
-              id="og-desc"
-              type="text"
-              [value]="ogDescription()"
-              (input)="ogDescription.set($event.target['value'])"
-          /></label>
-        </div>
-        <div class="token-row">
-          <label input-wrapper label="OG Image" for="og-image"
-            ><input
-              id="og-image"
-              type="text"
-              [value]="ogImage()"
-              (input)="ogImage.set($event.target['value'])"
-          /></label>
-        </div>
-        <div class="token-row">
-          <label input-wrapper label="OG URL" for="og-url"
-            ><input
-              id="og-url"
-              type="text"
-              [value]="ogUrl()"
-              (input)="ogUrl.set($event.target['value'])"
-          /></label>
-        </div>
-      </div>
-    </details>
-
-    <!-- Token Groups (Accordions) -->
-    @for (group of Object.keys(flatTokens()); track group) {
-      <details class="group-details" name="config-controls">
-        <summary>{{ group | titlecase }} Tokens</summary>
+<div class="configurator-container" [class.no-sidebar]="!showSidebar()">
+  <!-- Controls Panel (Sidebar) -->
+  @if (showSidebar()) {
+    <div class="panel-controls">
+      <!-- Identity Configuration (Accordion) -->
+      <details class="group-details" name="config-controls" open>
+        <summary>App Identity & Assets</summary>
         <div class="group-content">
-          @for (token of flatTokens()[group]; track token.name) {
-            <div class="token-row">
-              <div class="input-wrapper" [class.color]="token.type === 'color'">
+          <div class="token-row">
+            <label input-wrapper label="App Title" for="config-app-title">
+              <input
+                id="config-app-title"
+                type="text"
+                [value]="appTitle()"
+                (input)="appTitle.set($event.target['value'])"
+              />
+            </label>
+          </div>
+          <div class="token-row">
+            <label input-wrapper label="Logo URL" for="config-logo-url">
+              <input
+                id="config-logo-url"
+                type="text"
+                [value]="logoUrl()"
+                (input)="logoUrl.set($event.target['value'])"
+              />
+            </label>
+          </div>
+          <!-- CLI Info Inline -->
+          <div class="cli-info-inline">
+            <span>Generate icons:</span>
+            <code>npm run generate-assets</code>
+          </div>
+        </div>
+      </details>
+
+      <details class="group-details" name="config-controls">
+        <summary>Social & SEO</summary>
+        <div class="group-content">
+          <div class="token-row">
+            <label input-wrapper label="OG Title" for="og-title"
+              ><input
+                id="og-title"
+                type="text"
+                [value]="ogTitle()"
+                (input)="ogTitle.set($event.target['value'])"
+            /></label>
+          </div>
+          <div class="token-row">
+            <label input-wrapper label="OG Desc" for="og-desc"
+              ><input
+                id="og-desc"
+                type="text"
+                [value]="ogDescription()"
+                (input)="ogDescription.set($event.target['value'])"
+            /></label>
+          </div>
+          <div class="token-row">
+            <label input-wrapper label="OG Image" for="og-image"
+              ><input
+                id="og-image"
+                type="text"
+                [value]="ogImage()"
+                (input)="ogImage.set($event.target['value'])"
+            /></label>
+          </div>
+          <div class="token-row">
+            <label input-wrapper label="OG URL" for="og-url"
+              ><input
+                id="og-url"
+                type="text"
+                [value]="ogUrl()"
+                (input)="ogUrl.set($event.target['value'])"
+            /></label>
+          </div>
+        </div>
+      </details>
+    </div>
+  }
+
+  <!-- Main Preview Panel (Token Editor + Preview) -->
+  <div class="panel-preview">
+    @if (showPreviews()) {
+      <div class="preview-grid">
+        <!-- Identity Section -->
+        <section class="preview-card identity-card">
+          <header><h2>Identity Preview</h2></header>
+          <div class="identity-layout">
+            <!-- PWA -->
+            <div class="pwa-preview">
+              <div
+                class="pwa-device-mini pwa-wallpaper-mount"
+                title="Home Screen Icon"
+              >
+                <div class="app-icon-mini">
+                  <img [src]="logoUrl()" alt="App Logo" />
+                </div>
+              </div>
+              <div class="pwa-text">
+                <strong>PWA Icon</strong>
+                <span>Home Screen</span>
+              </div>
+            </div>
+            <!-- Social -->
+            <div class="social-preview-wrapper">
+              <glass-og-preview
+                [title]="ogTitle()"
+                [description]="ogDescription()"
+                [image]="ogImage()"
+                [url]="ogUrl()"
+              ></glass-og-preview>
+            </div>
+          </div>
+        </section>
+
+        <!-- Components Section -->
+        <section class="preview-card playground-card">
+          <header>
+            <div class="header-main">
+              <img [src]="logoUrl()" class="header-logo" alt="App Logo" />
+              <h1>{{ appTitle() }}</h1>
+            </div>
+            <p class="subtitle">Live Component Playground</p>
+          </header>
+
+          <div class="playground-grid">
+            <section class="showcase-section">
+              <h4>Buttons</h4>
+              <div class="component-row">
+                <button variant="primary">Primary</button>
+                <button variant="secondary">Secondary</button>
+                <button variant="ghost">Ghost</button>
+                <button variant="danger">Danger</button>
+              </div>
+            </section>
+
+            <section class="showcase-section">
+              <h4>Typography</h4>
+              <h1>Heading 1</h1>
+              <p>
+                The quick brown fox jumps over the <a href="#">lazy dog</a>.
+              </p>
+              <div class="text-muted">Muted text sample.</div>
+            </section>
+
+            <section class="showcase-section">
+              <h4>Surfaces</h4>
+              <article class="sample-card">
+                <header><h5>Card Title</h5></header>
+                <p>Inerits surface, border, and spacing tokens.</p>
+                <footer>
+                  <button variant="primary" size="sm">Action</button>
+                </footer>
+              </article>
+            </section>
+          </div>
+        </section>
+      </div>
+    }
+
+    <!-- Design Tokens Section (Main Content) -->
+    <section
+      class="preview-card tokens-card"
+      style="margin-top: var(--space-6)"
+    >
+      <header>
+        <div class="header-main">
+          <h1>Design Tokens</h1>
+        </div>
+        <p class="subtitle">Customize your theme system below.</p>
+      </header>
+
+      <div class="token-scroller-container">
+        @for (group of getOrderedGroups(); track group) {
+          <div class="token-group-section">
+            <div class="token-group-header">{{ group | titlecase }} Tokens</div>
+
+            <div class="tokens-grid-section">
+              @for (token of flatTokens()[group]; track token.name) {
                 @if (token.type === 'color') {
-                  <label
-                    input-wrapper
-                    [label]="token.name.split('-').pop() || '' | titlecase"
-                  >
-                    <div
-                      class="color-control-group"
-                      style="
-                        display: flex;
-                        gap: var(--space-2);
-                        align-items: center;
-                      "
-                    >
+                  <!-- Card Layout for Colors -->
+                  <label class="token-card">
+                    <input
+                      [id]="token.cssVar"
+                      type="color"
+                      [value]="getHexValue(token.value)"
+                      (input)="update(token.cssVar, $event)"
+                      class="giant-hitbox"
+                      [attr.aria-label]="'Change color for ' + token.name"
+                    />
+
+                    <div class="card-preview-area">
                       <div
-                        class="color-preview"
+                        class="preview-circle"
                         [style.background]="token.value"
-                        style="
-                          width: 24px;
-                          height: 24px;
-                          border-radius: 50%;
-                          border: 1px solid var(--color-border-glass);
-                        "
                       ></div>
+                    </div>
+
+                    <div class="card-info-area">
+                      <span class="token-name">{{
+                        token.name
+                          .replace('--color-', '')
+                          .replace('--syntax-', '')
+                          .split('-')
+                          .pop() | titlecase
+                      }}</span>
+                      <span class="token-var">{{ token.cssVar }}</span>
+                    </div>
+                  </label>
+                } @else if (token.name.includes('shadow')) {
+                  <div class="token-row" style="width: 100%; max-width: 600px">
+                    <div
+                      input-wrapper
+                      [attr.label]="
+                        token.name.split('-').pop() || '' | titlecase
+                      "
+                      style="width: 100%"
+                    >
+                      <div class="shadow-control-group">
+                        <div
+                          class="shadow-preview-box"
+                          [style.box-shadow]="'var(' + token.cssVar + ')'"
+                        ></div>
+                        <div class="flex-1">
+                          <glass-shadow-editor
+                            [value]="token.value"
+                            (valueChange)="
+                              theme.updateToken(token.cssVar, $event)
+                            "
+                          >
+                          </glass-shadow-editor>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                } @else {
+                  <div class="token-row" style="width: 100%; max-width: 250px">
+                    <label
+                      input-wrapper
+                      [label]="token.name.split('-').pop() || '' | titlecase"
+                      style="width: 100%"
+                    >
                       <input
                         [id]="token.cssVar"
-                        type="color"
-                        [value]="token.value"
-                        (input)="update(token.cssVar, $event)"
-                        class="color-picker-input"
-                        style="opacity: 0; position: absolute; width: 0"
-                      />
-                      <input
                         type="text"
                         [value]="token.value"
                         (input)="update(token.cssVar, $event)"
                       />
-                    </div>
-                  </label>
-                } @else if (token.name.includes('shadow')) {
-                  <label
-                    input-wrapper
-                    [label]="token.name.split('-').pop() || '' | titlecase"
-                  >
-                    <div
-                      style="
-                        display: flex;
-                        gap: var(--space-2);
-                        align-items: center;
-                      "
-                    >
-                      <div
-                        [style.box-shadow]="token.value"
-                        style="
-                          width: 48px;
-                          height: 48px;
-                          border-radius: 8px;
-                          background: var(--color-surface-glass);
-                          border: 1px solid var(--color-border-glass);
-                        "
-                      ></div>
-                      <div style="flex: 1">
-                        <glass-shadow-editor
-                          [value]="token.value"
-                          (valueChange)="
-                            theme.updateToken(token.cssVar, $event)
-                          "
-                        >
-                        </glass-shadow-editor>
-                      </div>
-                    </div>
-                  </label>
-                } @else {
-                  <label
-                    input-wrapper
-                    [label]="token.name.split('-').pop() || '' | titlecase"
-                  >
-                    <input
-                      [id]="token.cssVar"
-                      type="text"
-                      [value]="token.value"
-                      (input)="update(token.cssVar, $event)"
-                    />
-                  </label>
+                    </label>
+                  </div>
                 }
-              </div>
-            </div>
-          }
-        </div>
-      </details>
-    }
-  </div>
-
-  <!-- Live Preview Stage -->
-  <div class="panel-preview">
-    <div class="preview-grid">
-      <!-- Identity Section -->
-      <section class="preview-card identity-card">
-        <header><h2>Identity & Assets</h2></header>
-        <div class="identity-layout">
-          <!-- PWA -->
-          <div class="pwa-preview">
-            <div
-              class="pwa-device-mini"
-              title="Home Screen Icon"
-              style="background-image: url('assets/images/wallpaper.svg')"
-            >
-              <div class="app-icon-mini">
-                <img [src]="logoUrl()" alt="App Logo" />
-              </div>
-            </div>
-            <div class="pwa-text">
-              <strong>PWA Icon</strong>
-              <span>Home Screen</span>
+              }
             </div>
           </div>
-          <!-- Social -->
-          <div class="social-preview-wrapper">
-            <glass-og-preview
-              [title]="ogTitle()"
-              [description]="ogDescription()"
-              [image]="ogImage()"
-              [url]="ogUrl()"
-            ></glass-og-preview>
-          </div>
-        </div>
-      </section>
-
-      <!-- Components Section -->
-      <section class="preview-card playground-card">
-        <header>
-          <div class="header-main">
-            <img [src]="logoUrl()" class="header-logo" alt="App Logo" />
-            <h1>{{ appTitle() }}</h1>
-          </div>
-          <p class="subtitle">Live Component Playground</p>
-        </header>
-
-        <div class="playground-grid">
-          <section class="showcase-section">
-            <h4>Buttons</h4>
-            <div class="component-row">
-              <button variant="primary">Primary</button>
-              <button variant="secondary">Secondary</button>
-              <button variant="ghost">Ghost</button>
-              <button variant="danger">Danger</button>
-            </div>
-          </section>
-
-          <section class="showcase-section">
-            <h4>Typography</h4>
-            <h1>Heading 1</h1>
-            <p>The quick brown fox jumps over the <a href="#">lazy dog</a>.</p>
-            <div class="text-muted">Muted text sample.</div>
-          </section>
-
-          <section class="showcase-section">
-            <h4>Surfaces</h4>
-            <article class="sample-card">
-              <header><h5>Card Title</h5></header>
-              <p>Inerits surface, border, and spacing tokens.</p>
-              <footer>
-                <button variant="primary" size="sm">Action</button>
-              </footer>
-            </article>
-          </section>
-        </div>
-      </section>
-    </div>
+        }
+      </div>
+    </section>
   </div>
 </div>
