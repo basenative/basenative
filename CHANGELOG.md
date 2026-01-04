@@ -1,3 +1,14 @@
+## 0.7.0 (2026-01-04)
+
+### 🚀 Features
+
+- introduce new primitive, ui, and docs libraries, and update tsconfig paths to use hyphenated aliases. ([e437ff0](https://github.com/basenative/basenative/commit/e437ff0))
+- add package definitions for new primitive and UI libraries and configure VS Code settings. ([a119d0f](https://github.com/basenative/basenative/commit/a119d0f))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.6.2 (2026-01-04)
 
 ### 🩹 Fixes
