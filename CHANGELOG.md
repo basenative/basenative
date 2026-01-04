@@ -1,3 +1,17 @@
+## 0.6.1 (2026-01-04)
+
+### 🚀 Features
+
+- add GitHub Actions workflow for Cloudflare Pages deployment ([d381a44](https://github.com/basenative/basenative/commit/d381a44))
+
+### 🩹 Fixes
+
+- pipeline failures (ci scripts, playwright, release target, docs build) ([e7e27f4](https://github.com/basenative/basenative/commit/e7e27f4))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.6.0 (2026-01-04)
 
 ### 🚀 Features
