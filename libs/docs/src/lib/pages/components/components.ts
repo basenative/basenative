@@ -15,12 +15,12 @@ interface ComponentDoc {
   content: string;
 }
 
-// import { PreviewComponent } from '../../components/preview/preview.component';
+import { PreviewComponent } from '../../components/preview/preview.component';
 
 @Component({
   selector: 'docs-components',
   standalone: true,
-  imports: [CommonModule, IconComponent /*, PreviewComponent*/],
+  imports: [CommonModule, IconComponent, PreviewComponent],
   templateUrl: './components.html',
   styleUrl: './components.css',
 })

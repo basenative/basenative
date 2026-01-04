@@ -6,7 +6,7 @@ const { Given, When, Then } = createBdd(test);
 
 Given('I have a visually hidden component', async ({ page }) => {
   // Navigate to the preview page for visually-hidden
-  await page.goto('/docs/components/visually-hidden');
+  await page.goto('/docs/components?component=visually-hidden');
 });
 
 When('I project content into it', async ({ page }) => {
