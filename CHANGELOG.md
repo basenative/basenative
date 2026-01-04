@@ -1,3 +1,13 @@
+## 0.9.0 (2026-01-04)
+
+### 🚀 Features
+
+- introduce documentation site with pages for components, philosophies, and design tokens ([7315115](https://github.com/basenative/basenative/commit/7315115))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.8.0 (2026-01-04)
 
 ### 🚀 Features
