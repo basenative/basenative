@@ -10,5 +10,9 @@
     "@angular/platform-browser": "~21.0.0",
     "@basenative/forms": "0.6.1"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
   "sideEffects": false
 }

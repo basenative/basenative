@@ -2,5 +2,9 @@
   "name": "@basenative/data",
   "version": "0.6.1",
   "peerDependencies": {},
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
   "sideEffects": false
 }

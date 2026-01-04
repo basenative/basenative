@@ -1,5 +1,9 @@
 {
   "name": "@basenative/feedback",
   "version": "0.6.1",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
   "sideEffects": false
 }
