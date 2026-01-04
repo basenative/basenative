@@ -1,3 +1,13 @@
+## 0.5.0 (2026-01-04)
+
+### 🚀 Features
+
+- add core philosophies data and ui-glass library project configuration. ([cfbe2fa](https://github.com/basenative/basenative/commit/cfbe2fa))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.4.2 (2026-01-01)
 
 ### 🩹 Fixes
