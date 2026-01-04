@@ -1,6 +1,6 @@
 {
   "name": "@basenative/primitives-focus",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "peerDependencies": {
     "@angular/core": "^21.0.0",
     "@angular/common": "~21.0.0"

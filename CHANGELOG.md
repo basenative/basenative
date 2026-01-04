@@ -1,3 +1,13 @@
+## 0.10.0 (2026-01-04)
+
+### 🚀 Features
+
+- introduce ui-glass and docs libraries with initial configuration and documentation structure ([4b4ffb2](https://github.com/basenative/basenative/commit/4b4ffb2))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.9.0 (2026-01-04)
 
 ### 🚀 Features
