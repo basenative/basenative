@@ -12,7 +12,7 @@ import {
   IconComponent,
   LogoComponent,
   ThemeSelectorComponent,
-} from '@basenative/ui/glass';
+} from '@basenative/ui-glass';
 import {
   CardComponent,
   CardHeaderDirective,
@@ -22,12 +22,12 @@ import {
   ListItemComponent,
 } from '@basenative/layout';
 import { InputComponent, InputDirective } from '@basenative/forms';
-import { VisuallyHiddenComponent } from '@basenative/primitives/a11y';
-import { FocusTrapDirective } from '@basenative/primitives/focus';
-import { Anchor, Anchored } from '@basenative/primitives/anchor';
-import { PortalDirective } from '@basenative/primitives/portal';
-import { DialogComponent } from '@basenative/primitives/dialog';
-import { ScrollDirective } from '@basenative/primitives/scroll';
+import { VisuallyHiddenComponent } from '@basenative/primitives-a11y';
+import { FocusTrapDirective } from '@basenative/primitives-focus';
+import { Anchor, Anchored } from '@basenative/primitives-anchor';
+import { PortalDirective } from '@basenative/primitives-portal';
+import { DialogComponent } from '@basenative/primitives-dialog';
+import { ScrollDirective } from '@basenative/primitives-scroll';
 
 @Component({
   selector: 'docs-preview',

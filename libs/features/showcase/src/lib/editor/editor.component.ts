@@ -3,7 +3,7 @@ import {
   FeatureLayoutComponent,
   ButtonComponent,
   IconComponent,
-} from '@basenative/ui/glass';
+} from '@basenative/ui-glass';
 
 interface FileSystemHandle {
   kind: 'file' | 'directory';

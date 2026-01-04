@@ -1,7 +1,7 @@
 import { Component, signal, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ThemeService } from '@basenative/tokens';
-import { IconComponent, FeatureLayoutComponent } from '@basenative/ui/glass';
+import { IconComponent, FeatureLayoutComponent } from '@basenative/ui-glass';
 
 interface WebBatteryManager {
   level: number;

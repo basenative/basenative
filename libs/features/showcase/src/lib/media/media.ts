@@ -13,7 +13,7 @@ import {
   IconComponent,
   FeatureLayoutComponent,
   ButtonComponent,
-} from '@basenative/ui/glass';
+} from '@basenative/ui-glass';
 
 @Component({
   selector: 'section[media-page]',
