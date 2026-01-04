@@ -1,3 +1,13 @@
+## 0.8.0 (2026-01-04)
+
+### 🚀 Features
+
+- Add immediate execution prompt for AI agent and initial UI components for docs preview, desktop, and editor. ([7d83e9b](https://github.com/basenative/basenative/commit/7d83e9b))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.7.0 (2026-01-04)
 
 ### 🚀 Features
