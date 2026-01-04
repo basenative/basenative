@@ -1,3 +1,13 @@
+## 0.4.2 (2026-01-01)
+
+### 🩹 Fixes
+
+- **ci:** restore green build across all pipelines ([f3fced5](https://github.com/basenative/basenative/commit/f3fced5))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.4.1 (2026-01-01)
 
 ### 🩹 Fixes
