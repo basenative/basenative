@@ -1,5 +1,7 @@
 ## Antigravity Launcher Prompt (Cleanroom + Craftsman Mode)
 
+Load rules via .agent/rules/README.md. Treat referenced rule files as authoritative extensions.
+
 Before doing **anything else**, you must:
 
 1. **Read all governing policy files in full**:

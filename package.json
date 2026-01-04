@@ -5,7 +5,10 @@
   "scripts": {
     "start": "nx serve showcase",
     "build": "nx build showcase",
-    "test": "nx test showcase"
+    "test": "nx test showcase",
+    "infra:init": "cd infra && terraform init",
+    "infra:plan": "cd infra && terraform plan",
+    "infra:apply": "cd infra && terraform apply"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +28,7 @@
     "@angular/cli": "~21.0.0",
     "@angular/compiler-cli": "~21.0.0",
     "@angular/language-service": "~21.0.0",
+    "@cloudflare/workers-types": "4.20260103.0",
     "@cucumber/cucumber": "12.5.0",
     "@eslint/js": "^9.8.0",
     "@nx/angular": "22.3.3",

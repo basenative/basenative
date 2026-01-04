@@ -34,11 +34,12 @@ import { DataCategory } from '@greenput/domain';
   styles: [
     `
       .category-card {
-        border: 1px solid #eee;
+        border: 1px solid var(--color-border-glass);
         padding: 1rem;
-        border-radius: 6px;
+        border-radius: var(--radius-md);
         margin-bottom: 0.5rem;
-        background: #f9f9f9;
+        background: var(--color-surface-glass);
+        color: var(--color-text-main);
       }
       .category-card.sensitive {
         border-left: 4px solid #d32f2f;
@@ -51,6 +52,7 @@ import { DataCategory } from '@greenput/domain';
       }
       .name {
         font-weight: 600;
+        color: var(--color-text-main);
       }
       .badge {
         font-size: 0.75rem;
@@ -59,21 +61,28 @@ import { DataCategory } from '@greenput/domain';
         text-transform: uppercase;
       }
       .badge.high {
-        background: #ffebee;
-        color: #c62828;
+        background: rgba(255, 235, 238, 0.2);
+        color: #ef5350;
+        border: 1px solid rgba(255, 235, 238, 0.1);
       }
       .badge.medium {
-        background: #fff3e0;
-        color: #ef6c00;
+        background: rgba(255, 243, 224, 0.2);
+        color: #ffa726;
+        border: 1px solid rgba(255, 243, 224, 0.1);
       }
       .badge.low {
-        background: #e8f5e9;
-        color: #2e7d32;
+        background: rgba(232, 245, 233, 0.2);
+        color: #66bb6a;
+        border: 1px solid rgba(232, 245, 233, 0.1);
+      }
+
+      .description {
+        color: var(--color-text-main);
       }
 
       .examples {
         font-size: 0.85rem;
-        color: #666;
+        color: var(--color-text-muted);
         margin-top: 0.5rem;
       }
       ul {

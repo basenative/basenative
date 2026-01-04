@@ -39,10 +39,11 @@ import { Revocation } from '@greenput/domain';
         padding: 0;
       }
       .event {
-        border-left: 2px solid #ccc;
+        border-left: 2px solid var(--color-border-glass);
         padding-left: 1rem;
         margin-bottom: 1rem;
         position: relative;
+        color: var(--color-text-main);
       }
       .event::before {
         content: '';
@@ -52,11 +53,11 @@ import { Revocation } from '@greenput/domain';
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: #ccc;
+        background: var(--color-text-muted);
       }
       .date {
         font-size: 0.8rem;
-        color: #666;
+        color: var(--color-text-muted);
       }
       .reason {
         font-style: italic;

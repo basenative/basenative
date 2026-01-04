@@ -43,3 +43,9 @@ jobs:
           projectName: basenative-docs
           directory: dist/apps/showcase/browser
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy Greenput API (Worker)
+        run: npx nx deploy greenput-api
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

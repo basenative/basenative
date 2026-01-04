@@ -41,17 +41,18 @@ import { ConsentReceipt } from '@greenput/domain';
   styles: [
     `
       .receipt-card {
-        background: #fff;
-        border: 1px solid #e0e0e0;
+        background: var(--color-surface-glass);
+        border: 1px solid var(--color-border-glass);
         padding: 1.5rem;
-        border-radius: 8px;
-        font-family: monospace;
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
         max-width: 400px;
+        color: var(--color-text-main);
       }
       .header {
         display: flex;
         justify-content: space-between;
-        border-bottom: 2px solid #eee;
+        border-bottom: 2px solid var(--color-border-glass);
         padding-bottom: 0.5rem;
         margin-bottom: 1rem;
       }
@@ -60,12 +61,13 @@ import { ConsentReceipt } from '@greenput/domain';
         font-size: 1.1rem;
       }
       .hash-row {
-        background: #f5f5f5;
+        background: var(--color-surface-glass-hover);
         padding: 0.5rem;
         border-radius: 4px;
         display: flex;
         justify-content: space-between;
         margin-bottom: 1rem;
+        border: 1px solid var(--color-border-glass);
       }
       .purposes ul {
         padding-left: 1rem;

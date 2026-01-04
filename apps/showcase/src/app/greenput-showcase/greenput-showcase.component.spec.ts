@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { GreenputShowcaseComponent } from './greenput-showcase.component';
 
@@ -8,7 +9,7 @@ describe('GreenputShowcaseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GreenputShowcaseComponent, RouterTestingModule],
+      imports: [GreenputShowcaseComponent, RouterTestingModule, FormsModule],
       providers: [],
     }).compileComponents();
 
@@ -21,15 +22,21 @@ describe('GreenputShowcaseComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display the header', () => {
+  it('should display the lead intake header', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Greenput Consent Platform',
+      'ServiceConnect',
     );
   });
 
-  it('should initially show consent disclosure', () => {
+  it('should show lead form initially', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('greenput-disclosure')).toBeTruthy();
+    expect(compiled.querySelector('form')).toBeTruthy();
+    expect(compiled.querySelector('input[name="email"]')).toBeTruthy();
+  });
+
+  it('should NOT show legacy consent banner', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('greenput-disclosure')).toBeFalsy();
   });
 });
