@@ -56,7 +56,9 @@ jobs:
             exit 1
           fi
 
-          echo "Found Database ID: $DB_ID"
+          # IMPORTANT: Mask the ID so it doesn't show up in logs
+          echo "::add-mask::$DB_ID"
+          echo "Found Database ID: ***"
 
           # Replace placeholder in wrangler.toml
           sed -i "s/env_var_will_override_this/$DB_ID/g" apps/greenput-api/wrangler.toml
