@@ -6,7 +6,7 @@ import { marked } from 'marked';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DOCS_DIR = path.join(__dirname, '../../docs/core-concepts');
+const DOCS_DIR = path.join(__dirname, '../../libs/data/src/assets/articles');
 const OUTPUT_FILE = path.join(
   __dirname,
   '../../libs/data/src/lib/philosophies.ts',
@@ -46,16 +46,14 @@ async function buildDocs() {
     return;
   }
 
-  const files = fs
-    .readdirSync(DOCS_DIR)
-    .filter((file) => file.endsWith('.yml'));
+  const files = fs.readdirSync(DOCS_DIR).filter((file) => file.endsWith('.md'));
   const docs: Doc[] = await Promise.all(
     files.map(async (file) => {
       const content = fs.readFileSync(path.join(DOCS_DIR, file), 'utf8');
       const { meta, body } = parseFrontMatter(content);
       const parsedContent = await marked.parse(body.trim());
       return {
-        id: file.replace('.yml', ''),
+        id: file.replace('.md', ''),
         ...meta,
         content: parsedContent,
       };
