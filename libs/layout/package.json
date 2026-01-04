@@ -1,6 +1,6 @@
 {
   "name": "@basenative/layout",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "peerDependencies": {
     "@angular/core": "^21.0.0"
   },
