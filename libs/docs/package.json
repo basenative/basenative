@@ -15,8 +15,7 @@
     "@basenative/primitives-portal": "0.4.1",
     "@basenative/primitives-dialog": "0.4.1",
     "@basenative/primitives-scroll": "0.4.1",
-    "rxjs": "~7.8.0",
-    "marked": "17.0.1"
+    "rxjs": "~7.8.0"
   },
   "sideEffects": false
 }

@@ -1,8 +1,6 @@
 {
   "name": "@basenative/navigation",
   "version": "0.4.1",
-  "peerDependencies": {
-    "@angular/core": "^21.0.0"
-  },
+  "peerDependencies": {},
   "sideEffects": false
 }
