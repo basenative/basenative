@@ -9,7 +9,7 @@
     "generate-icons": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx ts-node tools/scripts/generate-icons.ts"
+        "command": "npx ts-node --esm tools/scripts/generate-icons.ts"
       }
     },
     "build": {

@@ -10,7 +10,7 @@
     "build-docs": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx ts-node tools/scripts/process-docs.ts",
+        "command": "npx ts-node --esm tools/scripts/process-docs.ts",
         "outputs": ["libs/data/src/lib/philosophies.ts"]
       }
     },
