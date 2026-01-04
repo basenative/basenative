@@ -1,7 +1,7 @@
 import { Component, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { tokens } from '@basenative/tokens';
-import { Configurator } from '@basenative/ui/glass';
+import { Configurator } from '@basenative/ui-glass';
 
 @Component({
   selector: 'article[tokens-page]',

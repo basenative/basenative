@@ -4,7 +4,7 @@ import {
   LogoComponent,
   ThemeSelectorComponent,
   IconComponent,
-} from '@basenative/ui/glass';
+} from '@basenative/ui-glass';
 
 @Component({
   selector: 'main[docs-layout]',

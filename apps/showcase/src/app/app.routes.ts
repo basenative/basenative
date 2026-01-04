@@ -4,7 +4,7 @@ export const appRoutes: Route[] = [
   {
     path: '',
     loadComponent: () =>
-      import('@basenative/ui/glass').then((m) => m.WelcomeComponent),
+      import('@basenative/ui-glass').then((m) => m.WelcomeComponent),
   },
   {
     path: 'docs',

@@ -5,7 +5,7 @@ import { forkJoin, map, switchMap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 // import { marked } from 'marked';
-import { IconComponent } from '@basenative/ui/glass';
+import { IconComponent } from '@basenative/ui-glass';
 
 interface Article {
   id: string;
