@@ -1,3 +1,5 @@
+{
+  "name": "@basenative/docs",
   "version": "0.6.1",
   "peerDependencies": {
     "@angular/core": "^21.0.0",
