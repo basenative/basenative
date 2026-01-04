@@ -1,5 +1,5 @@
 {
-  "name": "@basenative/primitives-a11y",
+  "name": "@basenative/primitives/a11y",
   "version": "0.6.0",
   "peerDependencies": {
     "@angular/core": "^21.0.0"

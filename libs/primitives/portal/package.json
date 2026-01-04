@@ -1,5 +1,5 @@
 {
-  "name": "@basenative/primitives-portal",
+  "name": "@basenative/primitives/portal",
   "version": "0.6.0",
   "peerDependencies": {
     "@angular/core": "^21.0.0",

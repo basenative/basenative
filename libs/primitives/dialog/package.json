@@ -1,5 +1,5 @@
 {
-  "name": "@basenative/primitives-dialog",
+  "name": "@basenative/primitives/dialog",
   "version": "0.6.0",
   "peerDependencies": {
     "@angular/core": "^21.0.0",

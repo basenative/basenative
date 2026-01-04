@@ -6,7 +6,9 @@
     "declarationMap": true,
     "sourceMap": true,
     "inlineSources": true,
-    "types": []
+    "types": [],
+    "module": "es2022",
+    "target": "es2022"
   },
   "include": ["src/**/*.ts"],
   "exclude": [
