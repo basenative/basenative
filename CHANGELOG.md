@@ -1,3 +1,14 @@
+## 0.6.2 (2026-01-04)
+
+### 🩹 Fixes
+
+- **docs:** restore valid json structure in package.json ([956fd3e](https://github.com/basenative/basenative/commit/956fd3e))
+- **release:** add publishConfig to all libraries ([5b170d0](https://github.com/basenative/basenative/commit/5b170d0))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.6.1 (2026-01-04)
 
 ### 🚀 Features
