@@ -125,3 +125,23 @@ pre[class*='language-'] {
 .token.inserted {
   color: green;
 }
+
+/* Angular Specific Highlighting */
+.token.binding {
+  color: #a5d6ff; /* Soft Blue for [binding] */
+  font-weight: bold;
+}
+
+.token.event {
+  color: #ff9e64; /* Soft Orange for (event) */
+  font-weight: bold;
+}
+
+.token.structural-directive {
+  color: #c099ff; /* Soft Purple for *directive */
+  font-style: italic;
+}
+
+.token.interpolation {
+  color: #73daca; /* Teal for {{ interpolation }} */
+}

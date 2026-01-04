@@ -1,5 +1,5 @@
-import { Component, numberAttribute, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input, numberAttribute } from '@angular/core';
 
 @Component({
   selector: 'figure[logo]',
@@ -9,7 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './logo.component.css',
 })
 export class LogoComponent {
-  static nextId = 0;
-  readonly id = `logo-${++LogoComponent.nextId}`;
   @Input({ transform: numberAttribute }) size = 32;
 }

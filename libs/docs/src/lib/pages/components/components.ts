@@ -18,9 +18,32 @@ import 'prismjs/components/prism-scss';
 import 'prismjs/components/prism-typescript';
 import { forkJoin, map, switchMap } from 'rxjs';
 
+// Custom Angular Grammar
+Prism.languages['angular-html'] = Prism.languages.extend('markup', {
+  binding: {
+    pattern: /\[[^\]]+\](?==)/,
+    alias: 'attr-name',
+  },
+  event: {
+    pattern: /\([^\)]+\)(?==)/,
+    alias: 'attr-name',
+  },
+  'structural-directive': {
+    pattern: /\*\w+(?==)/,
+    alias: 'keyword',
+  },
+  interpolation: {
+    pattern: /\{\{[^\}]+\}\}/,
+    alias: 'variable',
+  },
+});
+
 marked.use({
   renderer: {
     code({ text, lang }: { text: string; lang?: string }) {
+      // Auto-detect HTML to be angular-html for better highlighting
+      if (lang === 'html' || lang === 'angular') lang = 'angular-html';
+
       if (lang && Prism.languages[lang]) {
         return `<pre class="language-${lang}"><code class="language-${lang}">${Prism.highlight(text, Prism.languages[lang], lang)}</code></pre>`;
       }
