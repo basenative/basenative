@@ -1,3 +1,22 @@
+## 0.11.0 (2026-01-04)
+
+### 🚀 Features
+
+- Implement Greenput consent platform with new domain and UI libraries, showcase application, and comprehensive documentation. ([672fdcf](https://github.com/basenative/basenative/commit/672fdcf))
+- Implement Greenput API, showcase application, UI components, and Cloudflare infrastructure with new CI/CD. ([e5db5d2](https://github.com/basenative/basenative/commit/e5db5d2))
+- Introduce Greenput UI components for consent management, add new documentation articles, and update project configurations. ([a38711d](https://github.com/basenative/basenative/commit/a38711d))
+- Add showcase features, glass UI components, and global styling with new assets. ([e5fe72a](https://github.com/basenative/basenative/commit/e5fe72a))
+- introduce shadow editor component, enhance documentation rendering with custom Angular grammar, and expand configurator with app identity settings. ([b661880](https://github.com/basenative/basenative/commit/b661880))
+- Initialize BaseNative design system with core components, documentation, token system, and Greenput showcase. ([7f066ca](https://github.com/basenative/basenative/commit/7f066ca))
+
+### 🩹 Fixes
+
+- **ci:** restore logo.svg and add greenput-ui package.json to fix pipelines ([b97c229](https://github.com/basenative/basenative/commit/b97c229))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.10.0 (2026-01-04)
 
 ### 🚀 Features

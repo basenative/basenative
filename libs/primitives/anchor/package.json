@@ -1,6 +1,6 @@
 {
   "name": "@basenative/primitives-anchor",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "peerDependencies": {
     "@angular/core": "^21.0.0"
   },
