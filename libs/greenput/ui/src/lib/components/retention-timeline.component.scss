@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.icon-clock {
+  font-size: 1.5rem;
+}
+
+.duration {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.highlight {
+  color: #008800;
+  font-weight: bold;
+}
+
+.justification {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #555;
+}
+
+.desc {
+  font-size: 0.85rem;
+  color: #777;
+}

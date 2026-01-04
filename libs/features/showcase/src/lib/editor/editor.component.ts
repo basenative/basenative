@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import {
-  FeatureLayoutComponent,
   ButtonComponent,
+  FeatureLayoutComponent,
   IconComponent,
 } from '@basenative/ui-glass';
 
@@ -22,7 +22,7 @@ interface FileSystemWritableFileStream extends WritableStream {
 }
 
 interface Window {
-  showOpenFilePicker(options?: any): Promise<FileSystemFileHandle[]>;
+  showOpenFilePicker(options?: unknown): Promise<FileSystemFileHandle[]>;
 }
 
 @Component({

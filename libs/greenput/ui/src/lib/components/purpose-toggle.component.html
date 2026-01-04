@@ -1,0 +1,11 @@
+<label class="toggle-container" [class.essential]="purpose().isEssential">
+  <input
+    type="checkbox"
+    [checked]="checked() || purpose().isEssential"
+    [disabled]="purpose().isEssential"
+    (change)="onToggle($event)"
+    aria-describedby="purpose-desc"
+  />
+  <span class="toggle-label">{{ purpose().name }}</span>
+</label>
+<p id="purpose-desc" class="description">{{ purpose().description }}</p>

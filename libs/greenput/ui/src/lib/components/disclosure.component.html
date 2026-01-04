@@ -1,0 +1,21 @@
+<h2 id="title">We value your privacy logic</h2>
+<p>
+  We do not collect data without an explicit reason. Please review and choose
+  what you are comfortable sharing. Refusal is always respected.
+</p>
+
+<section class="purposes">
+  @for (p of purposes(); track p.id) {
+    <div
+      greenput-purpose-toggle
+      [purpose]="p"
+      [checked]="p.isEssential || isPurposeSelected(p.id)"
+      (toggled)="updatePurpose(p.id, $event)"
+    ></div>
+  }
+</section>
+
+<div class="actions">
+  <button class="btn-refuse" (click)="refuseAll()">Refuse non-essential</button>
+  <button class="btn-accept" (click)="confirm()">Confirm choices</button>
+</div>

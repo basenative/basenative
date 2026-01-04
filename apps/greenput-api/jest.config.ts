@@ -1,4 +1,4 @@
-/* eslint-disable */
+ 
 export default {
   displayName: 'greenput-api',
   preset: '../../jest.preset.js',

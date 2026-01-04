@@ -1,8 +1,8 @@
 [
-  { "file": "modular-buildable-architecture.yml", "slug": "architecture" },
-  {
-    "file": "semantic-directive-enhancement.yml",
-    "slug": "semantic-directives"
-  },
-  { "file": "testing-philosophy.yml", "slug": "testing" }
+  { "file": "semantic-architecture.md", "slug": "semantic" },
+  { "file": "modular-buildable-architecture.md", "slug": "modular" },
+  { "file": "visual-ux-excellence.md", "slug": "visual" },
+  { "file": "testing-lifecycle.md", "slug": "testing" },
+  { "file": "documentation-strategy.md", "slug": "documentation" },
+  { "file": "asset-pipeline.md", "slug": "assets" }
 ]

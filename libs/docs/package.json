@@ -8,7 +8,16 @@
     "@basenative/tokens": "*",
     "@basenative/layout": "0.10.0",
     "@basenative/forms": "0.10.0",
-    "rxjs": "~7.8.0"
+    "rxjs": "~7.8.0",
+    "@basenative/ui-glass": "0.10.0",
+    "@basenative/primitives-a11y": "0.10.0",
+    "@basenative/primitives-focus": "0.10.0",
+    "@basenative/primitives-anchor": "0.10.0",
+    "@basenative/primitives-portal": "0.10.0",
+    "@basenative/primitives-dialog": "0.10.0",
+    "@basenative/primitives-scroll": "0.10.0",
+    "marked": "17.0.1",
+    "prismjs": "1.30.0"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/",

@@ -13,7 +13,7 @@
         <span class="zoom-level">{{ (scale() * 100).toFixed(0) }}%</span>
         <button icon-btn (click)="zoomIn()">+</button>
       </div>
-      <button icon-btn (click)="resetView()">Reset</button>
+      <button icon-btn class="reset-btn" (click)="resetView()">Reset</button>
     </div>
 
     <!-- Transform Container -->

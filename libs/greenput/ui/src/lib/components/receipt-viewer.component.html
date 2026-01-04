@@ -1,0 +1,28 @@
+<div class="header">
+  <span class="title">Consent Receipt</span>
+  <span class="version">v{{ receipt().policyVersion }}</span>
+</div>
+
+<div class="hash-row">
+  <code>{{ shortHash() }}</code>
+  <button (click)="copyHash()" title="Copy full hash">📋</button>
+</div>
+
+<div class="meta">
+  <div class="row">
+    <strong>Date:</strong> {{ receipt().timestamp | date: 'medium' }}
+  </div>
+  <div class="row"><strong>ID:</strong> {{ receipt().id }}</div>
+</div>
+
+<div class="purposes">
+  <h4>Agreed Purposes:</h4>
+  <ul>
+    @for (p of acceptedPurposes(); track p.key) {
+      <li class="granted">✅ {{ p.key }}</li>
+    }
+    @for (p of deniedPurposes(); track p.key) {
+      <li class="denied">❌ {{ p.key }}</li>
+    }
+  </ul>
+</div>

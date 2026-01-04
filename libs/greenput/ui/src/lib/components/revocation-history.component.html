@@ -1,0 +1,19 @@
+<h3>Revocation History</h3>
+@if (history().length === 0) {
+  <p class="empty">No revocations on file.</p>
+}
+
+<ul class="timeline">
+  @for (rev of history(); track rev.timestamp) {
+    <li class="event">
+      <span class="date">{{ rev.timestamp | date: 'short' }}</span>
+      <div class="details">
+        <strong>Revoked Receipt:</strong>
+        {{ rev.receiptId.substring(0, 8) }}...
+        @if (rev.reason) {
+          <p class="reason">"{{ rev.reason }}"</p>
+        }
+      </div>
+    </li>
+  }
+</ul>

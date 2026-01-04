@@ -1,0 +1,18 @@
+<div class="header">
+  <span class="name">{{ category().name }}</span>
+  <span class="badge" [class]="category().sensitivity"
+    >{{ category().sensitivity }} sensitivity</span
+  >
+</div>
+<p class="description">{{ category().description }}</p>
+
+@if (category().examples.length > 0) {
+  <div class="examples">
+    Since for example:
+    <ul>
+      @for (ex of category().examples; track ex) {
+        <li>{{ ex }}</li>
+      }
+    </ul>
+  </div>
+}

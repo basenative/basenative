@@ -1,42 +1,12 @@
 ---
 title: Modular & Buildable Architecture
-description: Complete workspace structure for building a semantic HTML-first component library.
-order: 2
+description: Isolation, defined tokens, and progressive enhancement.
 ---
 
-### Systems Engineering for Frontend
+## 2. Modular & Buildable Architecture
 
-BaseNative treats the frontend workspace not as a single "App", but as a **Federation of Libraries**. This encourages strict boundaries, faster CI times, and enforced modularity.
-
-#### 1. The Library Hierarchy
-
-We strictly enforce a one-way dependency graph:
-
-1.  **`libs/tokens`**: The "Physics" of the world. Pure CSS/JSON. No Angular.
-2.  **`libs/ui/primitives`**: Dumb directives. No business logic. (`button[variant]`, `input[text]`).
-3.  **`libs/ui/glass`**: The "Theme" layer. composes primitives into a specific aesthetic.
-4.  **`libs/features/*`**: Smart business domains. (`auth`, `dashboard`, `editor`).
-5.  **`apps/*`**: The entry point. only contains routing and configuration.
-
-#### 2. Modern Defaults
-
-The workspace is configured for the future of web development:
-
-- **ESBuild**: Instant builds and HMR. No Webpack.
-- **Standalone**: No NgModules. Every component is self-contained.
-- **Strict Mode**: `strictTemplates` and `strictPropertyInitialization` are non-negotiable.
-
-#### 3. Progressive Enhancement
-
-We build for the latest browsers first.
-
-- We implement **CSS Nesting**, **Layers**, and **Container Queries**.
-- We use the `:has()` selector for parent-based logic.
-- Fallbacks are minimal and documented.
-
-#### 4. Tooling-First Development
-
-We don't write boilerplate. We generate it.
-
-- **Generators**: Custom Nx generators create libraries, components, and directives with the correct prefixes and tags automatically.
-- **Linting**: Custom ESLint rules prevent importing "Smart" features into "Dumb" UI libraries.
+- **Library Isolation**: Organized into discrete, buildable libraries (core, tokens, primitives, forms, layout) within an Nx monorepo.
+- **DTCG-First Tokens**: Design tokens are defined in a JSON file (`tokens.json`) following the Design Tokens Community Group (DTCG) standard. This JSON is the single source of truth for both code and design tools (Figma Sync).
+- **Modern Defaults**: Standardizes on standalone APIs, esbuild, and zoneless Angular.
+- **Progressive Enhancement**: Use feature detection to provide modern CSS-first paths with necessary fallbacks.
+- **Tooling-First**: Strict TypeScript, linting, and Nx generators.

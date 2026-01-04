@@ -1,17 +1,33 @@
-import {
-  Component,
-  inject,
-  signal,
-  computed,
-  ViewEncapsulation,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, map, switchMap } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  Component,
+  computed,
+  inject,
+  signal,
+  ViewEncapsulation,
+} from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { marked } from 'marked';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IconComponent } from '@basenative/ui-glass';
+import { marked } from 'marked';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-scss';
+import 'prismjs/components/prism-typescript';
+import { forkJoin, map, switchMap } from 'rxjs';
+
+marked.use({
+  renderer: {
+    code({ text, lang }: { text: string; lang?: string }) {
+      if (lang && Prism.languages[lang]) {
+        return `<pre class="language-${lang}"><code class="language-${lang}">${Prism.highlight(text, Prism.languages[lang], lang)}</code></pre>`;
+      }
+      return `<pre><code class="language-${lang || 'plaintext'}">${text}</code></pre>`;
+    },
+  },
+});
 
 interface ComponentDoc {
   id: string;
