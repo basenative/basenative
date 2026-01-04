@@ -1,3 +1,14 @@
+## 0.6.0 (2026-01-04)
+
+### 🚀 Features
+
+- Add Nx project configurations for the showcase application and data library. ([ad0af9c](https://github.com/basenative/basenative/commit/ad0af9c))
+- add showcase application and data library with `tsx` dev dependency. ([8c89333](https://github.com/basenative/basenative/commit/8c89333))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.5.0 (2026-01-04)
 
 ### 🚀 Features
