@@ -1,10 +1,16 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import {
+  Component,
+  inject,
+  signal,
+  computed,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin, map, switchMap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-// import { marked } from 'marked';
+import { marked } from 'marked';
 import { IconComponent } from '@basenative/ui-glass';
 
 interface Article {
@@ -20,6 +26,7 @@ interface Article {
   imports: [CommonModule, IconComponent],
   templateUrl: './philosophies.html',
   styleUrl: './philosophies.css',
+  encapsulation: ViewEncapsulation.None,
 })
 export class PhilosophiesPage {
   private route = inject(ActivatedRoute);
@@ -122,6 +129,6 @@ export class PhilosophiesPage {
   }
 
   private parseMarkdown(text: string): string {
-    return text; // marked.parse(text) as string;
+    return marked.parse(text) as string;
   }
 }

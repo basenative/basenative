@@ -23,7 +23,9 @@
       "@basenative/feedback": ["libs/feedback/src/index.ts"],
       "@basenative/docs": ["libs/docs/src/index.ts"],
       "@basenative/ui-glass": ["libs/ui/glass/src/index.ts"],
-      "@basenative/features/showcase": ["libs/features/showcase/src/index.ts"]
+      "@basenative/features/showcase": ["libs/features/showcase/src/index.ts"],
+      "@greenput/domain": ["libs/greenput/domain/src/index.ts"],
+      "@greenput/ui": ["libs/greenput/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

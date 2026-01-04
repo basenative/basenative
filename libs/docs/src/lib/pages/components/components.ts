@@ -1,10 +1,16 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import {
+  Component,
+  inject,
+  signal,
+  computed,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin, map, switchMap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-// import { marked } from 'marked';
+import { marked } from 'marked';
 import { IconComponent } from '@basenative/ui-glass';
 
 interface ComponentDoc {
@@ -23,6 +29,7 @@ import { PreviewComponent } from '../../components/preview/preview.component';
   imports: [CommonModule, IconComponent, PreviewComponent],
   templateUrl: './components.html',
   styleUrl: './components.css',
+  encapsulation: ViewEncapsulation.None,
 })
 export class ComponentsPage {
   private route = inject(ActivatedRoute);
@@ -122,7 +129,7 @@ export class ComponentsPage {
         id: slug,
         title: slug,
         description: '',
-        content: text, // marked.parse(text) as string,
+        content: marked.parse(text) as string,
       };
     }
 
@@ -136,7 +143,7 @@ export class ComponentsPage {
       id: slug,
       title: titleMatch ? titleMatch[1].trim() : slug,
       description: descMatch ? descMatch[1].trim() : '',
-      content: content.trim(), // marked.parse(content.trim()) as string,
+      content: marked.parse(content.trim()) as string,
     };
   }
 }

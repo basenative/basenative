@@ -11,7 +11,7 @@ interface BatteryManager extends EventTarget {
       | 'levelchange'
       | 'chargingtimechange'
       | 'dischargingtimechange',
-    listener: (this: this, ev: Event) => any,
+    listener: (this: this, ev: Event) => void,
   ): void;
 }
 
@@ -29,6 +29,6 @@ interface NetworkInformation extends EventTarget {
   readonly saveData: boolean;
   addEventListener(
     type: 'change',
-    listener: (this: this, ev: Event) => any,
+    listener: (this: this, ev: Event) => void,
   ): void;
 }

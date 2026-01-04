@@ -1,0 +1,142 @@
+/* DocsShell Style System */
+
+.docs-content {
+  display: block;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.6;
+  color: var(--fallback-bc, oklch(var(--bc)));
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Typography */
+.docs-content h1,
+.docs-content h2,
+.docs-content h3,
+.docs-content h4,
+.docs-content h5,
+.docs-content h6 {
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  color: var(--fallback-p, oklch(var(--p)));
+}
+
+.docs-content h1 {
+  font-size: 2.25rem;
+  border-bottom: 1px solid oklch(var(--b3));
+  padding-bottom: 0.3em;
+}
+.docs-content h2 {
+  font-size: 1.75rem;
+}
+.docs-content h3 {
+  font-size: 1.5rem;
+}
+.docs-content h4 {
+  font-size: 1.25rem;
+}
+
+.docs-content p {
+  margin-bottom: 1.25em;
+}
+
+/* Links */
+.docs-content a {
+  color: var(--fallback-p, oklch(var(--p)));
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.docs-content a:hover {
+  color: var(--fallback-pf, oklch(var(--pf)));
+}
+
+/* Code Blocks */
+.docs-content pre {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin-bottom: 1.5em;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9em;
+  border: 1px solid oklch(var(--b3));
+}
+
+.docs-content code {
+  font-family: 'Fira Code', monospace;
+  background-color: oklch(var(--b2));
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.docs-content pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* Blockquotes */
+.docs-content blockquote {
+  border-left: 4px solid var(--fallback-s, oklch(var(--s)));
+  background-color: oklch(var(--b2) / 0.5);
+  padding: 1rem 1.5rem;
+  margin: 1.5em 0;
+  font-style: italic;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Lists */
+.docs-content ul,
+.docs-content ol {
+  margin-bottom: 1.25em;
+  padding-left: 1.5em;
+}
+
+.docs-content li {
+  margin-bottom: 0.5em;
+}
+
+/* Tables */
+.docs-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2em;
+}
+
+.docs-content th,
+.docs-content td {
+  border: 1px solid oklch(var(--b3));
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.docs-content th {
+  background-color: oklch(var(--b2));
+  font-weight: 600;
+}
+
+/* Images */
+.docs-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1.5em 0;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.docs-content hr {
+  height: 0;
+  border: 0;
+  border-top: 1px solid oklch(var(--b3));
+  margin: 2.5em 0;
+}

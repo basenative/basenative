@@ -1,4 +1,5 @@
 /* Shared Documentation Styles */
+@import './styles/docs-shell.css';
 
 :host {
   display: block;

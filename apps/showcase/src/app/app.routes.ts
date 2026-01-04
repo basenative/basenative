@@ -31,4 +31,11 @@ export const appRoutes: Route[] = [
     loadComponent: () =>
       import('@basenative/features/showcase').then((m) => m.DesktopComponent),
   },
+  {
+    path: 'greenput-consent',
+    loadComponent: () =>
+      import('./greenput-showcase/greenput-showcase.component').then(
+        (m) => m.GreenputShowcaseComponent,
+      ),
+  },
 ];
