@@ -1,5 +1,5 @@
 {
-  "name": "@basenative/ui/glass",
+  "name": "@basenative/ui-glass",
   "version": "0.6.2",
   "peerDependencies": {
     "@angular/core": "^21.0.0",
