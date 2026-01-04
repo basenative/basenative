@@ -44,6 +44,26 @@ jobs:
           directory: dist/apps/showcase/browser
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Inject D1 Database ID
+        run: |
+          # Fetch the database ID for 'greenput-prod-db'
+          # We use npx wrangler specifically to ensure we use the same version/context, though any installed wrangler works.
+          # The output is expected to be a JSON array of database objects.
+          DB_ID=$(npx wrangler d1 list --json | jq -r '.[] | select(.name == "greenput-prod-db") | .uuid')
+
+          if [ -z "$DB_ID" ] || [ "$DB_ID" = "null" ]; then
+            echo "Error: Could not find D1 database 'greenput-prod-db'"
+            exit 1
+          fi
+
+          echo "Found Database ID: $DB_ID"
+
+          # Replace placeholder in wrangler.toml
+          sed -i "s/env_var_will_override_this/$DB_ID/g" apps/greenput-api/wrangler.toml
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
       - name: Deploy Greenput API (Worker)
         run: npx nx deploy greenput-api
         env:
