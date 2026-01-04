@@ -1,0 +1,72 @@
+<div class="shadow-editor">
+  <div class="control-grid">
+    <div class="control">
+      <label>X</label>
+      <input
+        type="range"
+        min="-50"
+        max="50"
+        [value]="x()"
+        (input)="onInput('x', $event)"
+      />
+      <span>{{ x() }}</span>
+    </div>
+
+    <div class="control">
+      <label>Y</label>
+      <input
+        type="range"
+        min="-50"
+        max="50"
+        [value]="y()"
+        (input)="onInput('y', $event)"
+      />
+      <span>{{ y() }}</span>
+    </div>
+
+    <div class="control">
+      <label>Blur</label>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        [value]="blur()"
+        (input)="onInput('blur', $event)"
+      />
+      <span>{{ blur() }}</span>
+    </div>
+
+    <div class="control">
+      <label>Spread</label>
+      <input
+        type="range"
+        min="-50"
+        max="50"
+        [value]="spread()"
+        (input)="onInput('spread', $event)"
+      />
+      <span>{{ spread() }}</span>
+    </div>
+
+    <div class="control full">
+      <label>Opacity</label>
+      <input
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        [value]="opacity()"
+        (input)="onInput('opacity', $event)"
+      />
+      <span>{{ opacity() }}</span>
+    </div>
+
+    <div class="control full color-control">
+      <label>Color</label>
+      <div class="color-picker-wrapper">
+        <input type="color" [value]="color()" (input)="onColorInput($event)" />
+        <span>{{ color() }}</span>
+      </div>
+    </div>
+  </div>
+</div>

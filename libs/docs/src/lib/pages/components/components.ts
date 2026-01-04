@@ -19,21 +19,42 @@ import 'prismjs/components/prism-typescript';
 import { forkJoin, map, switchMap } from 'rxjs';
 
 // Custom Angular Grammar
-Prism.languages['angular-html'] = Prism.languages.extend('markup', {
-  binding: {
-    pattern: /\[[^\]]+\](?==)/,
-    alias: 'attr-name',
-  },
-  event: {
-    pattern: /\([^\)]+\)(?==)/,
-    alias: 'attr-name',
-  },
+// Custom Angular Grammar
+Prism.languages['angular-html'] = Prism.languages.extend('markup', {});
+
+type PrismGrammarWithTag = Prism.Grammar & {
+  tag: {
+    inside: Prism.Grammar;
+  };
+};
+
+const tag = (Prism.languages['angular-html'] as unknown as PrismGrammarWithTag)
+  .tag;
+const originalInside = tag.inside;
+
+tag.inside = {}; // clear it first to control order
+
+const angularAttributes = {
   'structural-directive': {
-    pattern: /\*\w+(?==)/,
+    pattern: /\*[\w-]+(?=\s*=?)/,
     alias: 'keyword',
   },
+  binding: {
+    pattern: /\[[\w-.]+\](?=\s*=?)/,
+    alias: 'function',
+  },
+  event: {
+    pattern: /\([\w-.]+\)(?=\s*=?)/,
+    alias: 'variable',
+  },
+};
+
+// Rebuild tag.inside: Angular attributes FIRST, then standard attributes
+Object.assign(tag.inside, angularAttributes, originalInside);
+
+Prism.languages.insertBefore('angular-html', 'tag', {
   interpolation: {
-    pattern: /\{\{[^\}]+\}\}/,
+    pattern: /\{\{[^}]+\}\}/,
     alias: 'variable',
   },
 });

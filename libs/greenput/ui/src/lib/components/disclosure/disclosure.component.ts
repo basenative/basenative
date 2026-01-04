@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, output, signal } from '@angular/core';
 import { ConsentReceipt, ConsentStateMachine, Purpose } from '@greenput/domain';
-import { PurposeToggleComponent } from './purpose-toggle.component';
+import { PurposeToggleComponent } from '../purpose-toggle/purpose-toggle.component';
 
 @Component({
   selector: 'section[greenput-disclosure]',

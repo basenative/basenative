@@ -1,9 +1,10 @@
-import { Component, inject, computed, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
+import { Component, computed, inject, signal } from '@angular/core';
+import { InputComponent } from '@basenative/forms';
 import { ThemeService, tokens } from '@basenative/tokens';
 import { ButtonComponent } from '../button/button.component';
-import { InputComponent } from '@basenative/forms';
 import { OpenGraphPreviewComponent } from '../open-graph-preview/open-graph-preview.component';
+import { ShadowEditorComponent } from '../shadow-editor/shadow-editor.component';
 
 @Component({
   selector: 'section[configurator]',
@@ -13,6 +14,8 @@ import { OpenGraphPreviewComponent } from '../open-graph-preview/open-graph-prev
     ButtonComponent,
     InputComponent,
     OpenGraphPreviewComponent,
+    ShadowEditorComponent,
+    TitleCasePipe,
   ],
   templateUrl: './configurator.html',
   styleUrl: './configurator.css',

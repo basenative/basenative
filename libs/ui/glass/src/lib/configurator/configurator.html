@@ -143,12 +143,15 @@
                           border: 1px solid var(--color-border-glass);
                         "
                       ></div>
-                      <input
-                        [id]="token.cssVar"
-                        type="text"
-                        [value]="token.value"
-                        (input)="update(token.cssVar, $event)"
-                      />
+                      <div style="flex: 1">
+                        <glass-shadow-editor
+                          [value]="token.value"
+                          (valueChange)="
+                            theme.updateToken(token.cssVar, $event)
+                          "
+                        >
+                        </glass-shadow-editor>
+                      </div>
                     </div>
                   </label>
                 } @else {

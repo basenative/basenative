@@ -1,0 +1,67 @@
+:host {
+  display: block;
+  background: var(--color-surface-glass);
+  border: 1px solid var(--color-border-glass);
+  padding: 2rem; /* Increased padding */
+  border-radius: var(--radius-lg); /* Larger radius */
+  font-family: var(--font-mono);
+  max-width: 480px; /* Wider card */
+  color: var(--color-text-main);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center align items */
+  border-bottom: 2px solid var(--color-border-glass);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.hash-row {
+  background: var(--color-surface-glass-hover);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border-glass);
+  font-size: 0.9rem;
+}
+
+.purposes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.purposes ul {
+  padding-left: 0;
+  list-style: none; /* Clean list */
+  margin: 0;
+}
+
+.purposes li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.granted {
+  color: #10b981; /* Emerald 500 */
+  font-weight: 600;
+}
+
+.denied {
+  color: #ef4444; /* Red 500 */
+  font-weight: 600;
+}
