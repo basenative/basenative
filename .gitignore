@@ -45,3 +45,4 @@ Thumbs.db
 
 # Generated PWA Assets
 apps/showcase/public/
+infra/terraform.tfvars
