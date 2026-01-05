@@ -35,6 +35,9 @@ jobs:
       - name: Build Docs
         run: npx nx build showcase --configuration=production
 
+      - name: Build Greenput API
+        run: npx nx build greenput-api --configuration=production
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
