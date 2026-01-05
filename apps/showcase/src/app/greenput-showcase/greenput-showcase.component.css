@@ -87,7 +87,7 @@ textarea:hover {
 input:focus,
 textarea:focus {
   outline: none;
-  background: white;
+  background: var(--color-surface-base, #ffffff);
   border-color: var(--greenput-primary);
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1); /* Green glow */
 }
