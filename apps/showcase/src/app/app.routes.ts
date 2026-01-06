@@ -1,10 +1,11 @@
 import { Route } from '@angular/router';
 
+import { WelcomeComponent } from '@basenative/ui-glass';
+
 export const appRoutes: Route[] = [
   {
     path: '',
-    loadComponent: () =>
-      import('@basenative/ui-glass').then((m) => m.WelcomeComponent),
+    component: WelcomeComponent,
   },
   {
     path: 'docs',

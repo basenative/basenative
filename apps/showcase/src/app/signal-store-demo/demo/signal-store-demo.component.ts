@@ -13,9 +13,10 @@ import { FormsModule } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { createSignalStore } from '@basenative/core';
 import { FeatureLayoutComponent } from '@basenative/ui-glass';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-typescript';
 import { SignalStateVisualizerComponent } from '../visualizer/signal-state-visualizer.component';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare const Prism: any;
 
 // --- Types ---
 interface DemoState {

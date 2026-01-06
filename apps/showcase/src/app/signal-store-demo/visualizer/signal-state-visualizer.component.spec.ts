@@ -2,6 +2,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { createSignalStore } from '@basenative/core';
 import { SignalStateVisualizerComponent } from './signal-state-visualizer.component';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(global as any).Prism = {
+  highlight: () => 'mocked code',
+  languages: { typescript: {}, json: {} },
+};
+
 describe('SignalStateVisualizerComponent', () => {
   let component: SignalStateVisualizerComponent;
   let fixture: ComponentFixture<SignalStateVisualizerComponent>;

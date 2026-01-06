@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, inject, input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SignalStore } from '@basenative/core';
-import * as Prism from 'prismjs';
-import 'prismjs/components/prism-json';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare const Prism: any;
 
 @Component({
   selector: 'section[signal-state-visualizer]',

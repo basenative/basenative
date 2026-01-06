@@ -44,7 +44,12 @@
             "input": "apps/showcase/public"
           }
         ],
-        "styles": ["apps/showcase/src/styles.css"]
+        "styles": ["apps/showcase/src/styles.css"],
+        "scripts": [
+          "node_modules/prismjs/prism.js",
+          "node_modules/prismjs/components/prism-json.js",
+          "node_modules/prismjs/components/prism-typescript.js"
+        ]
       },
       "configurations": {
         "production": {
