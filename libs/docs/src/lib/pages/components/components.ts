@@ -6,78 +6,36 @@ import {
   inject,
   signal,
   ViewEncapsulation,
+  PLATFORM_ID,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IconComponent } from '@basenative/ui-glass';
 import { marked } from 'marked';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-bash';
-import 'prismjs/components/prism-json';
-import 'prismjs/components/prism-scss';
-import 'prismjs/components/prism-typescript';
+declare const Prism: any;
+
 import { forkJoin, map, switchMap } from 'rxjs';
 
-// Custom Angular Grammar
-// Custom Angular Grammar
-Prism.languages['angular-html'] = Prism.languages.extend('markup', {});
-
-type PrismGrammarWithTag = Prism.Grammar & {
-  tag: {
-    inside: Prism.Grammar;
-  };
-};
-
-const tag = (Prism.languages['angular-html'] as unknown as PrismGrammarWithTag)
-  .tag;
-const originalInside = tag.inside;
-
-tag.inside = {}; // clear it first to control order
-
-const angularAttributes = {
-  'structural-directive': {
-    pattern: /\*[\w-]+(?=\s*=?)/,
-    alias: 'keyword',
-  },
-  binding: {
-    pattern: /\[[\w-.]+\](?=\s*=?)/,
-    alias: 'function',
-  },
-  event: {
-    pattern: /\([\w-.]+\)(?=\s*=?)/,
-    alias: 'variable',
-  },
-};
-
-// Rebuild tag.inside: Angular attributes FIRST, then standard attributes
-Object.assign(tag.inside, angularAttributes, originalInside);
-
-Prism.languages.insertBefore('angular-html', 'tag', {
-  'control-flow': {
-    pattern:
-      /@(?:if|for|switch|case|default|else|defer|loading|placeholder|error|empty)\b/,
-    alias: 'keyword',
-  },
-  interpolation: {
-    pattern: /\{\{[^}]+\}\}/,
-    inside: {
-      delimiter: {
-        pattern: /^\{\{|\}\}$/,
-        alias: 'punctuation',
-      },
-      rest: Prism.languages['typescript'],
-    },
-  },
-});
-
+// Marked is safe to import, but we must configure it safely
 marked.use({
   renderer: {
     code({ text, lang }: { text: string; lang?: string }) {
       // Auto-detect HTML to be angular-html for better highlighting
       if (lang === 'html' || lang === 'angular') lang = 'angular-html';
 
-      if (lang && Prism.languages[lang]) {
-        return `<pre class="language-${lang}"><code class="language-${lang}">${Prism.highlight(text, Prism.languages[lang], lang)}</code></pre>`;
+      // Check if global Prism is available (Browser only)
+      if (
+        typeof Prism !== 'undefined' &&
+        lang &&
+        Prism.languages &&
+        Prism.languages[lang]
+      ) {
+        return `<pre class="language-${lang}"><code class="language-${lang}">${Prism.highlight(
+          text,
+          Prism.languages[lang],
+          lang,
+        )}</code></pre>`;
       }
       return `<pre><code class="language-${lang || 'plaintext'}">${text}</code></pre>`;
     },
@@ -106,6 +64,7 @@ export class ComponentsPage {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private http = inject(HttpClient);
+  private platformId = inject(PLATFORM_ID);
 
   selectedId = toSignal(
     this.route.queryParams.pipe(map((params) => params['component'] ?? null)),
@@ -121,6 +80,10 @@ export class ComponentsPage {
   });
 
   constructor() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    this.initPrism();
+
     this.http
       .get<
         {
@@ -216,5 +179,58 @@ export class ComponentsPage {
       description: descMatch ? descMatch[1].trim() : '',
       content: marked.parse(content.trim()) as string,
     };
+  }
+
+  private initPrism() {
+    if (typeof Prism === 'undefined') return;
+    if (Prism.languages['angular-html']) return; // Already initialized
+
+    // Custom Angular Grammar
+    Prism.languages['angular-html'] = Prism.languages.extend('markup', {});
+
+    type PrismGrammarWithTag = any;
+
+    const tag = (
+      Prism.languages['angular-html'] as unknown as PrismGrammarWithTag
+    ).tag;
+    const originalInside = tag.inside;
+
+    tag.inside = {}; // clear it first to control order
+
+    const angularAttributes = {
+      'structural-directive': {
+        pattern: /\*[\w-]+(?=\s*=?)/,
+        alias: 'keyword',
+      },
+      binding: {
+        pattern: /\[[\w-.]+\](?=\s*=?)/,
+        alias: 'function',
+      },
+      event: {
+        pattern: /\([\w-.]+\)(?=\s*=?)/,
+        alias: 'variable',
+      },
+    };
+
+    // Rebuild tag.inside: Angular attributes FIRST, then standard attributes
+    Object.assign(tag.inside, angularAttributes, originalInside);
+
+    Prism.languages.insertBefore('angular-html', 'tag', {
+      'control-flow': {
+        pattern:
+          /@(?:if|for|switch|case|default|else|defer|loading|placeholder|error|empty)\b/,
+        alias: 'keyword',
+      },
+      interpolation: {
+        pattern: /\{\{[^}]+\}\}/,
+        inside: {
+          delimiter: {
+            pattern: /^\{\{|\}\}$/,
+            alias: 'punctuation',
+          },
+          rest: Prism.languages['typescript'],
+        },
+      },
+    });
   }
 }

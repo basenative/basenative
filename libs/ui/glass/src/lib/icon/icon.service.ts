@@ -1,6 +1,7 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, shareReplay, map } from 'rxjs';
+import { Observable, shareReplay, map, of } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Injectable({
@@ -12,8 +13,13 @@ export class IconService {
 
   // Cache for raw SVG strings to avoid re-fetching
   private cache = new Map<string, Observable<SafeHtml>>();
+  private platformId = inject(PLATFORM_ID);
 
   getIcon(name: string): Observable<SafeHtml> {
+    if (!isPlatformBrowser(this.platformId)) {
+      return of(this.sanitizer.bypassSecurityTrustHtml(''));
+    }
+
     const cached = this.cache.get(name);
     if (cached) {
       return cached;

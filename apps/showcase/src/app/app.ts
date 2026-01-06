@@ -15,6 +15,7 @@ export class App {
   private platformId = inject(PLATFORM_ID);
 
   constructor() {
+    console.log('App component instantiated (SSR Debug)');
     if (isPlatformBrowser(this.platformId)) {
       this.isOffline.set(!navigator.onLine);
 

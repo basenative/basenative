@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SignalStore } from '@basenative/core';
 
@@ -16,6 +17,7 @@ declare const Prism: any;
 export class SignalStateVisualizerComponent<T extends object> {
   store = input.required<SignalStore<T>>();
   private sanitizer = inject(DomSanitizer);
+  private platformId = inject(PLATFORM_ID);
 
   formattedState = computed(() => {
     const s = this.store().$state();
@@ -26,7 +28,10 @@ export class SignalStateVisualizerComponent<T extends object> {
     const raw = this.formattedState();
     // Prism's JSON grammar might be 'json' or 'JSON' depending on version/bundle.
     // 'prismjs/components/prism-json' registers 'json'.
-    const highlighted = Prism.highlight(raw, Prism.languages['json'], 'json');
-    return this.sanitizer.bypassSecurityTrustHtml(highlighted);
+    if (isPlatformBrowser(this.platformId)) {
+      const highlighted = Prism.highlight(raw, Prism.languages['json'], 'json');
+      return this.sanitizer.bypassSecurityTrustHtml(highlighted);
+    }
+    return this.sanitizer.bypassSecurityTrustHtml(raw);
   });
 }

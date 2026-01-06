@@ -12,4 +12,8 @@ import { ThemeSelectorComponent } from '../theme-selector/theme-selector.compone
   styleUrl: './welcome.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WelcomeComponent {}
+export class WelcomeComponent {
+  constructor() {
+    console.log('WelcomeComponent instantiated (SSR Debug)');
+  }
+}
