@@ -1,3 +1,20 @@
+## 0.12.0 (2026-01-06)
+
+### 🚀 Features
+
+- add GitHub Actions workflow for Cloudflare Pages and Worker deployment. ([4f4e966](https://github.com/basenative/basenative/commit/4f4e966))
+- Provision Cloudflare D1 database, Pages project, and Worker script via Terraform, and update .gitignore. ([8fb312b](https://github.com/basenative/basenative/commit/8fb312b))
+- add styles for the new greenput showcase component. ([c134d20](https://github.com/basenative/basenative/commit/c134d20))
+- introduce signal store with showcase demo, core utilities, and business strategy documentation. ([76a76a1](https://github.com/basenative/basenative/commit/76a76a1))
+
+### 🩹 Fixes
+
+- **ci:** add build greenput-api step ([55458e5](https://github.com/basenative/basenative/commit/55458e5))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.11.0 (2026-01-04)
 
 ### 🚀 Features
