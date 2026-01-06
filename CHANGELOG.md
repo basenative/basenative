@@ -1,3 +1,18 @@
+## 0.12.1 (2026-01-06)
+
+### 🚀 Features
+
+- Add Netlify redirects for the showcase app and refine PWA asset gitignore rules. ([30100a6](https://github.com/basenative/basenative/commit/30100a6))
+
+### 🩹 Fixes
+
+- **showcase:** resolve PrismJS ReferenceError and lint violations ([37e7adc](https://github.com/basenative/basenative/commit/37e7adc))
+- **showcase:** resolve NG0401 by moving to SPA checks ([3b37414](https://github.com/basenative/basenative/commit/3b37414))
+
+### ❤️ Thank You
+
+- Warren Dugan
+
 ## 0.12.0 (2026-01-06)
 
 ### 🚀 Features
