@@ -1,0 +1,164 @@
+<section feature-layout title="Signal Store">
+  <div class="page-container">
+    <div class="view-toggle">
+      <button
+        class="toggle-btn"
+        [class.active]="viewMode() === 'demo'"
+        (click)="viewMode.set('demo')"
+      >
+        Live Demo
+      </button>
+      <button
+        class="toggle-btn"
+        [class.active]="viewMode() === 'code'"
+        (click)="viewMode.set('code')"
+      >
+        View Code
+      </button>
+    </div>
+
+    @if (viewMode() === 'demo') {
+      <header class="hero-header">
+        <h1 class="gradient-title">Signal Store</h1>
+        <p class="subtitle">
+          Lightweight, type-safe state management built on Angular Signals.
+          Demonstrating the "Setup Store" pattern with
+          <code>linkedSignal</code> and <code>resource</code>.
+        </p>
+      </header>
+
+      <!-- Live Visualizer -->
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="label">Live State</h2>
+          <span class="meta">Real-time updates</span>
+        </div>
+        <section
+          signal-state-visualizer
+          [store]="store"
+          class="visualizer-panel"
+        ></section>
+      </div>
+
+      <div class="demo-grid">
+        <!-- Card 1: Basic State & Computed -->
+        <section class="card glass-panel">
+          <h2 class="card-title">
+            <span class="icon-box blue">🔢</span>
+            Reactivity
+          </h2>
+
+          <div class="card-content">
+            <div class="counter-control">
+              <button
+                (click)="store.decrement()"
+                class="btn-icon"
+                aria-label="Decrement"
+              >
+                -
+              </button>
+              <span class="count-display">{{ store.count() }}</span>
+              <button
+                (click)="store.increment()"
+                class="btn-icon primary"
+                aria-label="Increment"
+              >
+                +
+              </button>
+            </div>
+
+            <div class="status-list">
+              <div class="status-item">
+                <span class="label">Computed (x2)</span>
+                <span class="value">{{ store.double() }}</span>
+              </div>
+              <div class="status-item">
+                <span class="label">Status</span>
+                <span
+                  class="badge"
+                  [class.success]="store.count() <= 5"
+                  [class.danger]="store.count() > 5"
+                >
+                  {{ store.status() }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 2: Async Resource & Linked Signal -->
+        <section class="card glass-panel">
+          <h2 class="card-title">
+            <span class="icon-box purple">⚡</span>
+            Async Resource
+          </h2>
+
+          <div class="card-content">
+            <div class="input-group">
+              <label for="live-search-input" class="label text-caps"
+                >Live Search (Linked Signal)</label
+              >
+              <div class="input-wrapper">
+                <input
+                  id="live-search-input"
+                  [ngModel]="store.activeQuery()"
+                  (ngModelChange)="store.setQuery($event)"
+                  class="input-field"
+                  placeholder="Type to trigger resource..."
+                />
+                <div class="input-icon">🔍</div>
+              </div>
+            </div>
+
+            <div class="results-container">
+              @if (store.searchResults.isLoading()) {
+                <div class="loading-state">
+                  <span class="spinner">⏳</span>
+                  <span class="loading-text">Fetching results...</span>
+                </div>
+              } @else if (store.searchResults.error()) {
+                <div class="error-state">
+                  <span class="icon">⚠️</span> Error loading data.
+                </div>
+              } @else {
+                <ul class="results-list">
+                  @for (item of store.searchResults.value() ?? []; track item) {
+                    <li class="result-item">
+                      <span class="dot purple"></span>
+                      {{ item }}
+                    </li>
+                  }
+                </ul>
+              }
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Philosophy Section -->
+      <section class="philosophy-section">
+        <div class="feature-pills">
+          <div class="pill">
+            <span class="dot blue"></span>
+            Co-located State
+          </div>
+          <div class="pill">
+            <span class="dot emerald"></span>
+            Glitch-Free Computed
+          </div>
+          <div class="pill">
+            <span class="dot purple"></span>
+            Async Resources
+          </div>
+        </div>
+      </section>
+    } @else {
+      <!-- Code View -->
+      <div class="code-container">
+        <div class="code-viewport">
+          <pre><code class="language-typescript" [innerHTML]="highlightedCode"></code></pre>
+        </div>
+      </div>
+    }
+  </div>
+</section>

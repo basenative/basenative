@@ -25,7 +25,7 @@ describe('GreenputShowcaseComponent', () => {
   it('should display the lead intake header', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'ServiceConnect',
+      "Sparky's Electric",
     );
   });
 

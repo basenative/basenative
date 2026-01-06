@@ -10,6 +10,13 @@ export const appRoutes: Route[] = [
     path: 'docs',
     loadChildren: () => import('@basenative/docs').then((m) => m.docsRoutes),
   },
+  {
+    path: 'signals',
+    loadComponent: () =>
+      import('./signal-store-demo/demo/signal-store-demo.component').then(
+        (m) => m.SignalStoreDemoComponent,
+      ),
+  },
 
   {
     path: 'status',

@@ -1,6 +1,7 @@
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, inject, PLATFORM_ID, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ThemeService } from '@basenative/tokens';
 
 @Component({
   imports: [RouterModule, CommonModule],

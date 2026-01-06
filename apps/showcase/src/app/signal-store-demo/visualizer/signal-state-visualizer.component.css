@@ -1,0 +1,109 @@
+:host {
+  display: block;
+}
+
+.visualizer-container {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--color-border-glass);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+  background: var(--color-surface-panel);
+  color: var(--color-text-main);
+}
+
+.glass-panel {
+  /* For visualizer, we might redundant with container, but useful for consistency */
+}
+
+.visualizer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--color-border-glass);
+}
+
+.title {
+  color: var(--color-syntax-text);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+}
+
+.badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  font-weight: 700;
+  position: relative;
+  padding-left: 12px;
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-primary);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.visualizer-content {
+  padding: var(--space-4);
+  overflow-x: auto;
+}
+
+.code-block {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-syntax-text);
+  background: transparent;
+}
+
+/* Syntax Highlighting Tokens (JSON) */
+/* Syntax Highlighting Tokens (JSON) */
+:host ::ng-deep .token.property {
+  color: var(--color-syntax-attr); /* JSON keys */
+}
+:host ::ng-deep .token.string {
+  color: var(--color-syntax-string); /* JSON values */
+}
+:host ::ng-deep .token.number {
+  color: var(--color-syntax-number);
+}
+:host ::ng-deep .token.boolean {
+  color: var(--color-syntax-keyword);
+}
+:host ::ng-deep .token.punctuation {
+  color: var(--color-syntax-punctuation);
+}
+:host ::ng-deep .token.operator {
+  color: var(--color-syntax-operator);
+}
+:host ::ng-deep .token.null {
+  color: var(--color-syntax-keyword);
+}
