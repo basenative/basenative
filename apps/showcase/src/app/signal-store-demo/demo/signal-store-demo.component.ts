@@ -8,7 +8,9 @@ import {
   linkedSignal,
   resource,
   signal,
+  PLATFORM_ID,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { createSignalStore } from '@basenative/core';
@@ -154,7 +156,11 @@ export class SignalStoreDemoComponent {
 }`;
 
   private sanitizer = inject(DomSanitizer);
+  private platformId = inject(PLATFORM_ID);
+
   highlightedCode = this.sanitizer.bypassSecurityTrustHtml(
-    Prism.highlight(this.code, Prism.languages['typescript'], 'typescript'),
+    isPlatformBrowser(this.platformId)
+      ? Prism.highlight(this.code, Prism.languages['typescript'], 'typescript')
+      : this.code, // Fallback for SSR
   );
 }

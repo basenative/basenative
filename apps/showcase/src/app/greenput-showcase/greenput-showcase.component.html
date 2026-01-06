@@ -1,120 +1,148 @@
-<header>
-  <h1>Sparky's Electric</h1>
-  <p>Powered by <strong>Greenput</strong>. Real-time estimates, no waiting.</p>
-</header>
+<section feature-layout title="Greenput Consent">
+  <div class="glass rounded-3xl p-8 space-y-8 max-w-4xl mx-auto">
+    <header>
+      <h1 class="text-3xl font-bold mb-2">Sparky's Electric</h1>
+      <p class="text-base-content/80">
+        Powered by <strong>Greenput</strong>. Real-time estimates, no waiting.
+      </p>
+    </header>
 
-<!-- PHASE 1: LEAD INTAKE (The "Consent" Event) -->
-@if (!currentReceipt()) {
-  <section class="lead-form-section">
-    <h2>Get an Instant Estimate</h2>
-    <form (ngSubmit)="submitLead()" #leadForm="ngForm">
-      <fieldset class="form-group">
-        <label for="name">Full Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          [(ngModel)]="formData.name"
-          required
-        />
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="email">Email Address</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          [(ngModel)]="formData.email"
-          required
-        />
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="details">Project Details</label>
-        <textarea
-          id="details"
-          name="details"
-          [(ngModel)]="formData.details"
-          required
-          placeholder="e.g. Rewiring a 1920s bungalow..."
-        ></textarea>
-      </fieldset>
+    <!-- PHASE 1: LEAD INTAKE (The "Consent" Event) -->
+    @if (!currentReceipt()) {
+      <section class="lead-form-section">
+        <h2 class="text-2xl font-semibold mb-6">Get an Instant Estimate</h2>
+        <form (ngSubmit)="submitLead()" #leadForm="ngForm" class="space-y-6">
+          <fieldset class="form-group">
+            <label class="label" for="name">
+              <span class="label-text">Full Name</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              [(ngModel)]="formData.name"
+              required
+              class="input input-bordered w-full"
+              placeholder="Jane Doe"
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label class="label" for="email">
+              <span class="label-text">Email Address</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              [(ngModel)]="formData.email"
+              required
+              class="input input-bordered w-full"
+              placeholder="jane@example.com"
+            />
+          </fieldset>
+          <fieldset class="form-group">
+            <label class="label" for="details">
+              <span class="label-text">Project Details</span>
+            </label>
+            <textarea
+              id="details"
+              name="details"
+              [(ngModel)]="formData.details"
+              required
+              class="textarea textarea-bordered w-full h-32"
+              placeholder="e.g. Rewiring a 1920s bungalow..."
+            ></textarea>
+          </fieldset>
 
-      <section
-        class="consent-disclosure"
-        aria-label="Privacy and Consent Notice"
-      >
-        <p>
-          <strong>Transparency Notice:</strong> By clicking "See Price", you
-          authorize us to:
-        </p>
-        <ul>
-          <li>Calculate a real-time estimate for your project</li>
-          <li>Store your contact details (Retention: 90 days)</li>
-          <li>
-            <strong>If you decline our estimate:</strong> Match you with other
-            local pros in the Greenput Pool
-          </li>
-        </ul>
-        <p class="small">
-          We do not sell your data to ad networks. You are in control.
-        </p>
-        <!-- Portability/Audit Pre-check -->
-        <div class="audit-preview">
-          <small>Data Categories: {{ getCategoryNames() }}</small>
+          <section
+            class="consent-disclosure p-4 bg-base-200/50 rounded-lg text-sm"
+            aria-label="Privacy and Consent Notice"
+          >
+            <p class="mb-2">
+              <strong>Transparency Notice:</strong> By clicking "See Price", you
+              authorize us to:
+            </p>
+            <ul class="list-disc list-inside mb-4 pl-2 space-y-1">
+              <li>Calculate a real-time estimate for your project</li>
+              <li>Store your contact details (Retention: 90 days)</li>
+              <li>
+                <strong>If you decline our estimate:</strong> Match you with
+                other local pros in the Greenput Pool
+              </li>
+            </ul>
+            <p class="small text-xs opacity-75 mb-2">
+              We do not sell your data to ad networks. You are in control.
+            </p>
+            <!-- Portability/Audit Pre-check -->
+            <div class="audit-preview">
+              <small>Data Categories: {{ getCategoryNames() }}</small>
+            </div>
+          </section>
+
+          <button
+            type="submit"
+            class="btn btn-primary w-full"
+            [disabled]="!leadForm.form.valid"
+          >
+            See Instant Price
+          </button>
+        </form>
+      </section>
+    }
+
+    <!-- PHASE 2: CONSENT DASHBOARD (Post-Submission) -->
+    @if (currentReceipt()) {
+      <section class="success-dashboard space-y-6">
+        <div
+          class="success-message alert alert-success"
+          role="alert"
+          aria-live="polite"
+        >
+          <div class="flex flex-col">
+            <h2 class="font-bold">Request Sent!</h2>
+            <p>
+              Your data was securely processed. Here is your proof of consent.
+            </p>
+          </div>
+        </div>
+
+        <article
+          greenput-receipt-viewer
+          [receipt]="currentReceipt()!"
+        ></article>
+
+        <div class="data-controls p-6 bg-base-200/30 rounded-xl space-y-4">
+          <h3 class="font-semibold text-lg">Your Data Protocol</h3>
+          <div class="button-group flex gap-4 flex-wrap">
+            <button class="btn btn-outline" (click)="exportData()">
+              ⬇️ Export My Data (JSON)
+            </button>
+            <button class="btn btn-warning" (click)="revokeConsent()">
+              🚫 Revoke & Delete
+            </button>
+          </div>
         </div>
       </section>
-
-      <button
-        type="submit"
-        class="btn btn-primary"
-        [disabled]="!leadForm.form.valid"
-      >
-        See Instant Price
-      </button>
-    </form>
-  </section>
-}
-
-<!-- PHASE 2: CONSENT DASHBOARD (Post-Submission) -->
-@if (currentReceipt()) {
-  <section class="success-dashboard">
-    <div class="success-message" role="alert" aria-live="polite">
-      <h2>Request Sent!</h2>
-      <p>Your data was securely processed. Here is your proof of consent.</p>
-    </div>
-
-    <article greenput-receipt-viewer [receipt]="currentReceipt()!"></article>
-
-    <div class="data-controls">
-      <h3>Your Data Protocol</h3>
-      <div class="button-group">
-        <button class="btn btn-outline" (click)="exportData()">
-          ⬇️ Export My Data (JSON)
-        </button>
-        <button class="btn btn-warning" (click)="revokeConsent()">
-          🚫 Revoke & Delete
-        </button>
-      </div>
-    </div>
-  </section>
-}
-
-<!-- HISTORY & EDUCATION -->
-@if (revocationHistory().length > 0) {
-  <section class="history-section">
-    <h3>History</h3>
-    <section
-      greenput-revocation-history
-      [history]="revocationHistory()"
-    ></section>
-  </section>
-}
-
-<section class="info-section">
-  <h3>How we handle your data</h3>
-  <div class="categories-grid">
-    @for (cat of categories; track cat.id) {
-      <article greenput-data-category [category]="cat"></article>
     }
+
+    <!-- HISTORY & EDUCATION -->
+    @if (revocationHistory().length > 0) {
+      <section class="history-section pt-8 border-t border-base-content/10">
+        <h3 class="text-xl font-bold mb-4">History</h3>
+        <section
+          greenput-revocation-history
+          [history]="revocationHistory()"
+        ></section>
+      </section>
+    }
+
+    <section class="info-section pt-8 border-t border-base-content/10">
+      <h3 class="text-xl font-bold mb-6">How we handle your data</h3>
+      <div class="categories-grid grid grid-cols-1 md:grid-cols-2 gap-4">
+        @for (cat of categories; track cat.id) {
+          <article greenput-data-category [category]="cat"></article>
+        }
+      </div>
+    </section>
   </div>
 </section>

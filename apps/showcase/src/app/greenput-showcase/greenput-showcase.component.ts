@@ -14,6 +14,7 @@ import {
   DataCategoryExplainerComponent,
   RevocationHistoryComponent,
 } from '@greenput/ui';
+import { FeatureLayoutComponent } from '@basenative/ui-glass';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -23,6 +24,7 @@ import { environment } from '../../environments/environment';
   imports: [
     CommonModule,
     FormsModule,
+    FeatureLayoutComponent,
     ConsentReceiptViewerComponent,
     RevocationHistoryComponent,
     DataCategoryExplainerComponent,

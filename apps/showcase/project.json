@@ -22,7 +22,11 @@
       "options": {
         "outputPath": "dist/apps/showcase",
         "browser": "apps/showcase/src/main.ts",
+        "server": "apps/showcase/src/main.server.ts",
         "tsConfig": "apps/showcase/tsconfig.app.json",
+        "prerender": false,
+        "ssr": false,
+        "polyfills": ["zone.js"],
         "assets": [
           {
             "glob": "**/*",
