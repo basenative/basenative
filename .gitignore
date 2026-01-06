@@ -44,5 +44,6 @@ Thumbs.db
 .angular
 
 # Generated PWA Assets
-apps/showcase/public/
+apps/showcase/public/manifest.webmanifest
+apps/showcase/public/icons/
 infra/terraform.tfvars
